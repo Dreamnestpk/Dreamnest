@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up - Dream Nest</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+        body { background:linear-gradient(135deg, #1e73be, #0b5ed7); height:100vh; display:flex; justify-content:center; align-items:center; }
+        .signup-box { background:white; padding:40px; border-radius:16px; width:400px; box-shadow:0 10px 30px rgba(0,0,0,0.2); }
+        h2 { text-align:center; margin-bottom:25px; color:#333; }
+        input, select { width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; }
+        button { width:100%; padding:12px; background:#1e73be; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; font-weight:bold; }
+        button:hover { background:#155a9a; }
+        .links { text-align:center; margin-top:15px; }
+        .links a { color:#1e73be; text-decoration:none; }
+        .error { color:red; text-align:center; margin-top:10px; font-size:14px; }
+    </style>
+</head>
+<body>
+<div class="signup-box">
+    <h2>📝 Create Account</h2>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="email" id="email" placeholder="Email Address">
+    <input type="tel" id="phone" placeholder="Phone Number">
+    <select id="country">
+        <option value="">Select Preferred Country</option>
+        <option>UK</option><option>USA</option><option>Canada</option>
+        <option>Australia</option><option>New Zealand</option>
+        <option>Ireland</option><option>Malaysia</option>
+    </select>
+    <input type="password" id="password" placeholder="Password (min 6 characters)">
+    <button onclick="register()">Create Account</button>
+    <div class="links">Already have an account? <a href="login.html">Login</a></div>
+    <div id="message" class="error"></div>
+</div>
+<script>
+async function register() {
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const country = document.getElementById('country').value;
+    const password = document.getElementById('password').value;
+    const msgDiv = document.getElementById('message');
+    
+    // Validation
+    if (!name) { msgDiv.innerText = 'Full name is required'; return; }
+    if (!email) { msgDiv.innerText = 'Email is required'; return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { msgDiv.innerText = 'Enter a valid email'; return; }
+    if (!phone) { msgDiv.innerText = 'Phone number is required'; return; }
+    if (!country) { msgDiv.innerText = 'Please select a preferred country'; return; }
+    if (!password) { msgDiv.innerText = 'Password is required'; return; }
+    if (password.length < 6) { msgDiv.innerText = 'Password must be at least 6 characters'; return; }
+    
+    try {
+        const res = await fetch('/api/auth/register', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email, phone, country, password })
+        });
+        const data = await res.json();
+        if (data.success) {
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('user', JSON.stringify(data.user));
+            msgDiv.style.color = 'green';
+            msgDiv.innerText = 'Account created! Redirecting...';
+            setTimeout(() => window.location.href = 'index.html', 1500);
+        } else {
+            msgDiv.innerText = data.error || 'Registration failed';
+        }
+    } catch (err) {
+        msgDiv.innerText = 'Server error. Try again.';
+    }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIM cards for International Students</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f3f3f3;
+    overflow-x:hidden;
+}
+
+
+/* Hero Section */
+.hero{
+    height: 550px;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    
+    /* Background Image */
+   background-image: url("sim1.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* Overlay (optional for readability) */
+.hero::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.4);
+}
+    
+/* Text Content */
+.hero-content{
+    position: relative;
+    max-width: 500px;
+    color: #fff;
+}
+
+.hero-content h1{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-content p{
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* SIM Cards Section */
+.sim-section{
+  width: 100%;
+  padding: 70px 10%;
+  background: #f5f9ff;
+}
+
+.sim-content{
+  max-width: 700px;
+}
+
+.sim-content h2{
+  font-size: 38px;
+  color: #0b1c39;
+  margin-bottom: 20px;
+}
+
+.sim-content p{
+  font-size: 18px;
+  color: #555;
+  line-height: 1.8;
+}
+
+/* MAIN SECTION */
+.form-section {
+  background: #cfe0e5;
+  padding: 60px;
+  max-width: 100%;
+  margin: auto;
+}
+    
+    
+
+/* FLEX LAYOUT */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.form-content {
+  width: 60%;
+}
+
+/* RIGHT SIDE */
+.image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.image-container img {
+  width: 90%;
+  max-width: 400px;
+  
+}
+
+.form-box p{
+  color: #555;
+}
+/* FORM */
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+.phone-box {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  width: 70px;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* DROPDOWN */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+    
+
+
+
+/* SIM Features Section */
+.sim-features{
+  width: 100%;
+  padding: 80px 8%;
+  background: #e3e0e0;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.feature-box{
+  width: 320px;
+  text-align: center;
+}
+
+.icon{
+  font-size: 35px;
+  margin-bottom: 20px;
+}
+
+.feature-box h3{
+  font-size: 30px;
+  color: #1d1d1d;
+  margin-bottom: 15px;
+}
+
+.feature-box p{
+  font-size: 20px;
+  color: #555;
+  line-height: 1.7;
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+    <div class="hero-content">
+        <h1>SIM cards For International Students</h1>
+        <p>
+             International students can use prepaid SIM cards or eSIMs for affordable calls, messages, and internet while studying abroad. These SIMs are easy to activate and help students stay connected with family, friends, and universities anytime.
+        </p>
+    </div>
+</section>
+
+
+<!-- SIM Cards Section -->
+<section class="sim-section">
+  <div class="sim-content">
+    <h2>Instantly connect upon arrival with our SIM Card service</h2>
+    <p>
+      Receive your SIM card in advance at an DN branch or delivered to your home. Stay in touch, access data, and navigate your new surroundings from the moment you land, making your study abroad arrival experience smooth and hassle-free. 
+    </p>
+  </div>
+</section>
+
+
+<section class="form-section">
+
+  <div class="form-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="form-content">
+
+      <div class="form-box">
+        <h2>Get support with your student essentials</h2>
+        <br>
+        <p>
+         Tell us what you need, and we'll help you get it sorted
+        </p>
+      </div>
+<br>
+<br>
+      <div class="form-fields">
+
+        <div class="input-group">
+          <label>First name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Last name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Email address*</label>
+          <input type="email">
+        </div>
+
+        <div class="input-group">
+          <label>Mobile number*</label>
+          <div class="phone-box">
+            <input type="text" class="country-code" value="+92">
+            <input type="text" class="phone-input" placeholder="Enter number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your preferred study destination*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>UK</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>USA</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+            <option>Malaysia</option>
+          </select>
+        </div>
+
+        
+
+        <div class="form-group">
+          <label>Nearest DN Office*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Lahore</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>I agree to Terms & Policy*</span>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>Contact me via phone/email*</span>
+        </div>
+
+        <button class="submit-btn">Enquire now</button>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="image-container">
+      <img src="form4.jpg" >
+    </div>
+
+  </div>
+
+</section>
+
+<br>
+<br>
+<br>
+
+<!-- SIM Features Section -->
+<section class="sim-features">
+
+  <div class="feature-box">
+    <div class="icon">📶</div>
+    <h3>Stay Connected</h3>
+    <p>
+      Get a local SIM card before travelling and stay connected with family,
+      friends, and university services anytime.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <div class="icon">📱</div>
+    <h3>Trusted Networks</h3>
+    <p>
+      Choose from reliable mobile networks offering affordable data,
+      calls, and messaging plans for students.
+    </p>
+  </div>
+
+  <div class="feature-box">
+    <div class="icon">✅</div>
+    <h3>24/7 Support</h3>
+    <p>
+      Enjoy easy activation, strong coverage, and customer support
+      to help international students stay stress-free abroad.
+    </p>
+  </div>
+
+</section>
+
+<script>
+document.querySelector('.submit-btn').addEventListener('click', async (e) => {
+    e.preventDefault(); // prevent any default
+    
+    // Get all fields
+    const inputs = document.querySelectorAll('.input-group input');
+    const firstName = inputs[0]?.value.trim() || '';
+    const lastName = inputs[1]?.value.trim() || '';
+    const email = inputs[2]?.value.trim() || '';
+    const phone = document.querySelector('.phone-input')?.value.trim() || '';
+    const selects = document.querySelectorAll('.select-box');
+    const destination = selects[0]?.value || '';
+    const nearestOffice = selects[1]?.value || '';
+    const checkboxes = document.querySelectorAll('.checkbox-group input');
+    const termsAccepted = checkboxes[0]?.checked || false;
+    const contactConsent = checkboxes[1]?.checked || false;
+    
+    // Validation
+    let errors = [];
+    if (!firstName) errors.push('First name is required');
+    if (!lastName) errors.push('Last name is required');
+    if (!email) errors.push('Email is required');
+    else if (!/^\S+@\S+\.\S+$/.test(email)) errors.push('Enter a valid email address');
+    if (!phone) errors.push('Mobile number is required');
+    if (!destination || destination === 'Select') errors.push('Please select a study destination');
+    if (!nearestOffice || nearestOffice === 'Select') errors.push('Please select nearest DN office');
+    if (!termsAccepted) errors.push('You must agree to Terms & Policy');
+    if (!contactConsent) errors.push('You must consent to be contacted');
+    
+    if (errors.length > 0) {
+        alert('❌ Please fix the following:\n- ' + errors.join('\n- '));
+        return;
+    }
+    
+    const data = {
+        firstName, lastName, email, phone, destination,
+        nearestOffice, termsAccepted, contactConsent,
+        formType: 'sim' // change per page
+    };
+    
+    try {
+        const res = await fetch('/api/student-inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+            alert('✅ ' + result.message);
+            // Clear form
+            inputs.forEach(inp => inp.value = '');
+            document.querySelector('.phone-input').value = '';
+            selects.forEach(sel => sel.selectedIndex = 0);
+            checkboxes.forEach(cb => cb.checked = false);
+        } else {
+            alert('❌ Error: ' + (result.error || 'Submission failed'));
+        }
+    } catch (err) {
+        alert('❌ Network error. Please try again.');
+    }
+});
+</script>
+</body>
+</html>

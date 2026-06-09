@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDP Clone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+
+body{
+background: linear-gradient(to right,#eef2f3, #dfe9f3);
+}
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    background:#fff;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    
+}
+
+
+.icons{
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+/* HERO SECTION */
+.hero{
+    position:relative;
+    width:100%;
+    height:500px;
+    background-image:url(auss.jpg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* overlay */
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+
+/* content */
+.hero-content{
+    position:relative;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:26px;
+    line-height:1.3;
+    margin-bottom:15px;
+}
+
+/* button */
+.btn{
+    background:#1976d2;
+    color:#fff;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* TOP LINKS */
+
+.top-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:15px;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-links a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.top-links a:hover{
+    color:#0c8b6c;
+}
+
+/* CARD */
+.card{
+    margin-top:20px;
+    position:relative;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* Floating Buttons Container */
+.floating-container{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:9999;
+}
+
+/* Help Button */
+.help-btn{
+    background:#0b9b73;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;      /* Width & Height reduced */
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.help-btn:hover{
+    background:#087a5a;
+    transform:translateY(-2px);
+}
+
+/* Call Button */
+.call-btn{
+    width:50px;            /* Reduced size */
+    height:50px;
+    border-radius:50%;
+    background:#222;
+    color:#ff2d2d;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    animation:ring 1.5s infinite;
+    transition:0.3s;
+}
+
+.call-btn:hover{
+    transform:scale(1.08);
+}
+
+/* Ring Animation */
+@keyframes ring{
+    0%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0.35);
+    }
+    70%{
+        box-shadow:0 0 0 8px rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .help-btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .call-btn{
+        width:38px;
+        height:38px;
+        font-size:18px;
+    }
+
+}
+
+
+
+
+
+
+ 
+    
+   
+ 
+
+
+
+
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Main Image */
+.main-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Small Images */
+.small-imgs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-imgs img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Text */
+.text {
+  margin-top: 18px;
+}
+
+.text h2 {
+  font-size: 20px;
+  color: #333;
+}
+.text h3{
+  font-size: 15px;
+  color: #333;
+}
+
+.text p {
+  color:#777;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  background: #0c8b6c;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+
+table-container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 18px;
+  color: #535252;
+  text-align: left;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  th, td {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">DREAM NEST</div>
+    
+    
+</div>
+
+    <!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>
+            Study in Australia: The Complete Guide for Pakistani Students
+        </h1>
+                <a class="btn active" href="start applying.html">
+  Start Applying
+</a>
+    </div>
+</div>
+
+<!-- TOP LINKS -->
+
+<div class="top-links">
+
+    <a href="#cost">Cost of Studying </a>
+
+    <a href="#apply">Application process</a>
+
+    <a href="#universities"> Top Universities</a>
+
+    <a href="#scholarships">Scholarship and Financial Aids</a>
+
+    <a href="#visa">visa requirement</a>
+
+</div>
+<br>
+
+
+<div class="container">
+
+  <!-- Main Image -->
+  <div class="main-img">
+    <img src="aus1.jpg">
+  </div>
+
+  <!-- Small Images -->
+  <div class="small-imgs">
+    <img src= "aus2.jpg">
+    <img src="aus3.jpg">
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <p>Australia is an appealing destination for Pakistani students to study abroad since it offers a great education system, a lot of cultural variety, and cities that are full of life. Australia offers students a broad experience and great chances to grow both personally and academically.</p>
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <h2>Table of Contents</h2>
+    <br>
+    <p>
+• Why Study in Australia?
+<br>
+<br>
+• Top Universities & Courses in Australia
+<br>
+<br>
+• The Cost of Studying in Australia
+<br>
+<br>
+• Student Visa Requirements
+<br>
+<br>
+• Application Process: How to Apply
+<br>
+<br>
+• Intakes in Australia
+<br>
+<br>
+• Scholarships & Financial Aid
+<br>
+<br>
+• Employment Opportunities in Australia
+<br>
+<br>
+
+</p>
+  </div>
+
+   <!-- Text -->
+  <div class="text">
+    <h2>Why Study in Australia?</h2>
+    <br>
+    <p>Australia is home to top 9 universities (among top 100) in the world which are praised for their outstanding academic programs and cutting-edge research. Pakistani students thrive in a friendly atmosphere, especially in cities that offer a high standard of living, such as Sydney and Melbourne.
+   <br>
+   <br>
+   With the Student Visa (Subclass 500), students can study full-time and work part-time. This helps them get useful job experience and reduce their financial worries. Australia's multicultural environment makes it a friendly place to be, where youngsters can learn about many cultures and develop a global point of view.
+   <br>
+   <br>
+   In addition to that, education in Australia can open doors to permanent residency and promising career opportunities in the country, enhancing its attractiveness for Pakistani students as a premier study destination.
+    </p>
+  </div>
+
+   
+    <br>
+    <br>
+
+    <!-- TOP UNIVERSITIES-->
+  <div class="text">
+    <h2 id="universities">
+    Top Universities & Courses in Australia</h2>
+    <br>
+    <p>Here is a list of the top Australian universities, together with their worldwide rankings, highlights, and popular courses by The Times Higher Education (THE) World University Rankings 2025.</p>
+    <br>
+    <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>University Name</th>
+        <th>THE- World University Rankings</th>
+        <th>Highlights</th>
+        <th>Popular Courses</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>The University of Melbourne  </td>
+        <td>39</td>
+        <td>A top university with a thriving global community and great research.  </td>
+        <td>Business, law, medicine, and arts.  </td>
+      </tr>
+
+      <tr>
+        
+        <td>Monash University  </td>
+        <td>=58</td>
+        <td>It is renowned for its successful collaboration with the relevant industry and innovative strategies. </td>
+        <td>Engineering, pharmacy, business, and health sciences.</td>
+      </tr>
+
+      <tr>
+        
+        <td>The University of Sydney  </td>
+        <td>61</td>
+        <td>It has a long history that provides a broad and varied selection of academic programs.  </td>
+        <td>Science, arts & humanities, and architecture.  </td>
+      </tr>
+
+      <tr>
+        <td>The Australian National University </td>
+        <td>=73</td>
+        <td>It is famous for its public policy initiatives and research contributions.  </td>
+        <td>International relations, environmental science, and social sciences.</td>
+      </tr>
+
+      <tr>
+        <td>The University of Queensland </td>
+        <td>=77</td>
+        <td>It offers a wide range of products and research initiatives. </td>
+        <td>Engineering, business, and biological sciences.</td>
+      </tr>
+      </tbody>
+  </table>
+  </div>
+<br>
+<p>
+  Particularly in computer science, environmental science, and medicine, these top 6 universities excel in both research and teaching. Choose an institution that has programs, a campus atmosphere, and career aspirations that are similar to your own.
+</p>
+<br>
+
+ <!-- COST-->
+  <div class="text">
+    <h2 id="cost">
+    The Cost of Studying in Australia</h2>
+    <br>
+    <p>When planning to study in Australia, it's important to consider both tuition fees and cost of living. Tuition fees vary depending on the study level and course, while living expenses differ by location and housing choice.</p>
+    <br>
+  <h3>Tuition Fees by Study Level (Annual, in AUD)</h3>
+  </div>
+  <br>
+  <div class="table-container">
+  <table>
+    <tbody>
+      <tr>
+        <td>undergraguate</td>
+        <td>AUD 32,000-AUD 62,800 </td>
+      </tr>
+      <tr>
+      <td>Postgraduate</t>
+        <td>AUD 32,000 - AUD 58,800 </td>
+</tr>
+        <tr>
+        <td>College/Diploma </td>
+        <td>AUD 32,000 -AUD 55,600 </td>
+      </tr>
+    </table>
+    </tbody>
+  </div>
+<br>
+  <p>Here’s an overview of the average yearly living expenses in Australia:</p>
+  <br>
+  <!-- Text -->
+  <div class="text">
+    <h3>Average Cost of Living in Australia (Annual, in AUD)</h3>
+  </div>
+  <br>
+  <div class="table-container">
+  <table>
+    <tbody>
+      <tr>
+        <td>Housing</td>
+        <td>AUD 9,500 – AUD 14,000  </td>
+      </tr>
+      <tr>
+      <td>Food & Groceries</t>
+        <td>AUD 4,500 – AUD 6,500  </td>
+</tr>
+        <tr>
+        <td>Transportation</td>
+        <td>AUD 2,000 – AUD 3,500  </td>
+      </tr>
+    </table>
+    </tbody>
+  </div>
+  <br>
+  <p>Higher rates usually apply in cities such as Sydney and Melbourne. Accommodation options vary from on-campus dormitories to cooperative housing.
+<br>
+<br>
+An Overseas Student Health Coverage (OSHC) is required for all international students holding an Australian Student Visa (subclass 500), and it costs between AUD 800 and AUD 1000 a year for UG/PG.
+<br>
+<br>
+The Student Services and Amenities Fee (SSAF) and other extra fees usually cost between AUD 300 and AUD 400. When you're at school, it's important to plan for extra expenditures like textbooks, course materials, and social activities so you can manage your money well.</p>
+<br>
+  
+<!-- VISA-->
+  <div class="text">
+    <h2 id="visa">
+    Student Visa Requirements</h2>
+    <br>
+    <p>To apply for an Australian Student Visa (Subclass 500), you will need:
+<br>
+<br>
+• Confirmation of Enrollment (CoE) in an accredited Australian institution.
+<br>
+<br>
+• Register on the Department of Home Affairs website by creating an Immi account.
+<br>
+<br>
+• You must have an Overseas Student Health Cover (OSHC).
+<br>
+<br>
+• You must demonstrate that you have enough money for tuition fees, living expenses, and travel costs. Bank statements and financial capacity documents are required.
+<br>
+<br>
+• Pass character and health checks as part of the visa requirements.
+<br>
+<br>
+• Submit valid English language test results, such as the PTE or IELTS.
+<br>
+<br>
+• You must demonstrate your genuine intention to study temporarily by meeting the Genuine Student Requirement (GSR)</p>
+   <br>
+  </div>
+   <!-- Apply -->
+  <div class="text">
+    <h2 id="apply">
+    Application Process: How to Apply</h2>
+    <br>
+    <h3>• Prepare your documents:</h3>
+    <br>
+      <p>Gather your passport, Coe, your English test results, your proof of funds, OSHC, and your health and character certificates.</p>
+    <br>
+    <h3>• Complete your application:</h3>
+    <br>
+    <p>Fill out the online visa application and attach all required supporting documents.</p>
+    <br>
+    <h3>• Pay Fees and Submit: </h3>
+    <br>
+    <p>Make the necessary online payment to submit your application. Registration fee is subject to the university.</p>
+    <br>
+    <h3>• Keep an eye on your application:</h3>
+    <br>
+    <p>While you wait for a decision, you may check the status of your application.</p>
+    <br>
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <h2>Intakes in Australia</h2>
+    <br>
+    <p>Australian universities typically offers two primary intakes for international students. The main enrollment period occurs in February or early March, coinciding with the availability of most courses and scholarships, and it signifies the beginning of the academic year.</p>
+    <br>
+    <p>The second intake takes place in July, providing a decent selection of courses, albeit fewer than those available in February. This is perfect for students who require additional preparation time or have missed previous deadlines. Certain universities provide a limited enrollment option in November for selected programs.</p>
+<br>
+<p>The multiple intakes offer students the opportunity to plan their study schedules according to their individual readiness and academic aspirations.
+</p>
+  </div>
+  <br>
+
+  <!-- SCHOLARSHIPS -->
+  <div class="text">
+    <h2 id="scholarships">
+    Scholarships & Financial Aid</h2>
+    <br>
+    <p>Scholarships are available for Pakistani students from Australian colleges, government programs and other sources. However, the percentage of these scholarships may vary according to the offerings from the university and the program that you are applying for.  </p>
+    <br>
+    <p>Some scholarships from prestigious universities, including the University of Sydney, Deakin University, and The University of Melbourne. benefit talented students from Pakistan.</p>
+  </div>
+    <br>
+
+    <!-- Text -->
+  <div class="text">
+    <h2>Employment opportunities in Australia</h2>
+    <br>
+      <p>Australia offers excellent employment opportunities in business, IT, engineering, healthcare, and education. Internships and part-time work provide international students with invaluable experience that advances their careers.</p>
+    <br>
+    <p>Post-study work visas often serve as a springboard for long-term employment and permanent residency, allowing graduates to live and work in Australia for up to four years.</p>
+</div>
+<br>
+<br>
+
+ <!-- Your Website Content -->
+
+<div class="floating-container">
+
+    <!-- Help Button -->
+    <a href="contact.html" class="help-btn">
+        Help me study abroad
+    </a>
+
+    <!-- Call Button -->
+    <a href="tel:+923001234567" class="call-btn">
+        📞
+    </a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+  </html>

@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDP Clone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background: linear-gradient(to right,#eef2f3, #dfe9f3);
+}
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    background:#fff;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    
+}
+
+
+.icons{
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+/* HERO SECTION */
+.hero{
+    position:relative;
+    width:100%;
+    height:500px;
+    object-fit: cover;
+    background-image:url(mala1.jpg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* overlay */
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+
+/* content */
+.hero-content{
+    position:relative;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:26px;
+    line-height:1.3;
+    margin-bottom:15px;
+}
+
+/* button */
+.btn{
+    background:#1976d2;
+    color:#fff;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+/* TOP LINKS */
+
+.top-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:15px;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-links a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.top-links a:hover{
+    color:#0c8b6c;
+}
+
+/* CARD */
+.card{
+    margin-top:20px;
+    position:relative;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* Floating Buttons Container */
+.floating-container{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:9999;
+}
+
+/* Help Button */
+.help-btn{
+    background:#0b9b73;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;      /* Width & Height reduced */
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.help-btn:hover{
+    background:#087a5a;
+    transform:translateY(-2px);
+}
+
+/* Call Button */
+.call-btn{
+    width:50px;            /* Reduced size */
+    height:50px;
+    border-radius:50%;
+    background:#222;
+    color:#ff2d2d;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    animation:ring 1.5s infinite;
+    transition:0.3s;
+}
+
+.call-btn:hover{
+    transform:scale(1.08);
+}
+
+/* Ring Animation */
+@keyframes ring{
+    0%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0.35);
+    }
+    70%{
+        box-shadow:0 0 0 8px rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .help-btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .call-btn{
+        width:38px;
+        height:38px;
+        font-size:18px;
+    }
+
+}
+
+
+
+
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Main Image */
+.main-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Small Images */
+.small-imgs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-imgs img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Text */
+.text {
+  margin-top: 15px;
+}
+
+.text h2 {
+  font-size: 25px;
+  color: #333;
+}
+.text h3{
+  font-size: 20px;
+  color: #333;
+}
+
+.text h4{
+    font-size:17px ;
+    color: #333;
+}
+
+.text h5{
+    font-size:14px;
+    color: #333;
+}
+
+.text p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  background: #0c8b6c;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+
+table-container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 18px;
+  color: #535252;
+  text-align: left;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  th, td {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">DREAM NEST</div>
+    
+    
+</div>
+
+    <!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-content">
+        
+         <h1>Study in Malaysia:</h1>
+        <p>Study English-taught programs and earn globally recognised degrees at affordable costs in Malaysia.</p>
+       <br>
+                <a class="btn active" href="start applying.html">
+  Start Applying
+</a>
+    </div>
+</div>
+
+<!-- TOP LINKS -->
+
+<div class="top-links">
+
+    <a href="#cost">Cost of Studying and living</a>
+
+    <a href="#choose">Choose malaysia for higher education</a>
+
+    <a href="#universities"> Universities</a>
+
+    <a href="#system">Education system</a>
+
+    <a href="#study">Student planning to study in malaysia</a>
+
+</div>
+<br>
+
+
+
+<div class="container">
+
+  <!-- Main Image -->
+  <div class="main-img">
+    <img src="ma1.jpg">
+  </div>
+
+  <!-- Small Images -->
+  <div class="small-imgs">
+    <img src= "ma2.jpg">
+    <img src="maa.jpg">
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <p>
+    Discover Malaysia as a smart study destination offering globally recognised degrees taught in English. Home to over 130,000 international students, it combines affordable tuition and living costs with a vibrant, multicultural environment that supports strong academic and career outcomes.
+    </p>
+    <br>
+    <p>
+Malaysia hosts foreign branches of several renowned international universities, allowing students to earn globally recognised degrees within a cost-effective study environment. These campuses follow the same curriculum, academic standards, and quality assurance as their home institutions, while offering modern facilities, smaller class sizes, and strong industry links. This allows you to earn an international qualification while staying closer to home.
+    </p>
+    <br>
+    <p>
+    
+Students also benefit from Malaysia’s valuable regional networking opportunities in Southeast Asia, making foreign branch campuses an attractive pathway to an international qualification.
+
+    </p>
+    <br>
+  </div>
+  <br>
+
+  <!-- CHOOSE -->
+  <div class="text">
+    <h2 id="choose">
+    Why international students choose Malaysia for higher education
+</h2>
+    <br>
+    <h3>Quality of education and global recognition</h3>
+ <br>
+<p>Malaysia offers high-quality education, with a focus on critical thinking, creativity, and problem-solving. You will find branch campuses of several prestigious foreign universities here. While MQA (Malaysian Qualifications Agency) accreditation ensures quality for both local and foreign campuses, modern infrastructure and technology enhance the education experience, preparing students for a modern workforce. Malaysia has 10 universities in the QS Top 500.</p>
+ <br>
+
+  <h3>Affordable study destination</h3>
+  <br>
+  <p>Malaysia is one of the most cost-effective study destinations, offering tuition at affordable fees without compromising educational standards. Monthly living costs vary and can range from RM 1,500 to over 2,500 (around USD320-USD530+) for accommodation, food, and transport, depending on personal choices.</p>
+  <br>
+
+  <h3>English-taught programs</h3>
+  <br>
+  <p>Most universities offer programs taught entirely in English, eliminating language barriers. As a result, international students planning to study in Malaysia can adapt quickly to academic life and develop strong communication skills.</p>
+  <br>
+
+  <h3>Vibrant multicultural environment</h3>
+  <br>
+<p>Malaysia is known for its generally peaceful atmosphere, offering a welcoming and vibrant multicultural environment for international students. Universities provide 24/7 security, CCTV, and welfare departments to ensure a secure environment for students. Apart from this, the hospitality of Malaysians and respect for different cultures make students from diverse backgrounds feel welcome and accepted.</p>
+<br>
+
+<h3>Growing popularity among international students</h3>
+<br>
+<p>Malaysia’s reputation as a leading international education hub continues to grow due to its blend of affordable, quality education, rich multicultural environment, and widespread use of English. Supportive visa policies, extended stay-back options, expanding university partnerships, and strong student support services are also attracting learners from around the world seeking global exposure without high Western costs.</p>
+<br>
+</div>
+  <br>
+
+  <!-- SYSTEM -->
+  <div class="text">
+    <h2 id="system">
+    Education system and intakes in Malaysia
+  </h2>
+    <br>
+<p>Research and innovation are key focus areas, with programs taught in English, making the country a popular regional hub for courses ranging from certificates to PhDs.</p>
+  <br>
+<h3>Types of higher education institutions</h3>
+<br>
+<p>International students in Malaysia can choose from public universities, private universities, and foreign university branch campuses. International students can study a variety of degrees from diplomas to PhDs, with branch campuses providing globally recognised degrees at lower costs.</p>
+<br>
+
+<h3>Undergraduate and postgraduate study options.</h3>
+<br>
+<p>Malaysia offers diverse undergraduate and postgraduate options in English for international students, focusing on high-demand fields like engineering, IT (Information Technology)/computer science, business/finance, medicine/healthcare, hospitality, and creative arts. Major intakes for international students planning to study in Malaysia Malaysia has two main intakes for international students:</p>
+<br>
+<p>• Main Intake (Semester 1): September/October.
+<br>
+<br>
+• Secondary Intake (Semester 2): February/March.
+<br>
+<br>
+Many private universities also offer smaller intakes in June/July or even rolling admissions. Always check university websites for exact dates and program availability, as these dates vary.
+</p>
+</div>
+<br>
+
+
+<!-- UNIVERSITIES-->
+  <div class="text">
+    <h2 id="universities">
+    Universities to study in Malaysia</h2>
+  
+    <br>
+<p>While Malaysia offers affordable public universities and flexible private institutions, the real highlight for many international students is its growing network of foreign branch campuses.</p>
+  <br>
+  <h3>Foreign branch campuses</h3>
+  <br>
+  <p>Some of the foreign universities with campuses in Malaysia are</p>
+<br>
+
+<h4>UK</h4>
+<br>
+
+<h5>University of Nottingham Malaysia Campus (UoNM):</h5>
+<br>
+<p>Offers economics, international relations, engineering, and business programs.</p>
+<br>
+
+<h5>Heriot-Watt University Malaysia:</h5>
+<br>
+<p>Located in Putrajaya, focusing on engineering, business, and actuarial science.</p>
+<br>
+
+<h5>University of Reading Malaysia:</h5>
+<br>
+<p>Highly regarded for Accounting and Finance, Business and Management, Psychology, Law, and Built Environment programs.</p>
+<br>
+
+<h5>University of Southampton Malaysia Campus:</h5>
+<br>
+<p>Offers engineering and computer science programs in Johor.</p>
+
+<br>
+
+<h4>Australia</h4>
+<br>
+
+<h5>Monash University Malaysia:</h5>
+<br>
+<p>A large campus in Selangor, known for programs in pharmacy, engineering, computer science, etc.</p>
+<br>
+
+<h5>University of Wollongong Malaysia: </h5>
+<br>
+<p>Highly regarded for its industry-focused, career-ready programs, particularly in Business, Hospitality & Culinary Arts, and computer science.</p>
+<br>
+
+<h5>Swinburne University of Technology Sarawak Campus:  </h5>
+<br>
+<p> In Kuching, Sarawak, focusing on tech and business.</p>
+<br>
+
+<h4>Ireland</h4>
+<br>
+<h5>University College Dublin Malaysia:</h5>
+<br>
+<p>Renowned for its medical program.</p>
+
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <h2>University rankings, global recognition, and entry requirements</h2>
+    <br>
+    <h3>Rankings</h3>
+<p>Malaysian universities are gaining significant global recognition, with several institutions often ranking within 200 in QS rankings. Private universities are also climbing the global list, highlighting Malaysia's growing reputation for quality, globally competitive education.</p>
+  <br>
+
+  <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>University</th>
+        <th>Parent university (location)</th>
+        <th>QS 2026 global rank</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Heriot‑Watt University Malaysia  </td>
+        <td>Heriot‑Watt University (UK)</td>
+        <td>=287</td>
+      </tr>
+
+      <tr>
+        
+        <td>University of Southampton Malaysia</td>
+        <td>University of Southampton (UK)</td>
+        <td>87</td>
+      </tr>
+
+      <tr>
+        
+        <td>University of Nottingham Malaysia</td>
+        <td>University of Nottingham (UK)</td>
+        <td>97</td>
+        
+      </tr>
+
+      <tr>
+        <td>University of Reading Malaysia</td>
+        <td>University of Reading (UK)</td>
+        <td>194</td>
+      </tr>
+
+      <tr>
+        <td>Swinburne University of Technology Sarawak</td>
+        <td>Swinburne University of Technology (Australia)</td>
+        <td>=294</td>
+        </tr>
+      </tbody>
+  </table>
+  </div>
+
+  <h4>Entry requirements for international students planning to study in Malaysia</h4>
+<br>
+<h5>Undergraduate:</h5>
+<p>You must have achieved at least 60% in a high school certificate or equivalent.</p>
+
+<h5>Postgraduate:</h5>
+<p>A minimum CGPA of 2.50-2.75 in a Bachelor’s degree is required to get into a Master’s program.</p>
+
+<h5>IELTS requirement:</h5>
+<p>You must have at least a 5.5-6.0 IELTS score for a bachelor’s degree and 6.0-6.5 for a master’s degree. However, score requirements may vary with the university and course.</p>
+
+
+<h5>Documents</h5>
+<p>Original academic transcripts, relevant certificates, letters of recommendation, a statement of purpose, visa, passport, photos, health certificate, financial proof, etc., are required.</p>
+  </div>
+<br>
+
+<!-- COST -->
+  <div class="text">
+    <h2 id="cost">
+    Cost of studying, and living </h2>
+    <br>
+    <h3>Tuition fees</h3>
+<br>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Level of Study</th>
+        <th>Average Cost (RM)</th>
+        <th>Average Cost (USD)</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td> Foundation</td>
+        <td>12,000 – 35,000</td>
+        <td>3,000 – 8,900</td>
+      </tr>
+
+      <tr>
+        
+        
+        <td>Bachelor’s</td>
+        <td>25,000 – 55,000</td>
+        <td>6,300 – 14,000</td>
+      </tr>
+
+      <tr>
+        
+        <td>Master’s</td>
+        <td>30,000 – 75,000</td>
+        <td>7,600 – 19,000</td>
+        
+      </tr>
+
+      <tr>
+        <td>PhD</td>
+        <td>18,000 – 35,000</td>
+        <td>4,500 – 8,900</td>
+      </tr>
+
+       </tbody>
+  </table>
+  </div>
+
+  <br>
+  <h3>Tuition fees</h3>
+  <br>
+  <p>Living costs for international students in Malaysia average RM 1,500 to over 2,500 (around USD320-USD530+) monthly, excluding tuition, with major expenses being accommodation and food. Costs vary significantly by city (Kuala Lumpur is pricier) and lifestyle, with on-campus housing and cooking meals being cheaper options.</p>
+  <br>
+ <h4> Monthly Cost Breakdown (Estimates)</h4>
+
+ <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Expenses</th>
+        <th>Cost in RM (monthly average)</th>
+        <th>Cost in USD (monthly average)</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Accommodation</td>
+        <td>300–1,200</td>
+        <td>75–300</td>
+      </tr>
+
+      <tr>
+        
+        
+        <td>Food & groceries</td>
+        <td>300-800</td>
+        <td>75-200</td>
+      </tr>
+
+      <tr>
+        
+        <td>Transportation</td>
+        <td>50-200</td>
+        <td>10-50</td>
+        
+      </tr>
+
+      <tr>
+        <td>Utilities & internet</td>
+        <td>150-300</td>
+        <td>35-75</td>
+      </tr>
+
+       </tbody>
+  </table>
+  </div>
+
+  <br>
+
+  <!-- STUDY -->
+  <div class="text">
+    <h2 id="study">
+    How does IDP support international students planning to study in Malaysia</h2>
+    <br>
+    <h3>Counselling on choosing the right university and course </h3>
+    <br>
+<p>IDP provides personalised counselling to help students shortlist Malaysian universities and courses based on academic background, budget, career goals, and visa requirements, ensuring informed and confident study decisions.</p>
+  <br>
+  <h3>Support with applications and required documentation </h3>
+  <br>
+  <p>IDP assists with university applications, statement preparation, document checks, and submission timelines. Students receive step-by-step guidance to ensure applications meet institutional and visa requirements without delays or errors.</p>
+  <br>
+  <h3>Guidance on student accommodation  </h3>
+  <br>
+  <P>IDP helps students explore safe and affordable accommodation options, including on-campus housing, private residences, and shared apartments, considering location, budget, and lifestyle preferences for a smooth transition.</P>
+  <br>
+  <h3>Ongoing support throughout the study journey</h3>
+  <br>
+  <p>From pre-departure briefings to post-arrival assistance, IDP offers continuous support, helping students settle in, adapt to academic life, and access guidance whenever needed during their study journey.
+<br>
+Talk to an IDP expert today for free to start your Malaysia study journey smoothly</p>
+  
+<br>
+  </div>
+   <!-- Your Website Content -->
+
+<div class="floating-container">
+
+    <!-- Help Button -->
+    <a href="contact.html" class="help-btn">
+        Help me study abroad
+    </a>
+
+    <!-- Call Button -->
+    <a href="tel:+923001234567" class="call-btn">
+        📞
+    </a>
+
+</div>
+
+</div>
+
+
+  
+</body>
+</html>

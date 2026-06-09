@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IDP UI Clone</title>
+  
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="form.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* --- GENERAL RESET & NAVBAR --- */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 15px 5%;
+        background: #ffffff;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    
+    .navbar .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: bold;
+        font-size: 20px;
+        color: #2c3e50;
+    }
+
+    /* --- TOP RIGHT ICONS STYLING (MODERN FONT AWESOME) --- */
+    .navbar .icons {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    .navbar .icon a {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 45px;
+        height: 45px;
+        background-color: transparent;
+        color: #34495e;
+        border-radius: 50%;
+        font-size: 18px;
+        transition: all 0.3s ease;
+        border: 1px solid #34495e; /* Outline as per your image */
+    }
+    .navbar .icon a:hover {
+        background-color: #2980b9;
+        color: #ffffff;
+        border-color: #2980b9;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(41, 128, 185, 0.3);
+    }
+
+    /* --- SLIDER STYLING --- */
+    .slider {
+        position: relative;
+        height: 80vh; 
+        min-height: 500px;
+        overflow: hidden;
+        background: #000;
+    }
+    .slide {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none; 
+        transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+    .slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.8;
+    }
+    .slide-overlay {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 10%, rgba(0,0,0,0.2) 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 20px;
+    }
+    .slide-content {
+        color: #ffffff;
+        max-width: 800px;
+        transform: translateY(20px);
+        transition: transform 1s ease;
+    }
+    .slide.active .slide-content {
+        transform: translateY(0);
+    }
+    .slide-content .tagline {
+        display: block;
+        font-size: 14px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #f39c12;
+        margin-bottom: 10px;
+        font-weight: bold;
+    }
+    .slide-content h1 {
+        font-size: 3.5rem;
+        margin: 0 0 10px 0;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    .slide-content h2 {
+        font-size: 2rem;
+        font-weight: 400;
+        margin-bottom: 20px;
+    }
+    .slide-content p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 40px;
+        color: #ecf0f1;
+    }
+    .explore-btn {
+        background-color: #2980b9;
+        color: #fff;
+        padding: 15px 35px;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    .explore-btn:hover {
+        background-color: #1abc9c;
+        transform: scale(1.05);
+    }
+
+    /* --- RECOMMENDED SERVICES STYLING & ALIGNMENT --- */
+    .services-section {
+        padding: 60px 5%;
+        background-color: #f9fbfd;
+        /* Center alignment properly forced here */
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;
+    }
+    .services-section h1 {
+        margin-bottom: 50px;
+        color: #2980b9; /* Made it blue to match your image */
+        font-size: 2.2rem;
+        font-weight: bold;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .cards-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        width: 100%;
+        max-width: 1200px;
+        align-items: stretch; 
+    }
+    
+    .cards-container .card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 40px 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        transition: all 0.4s ease;
+        border: 1px solid #f0f4f8;
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+        text-align: center;  
+    }
+    
+    .cards-container .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(41, 128, 185, 0.1);
+        border-color: #d6eaf8;
+    }
+    
+    .cards-container .card h2 {
+        font-size: 20px;
+        color: #2c3e50;
+        margin-bottom: 15px;
+        font-weight: 700;
+    }
+    
+    .cards-container .card p {
+        color: #6c7a89;
+        line-height: 1.6;
+        margin-bottom: 25px;
+        font-size: 15px;
+        flex-grow: 1; 
+    }
+    
+    .cards-container .card a {
+        display: inline-block;
+        text-decoration: none;
+        color: #2980b9;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 10px 30px;
+        border: 1px solid #2980b9;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+    }
+    
+    .cards-container .card a:hover {
+        background-color: #2980b9;
+        color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">
+    <img src="logo1.jpg" alt="logo" height="40">
+    <span>DREAM NEST</span>
+  </div>
+
+  <div class="icons"> 
+    <div class="icon">
+      <a href="login.html"><i class="fa-solid fa-user"></i></a>
+    </div>
+    <div class="icon">
+      <a href="savedcourses.html"><i class="fa-solid fa-heart"></i></a>
+    </div>
+    <div class="icon">
+      <a href="menu.html"><i class="fa-solid fa-bars"></i></a>
+    </div>
+  </div>
+</header>
+
+<div class="slider">
+    <div class="slide active">
+        <img src="img4.jpg" alt="Study Abroad">
+        <div class="slide-overlay">
+            <div class="slide-content">
+                <span class="tagline">Your Future. Our Guidance</span>
+                <h1>Study Abroad</h1>
+                <h2>Build Your Future</h2>
+                <p>Explore top universities, diverse cultures<br>and endless opportunities around the world</p>
+                <a href="findcourse.html" class="explore-btn">EXPLORE PROGRAMS</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <img src="img2.jpg" alt="UK">
+        <div class="slide-overlay">
+            <div class="slide-content">
+                <span class="tagline">Your Future. Our Guidance</span>
+                <h1>Study in UK</h1>
+                <h2>World-Class Education</h2>
+                <p>Top universities, rich history, and<br>excellent career opportunities</p>
+                <a href="uk.html" class="explore-btn">EXPLORE UK</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <img src="img3.jpg" alt="Canada">
+        <div class="slide-overlay">
+            <div class="slide-content">
+                <span class="tagline">Your Future. Our Guidance</span>
+                <h1>Study in Canada</h1>
+                <h2>Affordable Excellence</h2>
+                <p>Post-study work visa, multicultural society,<br>and globally recognized degrees</p>
+                <a href="canada.html" class="explore-btn">EXPLORE CANADA</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <img src="img5.jpg" alt="Australia">
+        <div class="slide-overlay">
+            <div class="slide-content">
+                <span class="tagline">Your Future. Our Guidance</span>
+                <h1>Study in Australia</h1>
+                <h2>Innovation & Lifestyle</h2>
+                <p>Top-ranked universities, research opportunities,<br>and vibrant student cities</p>
+                <a href="australia.html" class="explore-btn">EXPLORE AUSTRALIA</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="slide">
+        <img src="img6.jpg" alt="USA">
+        <div class="slide-overlay">
+            <div class="slide-content">
+                <span class="tagline">Your Future. Our Guidance</span>
+                <h1>Study in USA</h1>
+                <h2>Dream Big</h2>
+                <p>Ivy League, technology hubs, and<br>unlimited career possibilities</p>
+                <a href="usa.html" class="explore-btn">EXPLORE USA</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+setInterval(() => {
+  slides[index].classList.remove("active");
+  index = (index + 1) % slides.length;
+  slides[index].classList.add("active");
+}, 3000);
+</script>
+
+<div class="tabs">
+  <button class="active">
+  <a href="courses.html">courses</a>
+  </button>
+  <button>
+   <a href="scholarship.html">Scholarships</a> 
+  </button>
+  <button>
+  <a href="university.html">Universities</a> 
+  </button>
+  <button>
+  <a href="event.html">Events</a> 
+  </button>
+</div>
+
+<div class="floating-container">
+    <a href="contact.html" class="help-btn">
+        Help me study abroad
+    </a>
+    <a href="tel:+923001234567" class="call-btn">
+        📞
+    </a>
+</div>
+<br>
+
+<section>
+<div class ="container"></div>
+<br>
+
+<section class="slider-section">
+ <h2>why dream nest is trusted?</h2>
+<div class ="line1"></div>
+
+  <br>
+  
+<div class="card-slider">
+  <div class="card1">
+     <h3>4 years of Changing Life</h3>
+    <br>
+    <p>From Last 4 Years we have been helping students turn dream in to reality<br>You could be next!</p>
+  </div>
+  
+  <div class="card2">
+    <h3>10,000 Student Said Yes to Dream Nest</h3><br>
+    <p>That's Student journey made real<br> with expert guidance every step of<br> the way</p>
+  </div>
+
+  <div class="card3">
+    <h3>25000+ Global Courses</h3><br>
+    <p>Student joined over 25000 courses globally through our partnerships with 100+ top universities</p>
+  </div>
+  
+  <div class="card4">
+    <h3>1500+ Trusted Education Counsellor</h3><br>
+    <p>Across 40 offices in pakistan and there's<br> always an DN counsellor ready to guide you</p>
+  </div>
+  <div class="card5">
+    <h3>Student Trust Us</h3><br>
+    <p>4.5★ on Google. 8/10 students say <br> they'd choose DN again</p>
+  </div>
+  
+  <div class="card6">
+    <h3>Why You Choose Dream Nest</h3><br>
+    <p>Add DN we donot just guide you <br> We build your future with the right direction</p>
+  </div>
+</div>
+</section>
+
+<br>
+<br>
+<section class="form-section-2">
+  <div class="form-wrapper">
+
+    <div class="form-content">
+      <div class="form-box">
+        <h2><span class="underline-word">DN </span> can help you</h2>
+        <br>
+        <p>
+          Enter your details and one of our expert counsellors will reach out to you
+          so we can connect you to the right course, country, university – and even scholarships!
+        </p>
+      </div>
+      <br>
+      <br>
+      <div class="form-fields">
+        <div class="input-group">
+          <label>First name*</label>
+          <input type="text">
+        </div>
+        <div class="input-group">
+          <label>Last name*</label>
+          <input type="text">
+        </div>
+        <div class="input-group">
+          <label>Email address*</label>
+          <input type="email">
+        </div>
+        <div class="input-group">
+          <label>Mobile number*</label>
+          <div class="phone-box">
+            <input type="text" class="country-code" value="+92">
+            <input type="text" class="phone-input" placeholder="Enter number">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Your preferred study destination*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>UK</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>USA</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+            <option>Malaysia</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>When would you like to start studying?*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Jan 2026</option>
+            <option>Sep 2026</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nearest DN Office*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Lahore</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred mode of counselling*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Online</option>
+            <option>In-person</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>How would you fund your education?*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Self</option>
+            <option>Scholarship</option>
+            <option>Loan</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Preferred study level*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Bachelor</option>
+            <option>Master</option>
+            <option>PhD</option>
+          </select>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>I agree to Terms & Policy*</span>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>Contact me via phone/email*</span>
+        </div>
+        <button class="submit-btn">Enquire now</button>
+      </div>
+    </div>
+
+    <div class="image-container">
+      <img src="form4.jpg" >
+    </div>
+
+  </div>
+</section>
+
+  <div class="container"></div>
+<br>
+
+  <h2 class ="title"> Your Study Dream Destination</h2>
+   <div class="line2"></div>
+   <br>
+ <p>
+       Begin an exciting academic journey in these varied and welcoming study locations!
+  </p>
+  <br>
+  <div class="dd-container">
+
+    <a href="uk.html" class="dd-card">
+      <div class="img-box">
+        <img src="uk.jpg">
+      <h3>United Kingdom</h3>
+      </div>
+    </a>
+
+    <a href="usa.html" class="dd-card">
+      <div class="img-box">
+        <img src="usa.jpg">
+        <h3>USA</h3>
+      </div>
+    </a>
+
+    <a href="canada.html" class="dd-card">
+      <div class="img-box">
+        <img src="canada.jpg">
+        <h3>Canada</h3>
+      </div>
+    </a>
+
+    <a href="australia.html" class="dd-card">
+      <div class="img-box">
+        <img src="australia.jpg">
+        <h3>Australia</h3>
+      </div>
+    </a>
+
+    <a href="New Zealand.html" class="dd-card">
+      <div class="img-box">
+        <img src="nz.jpg">
+        <h3>New Zealand</h3>
+      </div>
+    </a>
+
+    <a href="Ireland.html" class="dd-card">
+      <div class="img-box">
+        <img src="ireland.jpg">
+        <h3>Ireland</h3>
+      </div>
+    </a>
+
+    <a href="Malaysia.html" class="dd-card">
+      <div class="img-box">
+        <img src="malaysia.jpg">
+        <h3>Malaysia</h3>
+      </div>
+    </a>
+
+  </div>
+<br>
+<br>
+<br>
+</section>
+<section class="services-section">
+  <h1>Explore recommended services for your journey abroad</h1>
+    
+    <div class="cards-container">
+
+        <div class="card">
+            <h2>💰 Money Transfer</h2>
+            <p>Safe, secure and fast payments to your institution and other key services.</p>
+            <a href="money.html">Learn More →</a>
+        </div>
+
+        <div class="card">
+            <h2>💙 Health Insurance</h2>
+            <p>Your choice, your health cover, your peace of mind abroad.</p>
+            <a href="healthinsurance.html">Learn More →</a>
+        </div>
+
+        <div class="card">
+            <h2>🏦 Banking</h2>
+            <p>Open a bank account before you arrive.</p>
+            <a href="banking.html">Learn More →</a>
+        </div>
+
+        <div class="card">
+            <h2>🏠 Accommodation</h2>
+            <p>Student apartment or homestay options available.</p>
+            <a href="accomodation.html">Learn More →</a>
+        </div>
+
+        <div class="card">
+            <h2>📱 SIM Cards</h2>
+            <p>No SIM? No problem – we’ve got it covered.</p>
+            <a href="sim.html">Learn More →</a>
+        </div>
+
+        <div class="card">
+            <h2>👥 Guardianship</h2>
+            <p>If you're under 18 we'll find you a guardian</p>
+            <a href="guard.html">Learn More →</a>
+        </div>
+
+    </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <div class="logo">
+        DN
+        <span>Dream Nest</span>
+      </div>
+      <p class="footer-text">
+        Dream Nest is one of the fastest growing 
+        education and career consultancy networks 
+        helping students achieve their study abroad dreams.
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h2>Contact With Us</h2>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+92 300 1234567</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>dreamnest98@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>
+          Main Boulevard, Gulberg III, <br>
+          Lahore, Pakistan
+        </span>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h2>Destination</h2>
+      <ul class="footer-links">
+        <li><a href="uk.html">› Study in UK</a></li>
+        <li><a href="usa.html">› Study in USA</a></li>
+        <li><a href="australia.html">› Study in Australia</a></li>
+        <li><a href="canada.html">› Study in Canada</a></li>
+        <li><a href="malaysia.html">› Study in Malaysia</a></li>
+        <li><a href="ireland.html">› Study in Ireland</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h2>Useful Links</h2>
+      <ul class="footer-links">
+        <li><a href="about.html">› About Us</a></li>
+        <li><a href="contact.html">› Contact Us</a></li>
+        <li><a href="policy.html">› Privacy Policy</a></li>
+        <li><a href="ielts.html">› IELTS </a></li>
+      </ul>
+    </div>
+
+  </div>
+</footer>
+
+</body>
+</html>

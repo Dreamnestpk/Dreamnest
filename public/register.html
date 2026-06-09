@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+
+<style>
+body {
+    font-family: Arial;
+    background: #cedee0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    width: 360px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.checkbox {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #757c7d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #757c7d;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #309dab;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Register Now</h2>
+
+    <form>
+
+        <!-- First Name -->
+        <div class="input-group">
+            <label>First Name</label>
+            <input type="text" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-group">
+            <label>Last Name</label>
+            <input type="text" required>
+        </div>
+
+        <!-- Country Dropdown -->
+        <div class="input-group">
+            <label>Select Country</label>
+            <select required>
+                <option value="">Choose Country</option>
+                <option>UK</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>New Zealand</option>
+                <option>Ireland</option>
+                <option>Malaysia</option>
+            </select>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="checkbox">
+            <input type="checkbox" required>
+            <label>I am not a robot</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <a href="event.html" class="back">← Back</a>
+</div>
+
+</body>
+</html>

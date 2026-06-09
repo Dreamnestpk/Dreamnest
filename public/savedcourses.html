@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Courses - Dream Nest</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
+        body { background:#f4f7fc; padding:40px; }
+        .container { max-width:900px; margin:auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+        h1 { color:#1e73be; margin-bottom:20px; }
+        .course-card { background:#f8f9fa; padding:20px; margin-bottom:15px; border-radius:10px; border-left:4px solid #1e73be; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
+        .course-info h3 { color:#1e73be; margin-bottom:5px; }
+        .course-info p { color:#666; }
+        .remove-btn { background:#dc3545; color:white; border:none; padding:8px 20px; border-radius:20px; cursor:pointer; }
+        .back-btn { background:#6c757d; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; display:inline-block; margin-bottom:20px; }
+        .empty { text-align:center; padding:50px; color:#888; }
+        .login-prompt { text-align:center; padding:40px; background:#f0f0f0; border-radius:10px; }
+        .login-prompt a { color:#1e73be; text-decoration:none; font-weight:bold; }
+        .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; }
+        .logout-btn { background:#dc3545; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:14px; }
+        .user-info { background:#e9ecef; padding:8px 15px; border-radius:20px; font-size:14px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <a href="findcourse.html" class="back-btn">← Back to Search</a>
+        <div id="userInfo"></div>
+    </div>
+    <h1>❤️ My Saved Courses</h1>
+    <div id="savedList">
+        <div class="empty">Loading...</div>
+    </div>
+</div>
+<script>
+    const token = localStorage.getItem('token');
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    
+    // Show user info and logout button if logged in
+    const userInfoDiv = document.getElementById('userInfo');
+    if (token && user.name) {
+        userInfoDiv.innerHTML = `<span class="user-info">👋 ${user.name}</span> <a href="#" class="logout-btn" onclick="logout()">Logout</a>`;
+    } else {
+        userInfoDiv.innerHTML = `<a href="login.html" class="logout-btn" style="background:#1e73be;">🔐 Login to view saved courses</a>`;
+    }
+    
+    // If not logged in, show login prompt
+    if (!token) {
+        document.getElementById('savedList').innerHTML = `
+            <div class="login-prompt">
+                🔐 You need to be logged in to view your saved courses.<br><br>
+                <a href="login.html">➡️ Login Here</a> &nbsp;|&nbsp;
+                <a href="signup.html">📝 Create Account</a>
+            </div>
+        `;
+    } else {
+        loadSavedCourses();
+    }
+    
+    async function loadSavedCourses() {
+        try {
+            const res = await fetch('/api/user/saved-courses', {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            
+            if (res.status === 401) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('user');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const data = await res.json();
+            const saved = data.savedCourses || [];
+            
+            if (saved.length === 0) {
+                document.getElementById('savedList').innerHTML = `
+                    <div class="empty">
+                        📭 No saved courses yet.<br><br>
+                        <a href="findcourse.html" style="color:#1e73be;">🔍 Browse courses</a> and click "Save Course" to build your list!
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            saved.forEach(course => {
+                html += `
+                    <div class="course-card">
+                        <div class="course-info">
+                            <h3>📘 ${escapeHtml(course)}</h3>
+                            <p>Click "Find Courses" to explore more details about this program.</p>
+                        </div>
+                        <button class="remove-btn" onclick="removeCourse('${escapeHtml(course)}')">Remove</button>
+                    </div>
+                `;
+            });
+            document.getElementById('savedList').innerHTML = html;
+        } catch(err) {
+            document.getElementById('savedList').innerHTML = '<div class="empty">❌ Error loading saved courses</div>';
+        }
+    }
+    
+    async function removeCourse(courseName) {
+        try {
+            const res = await fetch('/api/user/save-course', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
+                body: JSON.stringify({ courseName })
+            });
+            const data = await res.json();
+            if (data.success) {
+                loadSavedCourses();
+            } else {
+                alert('Error removing course');
+            }
+        } catch(err) {
+            alert('Error removing course');
+        }
+    }
+    
+    function logout() {
+        localStorage.removeItem('token');
+        localStorage.removeItem('user');
+        window.location.href = 'index.html';
+    }
+    
+    function escapeHtml(str) {
+        if (!str) return '';
+        return str.replace(/[&<>]/g, function(m) {
+            if (m === '&') return '&amp;';
+            if (m === '<') return '&lt;';
+            if (m === '>') return '&gt;';
+            return m;
+        });
+    }
+</script>
+</body>
+</html>

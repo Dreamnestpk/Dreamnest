@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Destinations</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f7fc;
+    padding:40px;
+}
+
+.heading{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.heading h1{
+    color:black;
+}
+
+.destinations{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:20px;
+}
+
+.card{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    color:black;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#555;
+    line-height:1.6;
+}
+.btn{
+    display: inline-block;
+    margin-top: 15px;
+    background: #999;
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    transition:0.3s ;
+    
+}
+
+.btn:hover{
+    background: #999;
+}
+</style>
+</head>
+<body>
+
+<div class="heading">
+    <h1>Study Destinations</h1>
+</div>
+
+<div class="destinations">
+
+    <div class="card">
+        <h2>United Kingdom (UK)</h2>
+        <p>
+            Home to world-renowned universities such as Oxford and Cambridge.
+            Offers high-quality education, diverse cultures, and excellent career opportunities.
+        </p>
+        <a href="uk.html" class="btn">Read More</a>
+    </div>
+
+    <div class="card">
+        <h2>Australia</h2>
+        <br>
+        <p>
+            Known for top-ranked universities, student-friendly cities,
+            and post-study work opportunities in a safe environment.
+        </p>
+        <a href="australia.html" class="btn">Read More</a>
+    </div>
+
+    <div class="card">
+        <h2>Canada</h2>
+        <br>
+        <p>
+            Popular for affordable education, multicultural communities,
+            and pathways to permanent residency after graduation.
+        </p>
+        <br>
+        <a href="canada.html" class="btn">Read More</a>
+    </div>
+
+    <div class="card">
+        <h2>New Zealand</h2>
+        <br>
+        <p>
+            Offers internationally recognized degrees, beautiful landscapes,
+            and excellent support for international students.
+        </p>
+        <br>
+        <a href="new zealand.html" class="btn">Read More</a>
+    </div>
+
+    <div class="card">
+        <h2>Ireland</h2>
+        <br>
+        <p>
+            A leading destination for technology and business studies with
+            strong industry connections and work opportunities.
+        </p>
+        <a href="ireland.html" class="btn">Read More</a>
+    </div>
+
+    <div class="card">
+        <h2>United States (USA)</h2>
+        <br>
+        <p>
+            Features some of the world's best universities, cutting-edge research,
+            and a wide variety of academic programs.
+        </p>
+        <a href="usa.html" class="btn">Read More</a>
+    </div>
+
+    <div class="card">
+        <h2>Malaysia</h2>
+        <br>
+        <p>
+            Provides quality education at affordable costs with modern campuses
+            and a multicultural learning environment.
+        </p>
+        <a href="malaysia.html" class="btn">Read More</a>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dream Nest About Slider</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* SECTION */
+
+.about-section{
+    width:100%;
+    padding:80px 8%;
+}
+
+.about-heading{
+    text-align:center;
+    font-size:42px;
+    color:#0b1f3a;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.about-text{
+    text-align:center;
+    color:#666;
+    margin-bottom:50px;
+    font-size:18px;
+}
+
+/* SLIDER */
+
+.slider{
+    width:100%;
+    overflow:hidden;
+    position:relative;
+}
+
+.slide-track{
+    display:flex;
+    width:calc(350px * 8);
+    animation:scroll 30s linear infinite;
+    gap:25px;
+}
+
+.about-card{
+    width:350px;
+    min-height:280px;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    flex-shrink:0;
+    transition:0.4s;
+}
+
+.about-card:hover{
+    transform:translateY(-10px);
+}
+
+.about-card h2{
+    color:#0b1f3a;
+    margin-bottom:18px;
+    font-size:28px;
+}
+
+.about-card p{
+    color:#555;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* AUTO SLIDE */
+
+@keyframes scroll{
+
+    0%{
+        transform:translateX(0);
+    }
+
+    100%{
+        transform:translateX(calc(-350px * 4));
+    }
+
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.about-heading{
+    font-size:32px;
+}
+
+.about-text{
+    font-size:16px;
+}
+
+.about-card{
+    width:300px;
+}
+
+.slide-track{
+    width:calc(300px * 8);
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="about-section">
+
+    <h1 class="about-heading">About Dream Nest</h1>
+
+    <p class="about-text">
+        Helping students achieve their dreams of studying abroad.
+    </p>
+
+    <div class="slider">
+
+        <div class="slide-track">
+
+            <!-- CARD 1 -->
+
+        <div class="about-card">
+            <h2>Introduction</h2>
+
+            <p>
+                Dream Nest is a professional study abroad consultancy dedicated to helping students build a successful future through international education. We guide students in choosing the right universities, courses, and study destinations according to their goals and interests.
+            </p>
+        </div>
+
+            <!-- CARD 2 -->
+
+        <div class="about-card">
+            <h2>What We Do</h2>
+
+            <p>
+                We provide complete support for university admissions, visa guidance, accommodation, health insurance, money transfer, SIM cards, and guardianship services. Our team helps students throughout every step of their study abroad journey.
+            </p>
+        </div>
+
+        <!-- CARD 3 -->
+
+        <div class="about-card">
+            <h2>Our Mission</h2>
+
+            <p>
+                Our mission is to make international education simple, accessible, and stress-free for students. We aim to provide honest guidance, trusted support, and quality services that help students achieve their academic and career goals.
+            </p>
+        </div>
+
+            
+
+            <!-- CARD 4 -->
+
+            <div class="about-card">
+            <h2>Why Students Trust Dream Nest</h2>
+
+            <p>
+                Students trust Dream Nest because of our professional guidance, personalized support, and student-focused approach. We are committed to helping students with reliable services, transparent processes, and dedicated assistance from start to finish.
+            </p>
+        </div>
+
+            <!-- DUPLICATE CARDS FOR SMOOTH SLIDER -->
+
+            <div class="about-card">
+                <h2>Student Support</h2>
+
+                <p>
+                     We believe every student deserves complete support during their study abroad journey. Our team assists students with applications, documentation, interview preparation, and pre-departure guidance to ensure a smooth experience.
+    </p>
+            </div>
+
+            <div class="about-card">
+                <h2>Global Opportunities</h2>
+
+                <p>
+                    Dream Nest helps students explore top international study destinations and world-class universities. We connect students with opportunities that help them grow academically, professionally, and personally.
+    </p>
+            </div>
+
+            <div class="about-card">
+                <h2>Our Commitment</h2>
+
+                <p>
+                    We are committed to providing trusted consultancy services with honesty, professionalism, and care. Our goal is to help students feel confident and supported throughout every stage of their journey.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h2>Future Success</h2>
+
+                <p>
+                    At Dream Nest, we focus on helping students build a bright future through quality international education. We guide students toward the right path that matches their dreams and career ambitions.
+    </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

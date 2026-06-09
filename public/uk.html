@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDP Clone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+    
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+  background: linear-gradient(to right,#eef2f3, #dfe9f3);
+}
+  
+
+
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    
+    align-items:center;
+    padding:12px 20px;
+    background:#fff;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    
+}
+
+
+.icons{
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+/* HERO SECTION */
+.hero{
+    position:relative;
+    width:100%;
+    height:500px;
+     background-image:url(ukk2.jpg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* overlay */
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+
+/* content */
+.hero-content{
+    position:relative;
+    color:#fff;
+    
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:26px;
+    line-height:1.3;
+    margin-bottom:15px;
+}
+
+/* button */
+.btn{
+    background:#1976d2;
+    color:#fff;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+
+
+/* TOP LINKS */
+
+.top-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:15px;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-links a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.top-links a:hover{
+    color:#0c8b6c;
+}
+
+
+
+
+/* CARD */
+.card{
+    margin-top:20px;
+    position:relative;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* Floating Buttons Container */
+.floating-container{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:9999;
+}
+
+/* Help Button */
+.help-btn{
+    background:#0b9b73;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;      /* Width & Height reduced */
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.help-btn:hover{
+    background:#087a5a;
+    transform:translateY(-2px);
+}
+
+/* Call Button */
+.call-btn{
+    width:50px;            /* Reduced size */
+    height:50px;
+    border-radius:50%;
+    background:#222;
+    color:#ff2d2d;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    animation:ring 1.5s infinite;
+    transition:0.3s;
+}
+
+.call-btn:hover{
+    transform:scale(1.08);
+}
+
+/* Ring Animation */
+@keyframes ring{
+    0%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0.35);
+    }
+    70%{
+        box-shadow:0 0 0 8px rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .help-btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .call-btn{
+        width:38px;
+        height:38px;
+        font-size:18px;
+    }
+
+}
+
+
+
+
+
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin:auto;
+}
+
+/* Main Image */
+.main-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Small Images */
+.small-imgs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-imgs img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Text */
+.text {
+  margin-top: 15px;
+  
+  
+}
+
+.text h2 {
+  font-size: 20px;
+  color: #333;
+}
+.text h3{
+font-size: 17px;
+  color: #333;
+}
+
+.text p {
+  color: #777;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  background: #0c8b6c;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+
+table-container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 18px;
+  color:#535252;
+  text-align: left;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f0f0f0;
+  color:#333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+html{
+  scroll-behavior: smooth;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">DREAM NEST</div>
+    
+</div>
+
+<!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>
+            Study in the UK – Scholarships, Top Universities and Courses for Pakistani Students
+        </h1>
+        <a class="btn active" href="start applying.html">
+  Start Applying
+</a>
+        </div>
+</div>
+
+
+<!--Top Links  -->
+<div class="top-links">
+  <a href="#cost">Cost of studying and living</a>
+  <a href="#courses">Best courses</a>
+  <a href="#universities">Top universities</a>
+  <a href="#admission">Admission requirement</a>
+  <a href="#visa">Visa requirement</a>
+  <a href="#scholarships">Scholarships</a>
+</div>
+<br>
+
+<div class="container">
+
+  <!-- Main Image -->
+  <div class="main-img">
+    <img src="uk1.jpg">
+  </div>
+
+  <!-- Small Images -->
+  <div class="small-imgs">
+    <img src= "uk2.jpg">
+    <img src="uk3.jpg">
+  </div>
+
+  
+  <!--Left side Text -->
+  <div class="text">
+    <h2>Are you searching for a top-notch education at a historically and culturally rich study abroad location?</h2>
+    <br>
+    <p>Studying in the UK offers a path to a promising future, with world-ranked universities providing innovative teaching methods and an unforgettable student experience. Additionally, post-study work opportunities enhance the overall appeal, making the UK an ideal destination for higher education.</p>
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <h2>Why study in the UK</h2>
+    <br>
+    <p>
+    • The UK is globally renowned for its top-notch education in an evolving, lively and encouraging multicultural learning environment.  
+<br>
+<br>
+    • UK universities are among the best in the world and the country's higher education has a long history of being of the highest caliber.  
+<br>
+<br>
+    • The UK offers a diverse variety of programs, from bachelor's to doctorate level.  
+<br>
+<br>
+    • The UK ranks among the top five countries globally for industry-university collaboration,and a degree from a UK university includes practical work placements, giving you a head start in the real world. 
+<br>
+<br>
+    • You will gain a competitive edge through work placements, volunteer opportunities, internships, and university societies, 
+<br>
+<br>
+    • Most importantly, the new Graduate Route lets you stay in the UK for two years after you graduate, allowing you to advance your career in the UK.
+ </p>
+
+ <!--  UNIVERSITIES -->
+  <div class="text">
+    <h2 id="universities">
+    Top universities in the UK; rankings and fees
+  </h2>
+    <br>
+    <p>
+        It’s essential to consider the general cost structure for the course you want to study and the global university rankings when choosing your university. This enables you to assess and understand the rankings of universities and the position of your preferred school on the world map. The top universities in the UK, as listed in the QS World University Rankings 2026, are as follows:
+    </p>
+  </div>
+<br>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Institution</th>
+        <th>QS Ranking 2026 (Globally)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>University of Oxford</td>
+        <td>3</td>
+      </tr>
+
+      <tr>
+        <td>The University of Cambridge</td>
+        <td>5</td>
+      </tr>
+
+      <tr>
+        <td>Imperial College London</td>
+        <td>2</td>
+      </tr>
+
+      <tr>
+        <td>UCL (University College London)</td>
+        <td>9</td>
+      </tr>
+      <tr>
+        <td>The University of Warwick</td>
+        <td>69</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<!-- Text -->
+  <div class="text">
+    <h2 id="courses">
+    The best courses to study in the UK
+  </h2>
+    <br>
+<p>
+   The UK is well known for providing high-quality education in various subjects. The following are some of the most popular courses offered in the UK:
+<br>
+<br>
+  •  Business Analytics 
+<br>
+<br>
+  •  Data Science 
+<br>
+<br>
+  •  Computer Science 
+<br>
+<br>
+  •  Master’s in management 
+<br>
+<br>
+  •  MBBS (Bachelor of Medicine, Bachelor of Surgery) 
+<br>
+<br>
+  •  Finance 
+<br>
+<br>
+  •  Accounting 
+<br>
+<br>
+  •  Law 
+<br>
+<br>
+  •  Architecture  
+<br>
+<br>
+  •  Engineering 
+<br>
+<br>
+  •  Fashion and Interior Designing 
+
+</p>
+
+<!-- Text -->
+  <div class="text">
+    <h2>Highest paying dedrees in the UK</h2>
+    <br>
+<p>
+    In the UK, certain degrees have a higher earning potential, even though salaries can vary based on industry and experience. Among these are degrees in:
+<br>
+<br>
+   • Dentistry and Medicine 
+<br>
+<br>
+   • Economics 
+<br>
+<br>
+   • Engineering 
+<br>
+<br>
+   • Computer Science 
+<br>
+<br>
+   • Business  
+<br>
+<br>
+   • Law
+<br>
+<br>
+Remember that factors such as individual skills, market demand and career advancement also affect employability and salary.
+</p>
+
+<!-- Text -->
+  <div class="text">
+    <h2>Intakes in the UK</h2>
+    <br>
+<p>
+Several intakes are available to international students all year long, giving them flexibility in their selection. There are three primary intakes:
+<br>
+<br>
+• January to April 
+<br>
+<br>
+• April to June 
+
+</p>
+  </div>
+
+<!-- ADMISSION -->
+  <div class="text">
+     <h2 id="admission">
+    Admission requirements in the UK for Pakistani students
+  </h2>
+    <br>
+<p>
+When applying to a university in the UK, you'll need to send in some important documents, like:
+<br>
+<br>
+• Your official academic certificates 
+<br>
+<br>
+• Personal statement or (statement of purpose) 
+<br>
+<br>
+• Letters of recommendation 
+<br>
+<br>
+• Resume 
+<br>
+<br>
+• Passport Copy 
+<br>
+<br>
+Check whether your qualifications are recognised in the UK and/or if you need an equivalency certificate.
+</p>
+  </div>
+
+<!-- COST -->
+  <div class="text">
+    <h2 id="cost">
+      Cost of studying and living in the UK
+    </h2>
+    <br>
+    <h3>Cost of studying in the UK</h3>
+    <br>
+<p>
+The cost of studying in the UK depends on the type of degree and the institution or university attended. The UK is home to various prestigious educational institutions, each setting its tuition fees. Take a look at the average fees to study at a university there:
+<br>
+<br>
+ <div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Study Program</th>
+        <th>Average Annual Tuition Fees in GBP</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Bachelor’s degree</td>
+        <td>10,000 to 20,000 </td>
+        
+      </tr>
+
+      <tr>
+        <td>Master’s degree </td>
+        <td>10,000 to 20,000 </td>
+      </tr>
+
+      <tr>
+        <td>Doctoral degree</td>
+        <td>15,000 to 24,000 </td>
+      </tr>
+
+      
+    </tbody>
+  </table>
+</div>
+
+<br>
+
+<h3>Cost of living in the UK</h3>
+<p>
+    <br>
+You need to keep a little money aside for your grocery shopping, social activities and emergencies.
+
+You should also consider these common expenses when creating your budget: 
+<br>
+<br>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Expenses </th>
+        <th>Approximate Cost (monthly) </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Bills (electric, gas, water) </td>
+        <td>£40 to £50</td>
+        
+      </tr>
+
+      <tr>
+        <td>Food and housekeeping</td>
+        <td>£160 to £200 </td>
+      </tr>
+
+      <tr>
+        <td>TV license (mandatory with TV or watching BBC online) </td>
+        <td>£12.56 (£150.50 per year)</td>
+      </tr>
+<tr>
+        <td>Mobile phone </td>
+        <td>£15 to £50 </td>
+      </tr>
+
+      <tr>
+        <td>Leisure & sports (calculated based on the students’ sports centre membership fees)  </td>
+        <td>£10 to £20 </td>
+      </tr>
+       <tr>
+        <td>Books & stationery </td>
+        <td>£21 </td>
+      </tr>
+<tr>
+        <td> Socialising </td>
+        <td>£120</td>
+      </tr>
+
+      <tr>
+        <td>Travel & transport (based on the monthly cost of a student bus pass)</td>
+        <td>£32 </td>
+      </tr>
+       <tr>
+        <td>Childcare (if needed) </td>
+        <td>£656 </td>
+      </tr>
+
+        
+      
+    </tbody>
+  </table>
+</div>
+<br>
+<P>
+    Please note that all figures are indicative.
+<br>
+<br>
+Try our handy Cost of Living Calculator to find out more about living expenses according to your individual lifestyle.
+</P>
+</div>
+
+<!-- SCHOLARSHIPS -->
+  <div class="text">
+     <h2 id="scholarships">
+    Scholarships for Pakistani students in the UK
+  </h2>
+    <br>
+     <p>
+        Many scholarship programs in the UK are designed to equip international students with the skills to make a difference in their country. Many of these scholarships are also offered for international students who want to undertake postgraduate study.
+<br>
+<br>
+Here are some popular government scholarship programs in the UK you can apply for as a Pakistani student:
+     </p>
+  </div>
+<br>
+<br>
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Scholarship Name  </th>
+        <th>Description</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>Chevening Scholarship </td>
+        <td>Chevening scholarships are offered by the UK Foreign and Commonwealth Office, which provides funding for these master's degree scholarships. Applicants must be citizens of one of the 144 qualifying countries and must agree to work in their home country for a minimum of two years following graduation. </td>
+        
+      </tr>
+
+      <tr>
+        <td>Commonwealth Scholarships </td>
+        <td>The scholarships are available to master's and PhD students from 62 Commonwealth countries. The scholarship will normally pay for all your expenses, including tuition fees, housing and transportation to and from the UK. </td>
+      </tr>
+
+      <tr>
+        <td>GREAT Scholarships  </td>
+        <td>GREAT scholarships are part of the British Council's international student funding program in the UK. It's important to note that each country has a unique application process. Each scholarship is worth at least £10,000 and most scholarships are available in all subjects. </td>
+      </tr>
+      </table>
+      </tbody>
+</div>
+<br>
+<p>Check out more scholarships, discounts and offers in the UK here.</p>
+<br>
+
+<!-- VISA -->
+  <div class="text">
+     <h2 id="visa">
+    Student visa requirements in the UK for Pakistani Students
+  </h2>
+    <br>
+<p>
+  The required student visa for the UK will be determined by your age and the type of studies you intend to pursue. Here’s an overview of the types of study visas and their application requirements:
+</p>
+<br>
+  </div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Type of student visa </th>
+        <th>Purpose </th>
+        <th>When to apply </th>
+        <th>Arrival in the UK </th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td> Tier 4 (General)  Student Visa </td>
+        <td>Students aged 16+ who have been offered a place in a course at a UK educational institution with a valid Tier 4 sponsor. </td>
+        <td> Three months before the start of your course. </td>
+        <td>-Up to one week before, if your course lasts six months or fewer. -Up to one month before, if your course lasts more than six months.  </td>
+      </tr>
+
+      <tr>
+        
+        <td>Short-Term Study Visa </td>
+        <td>Students who have been offered a place in a short-term course in the UK, such as an English language course or training course. </td>
+        <td> Three months before your date of travel to the UK. </td>
+        <td>Depends on your nominated travel dates. </td>
+      </tr>
+</tbody>
+  </table>
+  </div>
+<br>
+<h3>For the most part, you will need:</h3>
+<br>
+<p>
+  • A current passport or other valid travel documentation.   
+<br>
+<br>
+  • Confirmation of Acceptance for Studies (CAS) reference number and documents used to obtain CAS.   
+<br>
+<br>
+  • Evidence of funds to cover your living expenses for the duration of your course.   
+<br>
+<br>
+  • Passport-sized coloured photograph.   
+<br>
+<br>
+  • Assessment documentation Tuberculosis screening (if required).   
+<br>
+<br>
+  • Academic Technology Approval Scheme (ATAS) clearance certificate (if needed).
+</p>
+ <br>
+<br>
+
+  <!-- Text -->
+  <div class="text">
+    <h2>Job opportunities in the UK for Pakistani students</h2>
+    <br>
+    <p>The United Kingdom offers many job opportunities, helping you build required skills and start a successful career. Whether you are looking for part-time jobs, internships, or graduate programs, there are plenty of options for different interests and fields of study.
+      <br>
+      <p>Moreover, numerous universities offer specialised career services aimed at helping students secure suitable job placements. Furthermore, the UK's multifaceted finance, technology and creative arts industries offer abundant prospects for acquiring valuable work experience and forging significant professional networks.</p>
+    <br>
+    </div>
+
+    <!-- Text -->
+  <div class="text">
+    <h2>Student Essentials Services for Pakistani Students</h2>
+    <br>
+    <p>Our expert counsellors are here to offer you free guidance on the below essential arrival services:
+    <br>
+• Accommodation  
+<br>
+<br>
+• Student Health Cover  
+<br>
+<br>
+• Student Banking 
+<br>
+<br>
+• Money Transfer
+<br>
+<br>
+• ISIC Student Card 
+    </p>
+  </div>
+<br>
+  <!-- Your Website Content -->
+
+<div class="floating-container">
+
+    <!-- Help Button -->
+    <a href="contact.html" class="help-btn">
+        Help me study abroad
+    </a>
+
+    <!-- Call Button -->
+    <a href="tel:+923001234567" class="call-btn">
+        📞
+    </a>
+
+</div>
+</div>
+
+
+</body>
+</html>
+

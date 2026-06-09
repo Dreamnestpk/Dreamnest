@@ -1,0 +1,560 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Banking for International Students</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f3f3f3;
+    overflow-x:hidden;
+}
+
+
+/* Hero Section */
+.hero{
+    height: 550px;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    
+    /* Background Image */
+   background-image: url("ban.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* Overlay (optional for readability) */
+.hero::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.4);
+}
+    
+/* Text Content */
+.hero-content{
+    position: relative;
+    max-width: 500px;
+    color: #fff;
+}
+
+.hero-content h1{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-content p{
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+
+    /* SECTION */
+
+.bank-section{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    padding:60px 7%;
+    flex-wrap:wrap;
+}
+
+/* TEXT */
+
+.bank-text{
+    flex:1;
+    min-width:300px;
+}
+
+.bank-text h1{
+    font-size:40px;
+    line-height:1.1;
+    color:#14213d;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.line{
+    width:65px;
+    height:6px;
+    background:#d97706;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+.bank-text p{
+    font-size:20px;
+    line-height:1.8;
+    color:#333;
+    max-width:700px;
+}
+
+/* IMAGE */
+
+.bank-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    min-width:300px;
+}
+
+.bank-image img{
+    width:100%;
+    max-width:550px;
+    height:auto;
+    border-radius:20px;
+    object-fit:cover;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+    .bank-section{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .line{
+        margin:auto;
+        margin-bottom:25px;
+    }
+
+    .bank-text h1{
+        font-size:45px;
+    }
+
+    .bank-text p{
+        font-size:18px;
+    }
+
+    .bank-image img{
+        max-width:100%;
+    }
+}
+    
+
+/* MAIN SECTION */
+.form-section {
+  background: #cfe0e5;
+  padding: 60px;
+  max-width: 100%;
+  margin: auto;
+}
+    
+    
+
+/* FLEX LAYOUT */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.form-content {
+  width: 60%;
+}
+
+/* RIGHT SIDE */
+.image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.image-container img {
+  width: 90%;
+  max-width: 400px;
+  
+}
+
+.form-box p{
+  color: #555;
+}
+/* FORM */
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+.phone-box {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  width: 70px;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* DROPDOWN */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+    
+
+
+
+/* SECTION */
+.banking-features{
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    gap:40px;
+    padding:80px 40px;
+    flex-wrap:wrap;
+    background-color: #e9e6e6;
+}
+
+/* CARD */
+.feature-box{
+    width:320px;
+    text-align:center;
+    padding:20px;
+}
+
+/* ICON */
+.icon{
+    font-size:35px;
+    color:#c97a00;
+    margin-bottom:25px;
+}
+
+/* HEADING */
+.feature-box h2{
+    font-size:30px;
+    color:#1f2937;
+    margin-bottom:18px;
+    font-weight:bold;
+}
+
+/* PARAGRAPH */
+.feature-box p{
+    font-size:20px;
+    color:#555;
+    line-height:1.7;
+}
+
+/* RESPONSIVE */
+@media(max-width:992px){
+
+    .banking-features{
+        flex-direction:column;
+        align-items:center;
+    }
+
+    .feature-box{
+        width:90%;
+    }
+
+}
+
+
+</style>
+</head>
+
+<body>
+
+    <section class="hero">
+    <div class="hero-content">
+        <h1>Banking For International Students</h1>
+        <p>Open a secure student bank account with easy online banking, debit cards, and international money transfer services for students studying abroad.</p>
+           
+        
+    </div>
+</section>
+
+<section class="bank-section">
+
+    <!-- TEXT -->
+    <div class="bank-text">
+
+        <h1>
+            Open a bank account <br>
+            even before you arrive
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            Open your student bank account before travelling abroad and
+            manage your finances with ease. Enjoy secure banking services,
+            online transfers, and convenient money management for
+            international students.
+        </p>
+
+    </div>
+
+    <!-- IMAGE -->
+    <div class="bank-image">
+
+        <img src="bank.jpg">
+
+    </div>
+
+</section>
+
+
+
+<section class="form-section">
+
+  <div class="form-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="form-content">
+
+      <div class="form-box">
+        <h2>Get support with your student essentials</h2>
+        <br>
+        <p>
+         Tell us what you need, and we'll help you get it sorted
+        </p>
+      </div>
+<br>
+<br>
+      <div class="form-fields">
+
+        <div class="input-group">
+          <label>First name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Last name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Email address*</label>
+          <input type="email">
+        </div>
+
+        <div class="input-group">
+          <label>Mobile number*</label>
+          <div class="phone-box">
+            <input type="text" class="country-code" value="+92">
+            <input type="text" class="phone-input" placeholder="Enter number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your preferred study destination*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>UK</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>USA</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+            <option>Malaysia</option>
+          </select>
+        </div>
+
+        
+
+        <div class="form-group">
+          <label>Nearest DN Office*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Lahore</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+          </select>
+        </div>
+
+        
+        
+
+        
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>I agree to Terms & Policy*</span>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>Contact me via phone/email*</span>
+        </div>
+
+        <button class="submit-btn">Enquire now</button>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="image-container">
+      <img src="form4.jpg" >
+    </div>
+
+  </div>
+
+</section>
+
+<br>
+<br>
+<br>
+
+
+<section class="banking-features">
+
+    <!-- BOX 1 -->
+    <div class="feature-box">
+        <div class="icon">🖥️</div>
+        <h2>Getting prepared</h2>
+        <p>
+            Set up your finances before arrival to make your student life easier abroad.
+        </p>
+    </div>
+
+    <!-- BOX 2 -->
+    <div class="feature-box">
+        <div class="icon">🔖</div>
+        <h2>Reputable brands</h2>
+        <p>
+            Trusted banking partners offering services specially designed for international students.
+        </p>
+    </div>
+
+    <!-- BOX 3 -->
+    <div class="feature-box">
+        <div class="icon">⭐</div>
+        <h2>Service Excellence</h2>
+        <p>
+            Enjoy secure online banking, mobile apps, and 24/7 customer support anytime.
+        </p>
+    </div>
+
+</section>
+
+
+<script>
+document.querySelector('.submit-btn').addEventListener('click', async (e) => {
+    e.preventDefault(); // prevent any default
+    
+    // Get all fields
+    const inputs = document.querySelectorAll('.input-group input');
+    const firstName = inputs[0]?.value.trim() || '';
+    const lastName = inputs[1]?.value.trim() || '';
+    const email = inputs[2]?.value.trim() || '';
+    const phone = document.querySelector('.phone-input')?.value.trim() || '';
+    const selects = document.querySelectorAll('.select-box');
+    const destination = selects[0]?.value || '';
+    const nearestOffice = selects[1]?.value || '';
+    const checkboxes = document.querySelectorAll('.checkbox-group input');
+    const termsAccepted = checkboxes[0]?.checked || false;
+    const contactConsent = checkboxes[1]?.checked || false;
+    
+    // Validation
+    let errors = [];
+    if (!firstName) errors.push('First name is required');
+    if (!lastName) errors.push('Last name is required');
+    if (!email) errors.push('Email is required');
+    else if (!/^\S+@\S+\.\S+$/.test(email)) errors.push('Enter a valid email address');
+    if (!phone) errors.push('Mobile number is required');
+    if (!destination || destination === 'Select') errors.push('Please select a study destination');
+    if (!nearestOffice || nearestOffice === 'Select') errors.push('Please select nearest DN office');
+    if (!termsAccepted) errors.push('You must agree to Terms & Policy');
+    if (!contactConsent) errors.push('You must consent to be contacted');
+    
+    if (errors.length > 0) {
+        alert('❌ Please fix the following:\n- ' + errors.join('\n- '));
+        return;
+    }
+    
+    const data = {
+        firstName, lastName, email, phone, destination,
+        nearestOffice, termsAccepted, contactConsent,
+        formType: 'banking' // change per page
+    };
+    
+    try {
+        const res = await fetch('/api/student-inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+            alert('✅ ' + result.message);
+            // Clear form
+            inputs.forEach(inp => inp.value = '');
+            document.querySelector('.phone-input').value = '';
+            selects.forEach(sel => sel.selectedIndex = 0);
+            checkboxes.forEach(cb => cb.checked = false);
+        } else {
+            alert('❌ Error: ' + (result.error || 'Submission failed'));
+        }
+    } catch (err) {
+        alert('❌ Network error. Please try again.');
+    }
+});
+</script>
+</body>
+</html>
+
+</body>
+</html>

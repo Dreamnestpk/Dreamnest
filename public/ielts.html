@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IELTS Preparation</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+/* MAIN SECTION */
+
+.ielts-section{
+    width:90%;
+    max-width:1200px;
+    margin:50px auto;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+    gap:25px;
+}
+
+/* HEADER */
+
+.ielts-header{
+    grid-column:1/-1;
+    text-align:center;
+    background:linear-gradient(135deg,#999);
+    color:white;
+    padding:50px;
+    border-radius:15px;
+}
+
+.ielts-header h1{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.ielts-header p{
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+/* CARDS */
+
+.ielts-card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.ielts-card:hover{
+    transform:translateY(-5px);
+}
+
+.ielts-card h2{
+    margin-bottom:15px;
+    color:#222;
+}
+
+.ielts-card p{
+    color:#555;
+    line-height:1.8;
+}
+
+.full-width{
+    grid-column:1/-1;
+}
+
+/* TABLE */
+
+.ielts-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+}
+
+.ielts-table th,
+.ielts-table td{
+    border:1px solid #ddd;
+    padding:12px;
+    text-align:center;
+}
+
+.ielts-table th{
+    background:#999;
+    color:white;
+}
+
+.ielts-table tr:nth-child(even){
+    background:#f5f5f5;
+}
+
+/* MODULES */
+
+.ielts-card ul{
+    padding-left:20px;
+    line-height:2;
+}
+
+/* COACHING */
+
+.highlight{
+    border-left:5px solid #999;
+    grid-column:1/-1;
+    width:100%;
+}
+.features-list{
+    margin-top:20px;
+}
+
+.features-list p{
+    margin:10px 0;
+}
+
+.highlight button{
+    margin-top:20px;
+    background:#999;
+    border:none;
+    padding:12px 30px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.highlight button:hover{
+    background:#999;
+}
+
+.highlight button a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* STATS */
+
+.stats-card{
+    grid-column:1/-1;
+    text-align:center;
+}
+
+.stats-box{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:20px;
+    margin-top:20px;
+}
+
+.stat{
+    background:#f8f9ff;
+    padding:25px;
+    border-radius:12px;
+    border:1px solid #e5e5e5;
+}
+
+.stat h3{
+    color:black;
+    font-size:35px;
+    margin-bottom:10px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.ielts-section{
+    grid-template-columns:1fr;
+}
+
+.ielts-header h1{
+    font-size:32px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<section class="ielts-section">
+
+    <!-- HEADER -->
+
+    <div class="ielts-header">
+        <h1>Achieve Your Dream IELTS Score</h1>
+
+        <p>
+            Expert coaching, personalized study plans, mock exams,
+            and one-to-one guidance to help you achieve your target
+            band score and study abroad with confidence.
+        </p>
+    </div>
+
+    <!-- WHAT IS IELTS -->
+
+    <div class="ielts-card">
+        <h2>What is IELTS?</h2>
+
+        <p>
+            IELTS (International English Language Testing System)
+            is one of the world's most recognized English language
+            proficiency tests accepted by universities and immigration
+            authorities worldwide.
+        </p>
+    </div>
+
+    <!-- MODULES -->
+
+    <div class="ielts-card">
+        <h2>IELTS Test Modules</h2>
+
+        <ul>
+            <li>🎧 Listening</li>
+            <li>📖 Reading</li>
+            <li>✍ Writing</li>
+            <li>🎤 Speaking</li>
+        </ul>
+    </div>
+
+
+    <div class="ielts-card">
+
+    <h2>Why Choose IELTS?</h2>
+
+    <ul>
+        <li>🌍 Accepted in 140+ Countries</li>
+        <li>🎓 Required by Top Universities</li>
+        <li>💼 Helpful for Work & Migration</li>
+        <li>📈 Improves English Skills</li>
+        <li>🚀 Opens Global Opportunities</li>
+    </ul>
+
+</div>
+    <!-- TABLE -->
+
+    <div class="ielts-card full-width">
+
+        <h2>IELTS Requirements by Country & University</h2>
+
+        <table class="ielts-table">
+
+            <tr>
+                <th>Country</th>
+                <th>University Type</th>
+                <th>Minimum Band</th>
+                <th>Popular Programs</th>
+            </tr>
+
+            <tr>
+                <td>UK</td>
+                <td>Top Universities</td>
+                <td>7.0 – 7.5</td>
+                <td>Business, Engineering</td>
+            </tr>
+
+            <tr>
+                <td>USA</td>
+                <td>Public & Private</td>
+                <td>6.5 – 7.0</td>
+                <td>IT, MBA</td>
+            </tr>
+
+            <tr>
+                <td>Canada</td>
+                <td>Colleges & Universities</td>
+                <td>6.0 – 6.5</td>
+                <td>Diploma, Nursing</td>
+            </tr>
+
+            <tr>
+                <td>Australia</td>
+                <td>Group of 8</td>
+                <td>6.5 – 7.0</td>
+                <td>Engineering</td>
+            </tr>
+
+        </table>
+
+    </div>
+
+    <!-- COACHING -->
+
+    <div class="ielts-card highlight">
+
+        <h2>Our IELTS Coaching</h2>
+
+        <p>
+            Our comprehensive IELTS preparation program helps students
+            achieve their desired band score through expert instruction,
+            mock exams, speaking practice and personalized study plans.
+        </p>
+
+        <div class="features-list">
+            <p>✔ Certified IELTS Trainers</p>
+            <p>✔ Weekly Mock Tests</p>
+            <p>✔ Speaking Practice Sessions</p>
+            <p>✔ Writing Task Evaluation</p>
+            <p>✔ Personalized Study Plans</p>
+            <p>✔ One-to-One Student Support</p>
+            <p>✔ Study Abroad Counseling</p>
+        </div>
+
+        <button>
+            <a href="enroll.html">Enroll Now</a>
+        </button>
+
+    </div>
+
+    <!-- SUCCESS RECORD -->
+
+    <div class="ielts-card stats-card">
+
+        <h2>Our Success Record</h2>
+
+        <div class="stats-box">
+
+            <div class="stat">
+                <h3>5000+</h3>
+                <p>Students Trained</p>
+            </div>
+
+            <div class="stat">
+                <h3>95%</h3>
+                <p>Success Rate</p>
+            </div>
+
+            <div class="stat">
+                <h3>8.5</h3>
+                <p>Highest Band Score</p>
+            </div>
+
+            <div class="stat">
+                <h3>10+</h3>
+                <p>Years Experience</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+</html>

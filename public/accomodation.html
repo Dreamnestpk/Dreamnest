@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Accodomation for International Students</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f3f3f3;
+    overflow-x:hidden;
+}
+
+
+/* Hero Section */
+.hero{
+    height: 550px;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    
+    /* Background Image */
+   background-image: url("acc.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* Overlay (optional for readability) */
+.hero::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.4);
+}
+    
+/* Text Content */
+.hero-content{
+    position: relative;
+    max-width: 500px;
+    color: #fff;
+}
+
+.hero-content h1{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-content p{
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* SECTION */
+
+.accommodation-section{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+    padding:60px 7%;
+    flex-wrap:wrap;
+}
+
+/* TEXT */
+
+.accommodation-text{
+    flex:1;
+    min-width:300px;
+}
+
+.accommodation-text h1{
+    font-size:40px;
+    line-height:1.1;
+    color:#14213d;
+    margin-bottom:25px;
+    font-weight:bold;
+}
+
+.line{
+    width:65px;
+    height:6px;
+    background:#d97706;
+    border-radius:10px;
+    margin-bottom:30px;
+}
+
+.accommodation-text p{
+    font-size:20px;
+    line-height:1.8;
+    color:#333;
+    max-width:700px;
+}
+
+/* IMAGE */
+
+.accommodation-image{
+    flex:1;
+    display:flex;
+    justify-content:center;
+    min-width:300px;
+}
+
+.accommodation-image img{
+    width:100%;
+    max-width:550px;
+    height:auto;
+    border-radius:20px;
+    object-fit:cover;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:991px){
+
+    .accommodation-section{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .line{
+        margin:auto;
+        margin-bottom:25px;
+    }
+
+    .accommodation-text h1{
+        font-size:45px;
+    }
+
+    .accommodation-text p{
+        font-size:18px;
+    }
+
+    .accommodation-image img{
+        max-width:100%;
+    }
+}
+
+
+/* MAIN SECTION */
+.form-section {
+  background: #cfe0e5;
+  padding: 60px;
+  max-width: 100%;
+  margin: auto;
+}
+    
+    
+
+/* FLEX LAYOUT */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.form-content {
+  width: 60%;
+}
+
+/* RIGHT SIDE */
+.image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.image-container img {
+  width: 90%;
+  max-width: 400px;
+  
+}
+
+.form-box p{
+  color: #555;
+}
+/* FORM */
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+.phone-box {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  width: 70px;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* DROPDOWN */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+    
+
+
+
+.section {
+      width: 100%;
+      text-align: center;
+    background-color: #e3e0e0;
+      
+    }
+
+    .section h2 {
+      color: #0056a6;
+      margin-bottom: 40px;
+      font-size: 28px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #ffffff;
+      flex: 1 1 300px;
+      padding: 25px;
+      border-radius: 12px;
+      
+      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      text-align: left;
+    }
+
+    .card h3 {
+      color: #0056a6;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 15px;
+      line-height: 1.5;
+    }
+
+    .btn {
+      margin-top: 30px;
+      background-color: #28a745;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+ </style>
+</head>
+
+<body>
+
+    <section class="hero">
+    <div class="hero-content">
+        <h1>Accomodation For International Students</h1>
+        <p>Find safe and comfortable student accommodation near your university with affordable living options.
+Choose from shared apartments, student hostels, or private rooms designed for international students.</p>
+        
+    </div>
+</section>  
+
+
+
+       <section class="accommodation-section">
+
+    <!-- TEXT -->
+    <div class="accommodation-text">
+
+        <h1>
+       Find your home away from home</h1>
+     
+        <div class="line"></div>
+
+        <p>
+            Finding the right place to live can make all the difference. We’ll help you discover the perfect student space to make you feel comfortable and at home, no matter where you are.
+            
+        </p>
+
+    </div>
+
+    <!-- IMAGE -->
+    <div class="accommodation-image">
+
+        <img src="acco.jpg"
+
+    </div>
+
+</section>
+
+<section class="form-section">
+
+  <div class="form-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="form-content">
+
+      <div class="form-box">
+        <h2>Get support with your student essentials</h2>
+        
+        <p>
+         Tell us what you need, and we'll help you get it sorted
+        </p>
+      </div>
+<br>
+<br>
+      <div class="form-fields">
+
+        <div class="input-group">
+          <label>First name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Last name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Email address*</label>
+          <input type="email">
+        </div>
+
+        <div class="input-group">
+          <label>Mobile number*</label>
+          <div class="phone-box">
+            <input type="text" class="country-code" value="+92">
+            <input type="text" class="phone-input" placeholder="Enter number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your preferred study destination*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>UK</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>USA</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+             <option>Malaysia</option>
+          </select>
+        </div>
+
+        
+
+        <div class="form-group">
+          <label>Nearest DN Office*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Lahore</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+          </select>
+        </div>
+
+        
+        
+
+        
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>I agree to Terms & Policy*</span>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>Contact me via phone/email*</span>
+        </div>
+
+        <button class="submit-btn">Enquire now</button>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="image-container">
+      <img src="form4.jpg" >
+    </div>
+
+  </div>
+
+</section>
+
+<br>
+<br>
+<br>
+
+
+<div class="section">
+    <br>
+    <h2>Choosing what's right for you</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Student Apartments</h3>
+        <p>Purpose built for students with social spaces, networking activities, and all inclusive rates. Conveniently located near universities, public transport and amenities to make settling in easier.</p>
+      </div>
+      <div class="card">
+        <h3>Student Homestay</h3>
+        <p>Live with a host family and immerse yourself in the local culture. Our partners will build your profile and match you with the family who suits you best.</p>
+      </div>
+      <div class="card">
+        <h3>Private Rentals</h3>
+        <p>Suited for families and students looking for flexibility and independence. You’ll dive straight into living like a local.</p>
+      </div>
+    </div>
+    <br>
+    <br>
+  </div>
+
+
+  <script>
+document.querySelector('.submit-btn').addEventListener('click', async (e) => {
+    e.preventDefault(); // prevent any default
+    
+    // Get all fields
+    const inputs = document.querySelectorAll('.input-group input');
+    const firstName = inputs[0]?.value.trim() || '';
+    const lastName = inputs[1]?.value.trim() || '';
+    const email = inputs[2]?.value.trim() || '';
+    const phone = document.querySelector('.phone-input')?.value.trim() || '';
+    const selects = document.querySelectorAll('.select-box');
+    const destination = selects[0]?.value || '';
+    const nearestOffice = selects[1]?.value || '';
+    const checkboxes = document.querySelectorAll('.checkbox-group input');
+    const termsAccepted = checkboxes[0]?.checked || false;
+    const contactConsent = checkboxes[1]?.checked || false;
+    
+    // Validation
+    let errors = [];
+    if (!firstName) errors.push('First name is required');
+    if (!lastName) errors.push('Last name is required');
+    if (!email) errors.push('Email is required');
+    else if (!/^\S+@\S+\.\S+$/.test(email)) errors.push('Enter a valid email address');
+    if (!phone) errors.push('Mobile number is required');
+    if (!destination || destination === 'Select') errors.push('Please select a study destination');
+    if (!nearestOffice || nearestOffice === 'Select') errors.push('Please select nearest DN office');
+    if (!termsAccepted) errors.push('You must agree to Terms & Policy');
+    if (!contactConsent) errors.push('You must consent to be contacted');
+    
+    if (errors.length > 0) {
+        alert('❌ Please fix the following:\n- ' + errors.join('\n- '));
+        return;
+    }
+    
+    const data = {
+        firstName, lastName, email, phone, destination,
+        nearestOffice, termsAccepted, contactConsent,
+        formType: 'accommodation' // change per page
+    };s
+    
+    try {
+        const res = await fetch('/api/student-inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+            alert('✅ ' + result.message);
+            // Clear form
+            inputs.forEach(inp => inp.value = '');
+            document.querySelector('.phone-input').value = '';
+            selects.forEach(sel => sel.selectedIndex = 0);
+            checkboxes.forEach(cb => cb.checked = false);
+        } else {
+            alert('❌ Error: ' + (result.error || 'Submission failed'));
+        }
+    } catch (err) {
+        alert('❌ Network error. Please try again.');
+    }
+});
+</script>
+</body>
+</html>

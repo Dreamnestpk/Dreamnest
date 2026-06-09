@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDP Clone</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+background: linear-gradient(to right,#eef2f3, #dfe9f3);
+}
+/* NAVBAR */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 20px;
+    background:#fff;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo{
+    font-size:22px;
+    font-weight:bold;
+    
+}
+
+
+.icons{
+    display:flex;
+    gap:15px;
+    font-size:20px;
+}
+
+/* HERO SECTION */
+.hero{
+    position:relative;
+    width:100%;
+    height:500px;
+    background:url(nzz.jpg);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/* overlay */
+.hero::before{
+    content:"";
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.4);
+}
+
+/* content */
+.hero-content{
+    position:relative;
+    color:#fff;
+    text-align:center;
+    padding:20px;
+}
+
+.hero-content h1{
+    font-size:26px;
+    line-height:1.3;
+    margin-bottom:15px;
+}
+
+/* button */
+.btn{
+    background:#1976d2;
+    color:#fff;
+    padding:12px 25px;
+    border:none;
+    border-radius:25px;
+    font-size:16px;
+    cursor:pointer;
+}
+
+
+/* TOP LINKS */
+
+.top-links{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:15px;
+    background:white;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.top-links a{
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.top-links a:hover{
+    color:#0c8b6c;
+}
+
+
+/* CARD */
+.card{
+    margin-top:20px;
+    position:relative;
+}
+
+.card img{
+    width:100%;
+    border-radius:15px;
+}
+
+/* Floating Buttons Container */
+.floating-container{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:9999;
+}
+
+/* Help Button */
+.help-btn{
+    background:#0b9b73;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;      /* Width & Height reduced */
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.help-btn:hover{
+    background:#087a5a;
+    transform:translateY(-2px);
+}
+
+/* Call Button */
+.call-btn{
+    width:50px;            /* Reduced size */
+    height:50px;
+    border-radius:50%;
+    background:#222;
+    color:#ff2d2d;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    animation:ring 1.5s infinite;
+    transition:0.3s;
+}
+
+.call-btn:hover{
+    transform:scale(1.08);
+}
+
+/* Ring Animation */
+@keyframes ring{
+    0%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0.35);
+    }
+    70%{
+        box-shadow:0 0 0 8px rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .help-btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .call-btn{
+        width:38px;
+        height:38px;
+        font-size:18px;
+    }
+
+}
+
+
+
+
+
+/* Container */
+.container {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Main Image */
+.main-img img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Small Images */
+.small-imgs {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.small-imgs img {
+  width: 50%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Text */
+.text {
+  margin-top: 18px;
+}
+
+.text h2 {
+  font-size: 20px;
+  color: #333;
+}
+.text h3{
+  font-size: 15px;
+  color: #333;
+}
+
+.text p {
+  color:#777;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.btn {
+  background: #0c8b6c;
+  color: white;
+  padding: 12px 18px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+
+
+table-container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 18px;
+  color: #535252;
+  text-align: left;
+  font-size: 16px;
+}
+
+th {
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  th, td {
+    font-size: 14px;
+    padding: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar">
+    <div class="logo">DREAM NEST</div>
+    
+    
+</div>
+
+    <!-- HERO SECTION -->
+<div class="hero">
+    <div class="hero-content">
+        <h1>
+            Study in New Zealand: Seeking a world-class education within a safe and beautiful environment? Consider New Zealand as your ideal study destination!
+</h1>
+<br>
+        <a class="btn active" href="start applying.html">
+  Start Applying
+</a>
+        </div>
+</div>
+
+<!-- TOP LINKS -->
+
+<div class="top-links">
+
+    <a href="#education">Educational excellence and quality assurance</a>
+
+    <a href="#learning">Innovation-fueled learning</a>
+
+    <a href="#future">Glimpse into the future</a>
+
+    <a href="#opportunities">Opportunities beyond the classroom</a>
+
+    
+
+</div>
+<br>
+
+<div class="container">
+
+  <!-- Main Image -->
+  <div class="main-img">
+    <img src="nz1.jpg">
+  </div>
+
+  <!-- Small Images -->
+  <div class="small-imgs">
+    <img src= "nz2.jpg">
+    <img src="nz3.jpg">
+  </div>
+
+  <!-- Text -->
+  <div class="text">
+    <h2>Embracing natural beauty and academic excellence</h2>
+    <br>
+    <p>Studying in New Zealand is not just an academic journey; it's an immersive experience in a land renowned for its breathtaking landscapes. With its moniker "Land of the Long White Cloud," New Zealand boasts natural wonders that seamlessly blend with its world-class education offerings.</p>
+  </div>
+<br>
+ 
+<!-- EDUCATION -->
+  <div class="text">
+    <h2 id="education">
+    Educational excellence and quality assurance</h2>
+    <br>
+    <p>When you choose New Zealand as your study destination, you're opting for educational institutions that uphold the highest standards. The country's universities adhere to global benchmarks, subject to regular governmental evaluation, ensuring unwavering quality across the board. This commitment to excellence guarantees a consistent, top-tier education experience regardless of your chosen institution.</p>
+  </div>
+    <br>
+
+   <!-- LEARNING -->
+  <div class="text">
+    <h2 id="learning">
+    Innovation-fueled learning</h2>
+    <br>
+    <p>New Zealand's education system bridges the gap between tradition and innovation. It marries time-tested teaching principles with cutting-edge technology and methods. This unique approach results in internationally recognised qualifications, setting graduates up for success on the global stage. The evidence of this commitment is apparent in the QS World University Rankings 2022, where all eight universities in New Zealand secured spots in the top 450.</p>
+  </div>
+    <br>
+
+    <!-- Text -->
+  <div class="text">
+    <h2>A welcoming haven for international students</h2>
+    <br>
+    <p>New Zealand's vibrant student cities offer a warm and diverse environment that embraces students from around the world. The nation's friendly atmosphere and multicultural ambiance create a home away from home for international scholars. Whether you're exploring the urban charm of Auckland, the cultural richness of Wellington, or the scenic beauty of Christchurch, you'll find a welcoming community awaiting your arrival. </p>
+  </div>
+    <br>
+
+    <!-- OPPORTUNITIES -->
+  <div class="text">
+    <h2 id="opportunities">
+    Opportunities beyond the classroom</h2>
+    <br>
+    <p>Studying in New Zealand is more than lectures and exams; it's about holistic growth. The country provides a conducive environment for personal and cultural development. Engage in outdoor activities like hiking, surfing, or exploring its famous film locations. Delve into the indigenous Maori culture and experience the warmth of its traditions. These experiences not only enrich your education but also shape you into a global citizen.</p>
+   </div>
+    <br>
+
+    <!-- FUTURE -->
+  <div class="text">
+    <h2 id="future">
+    A glimpse into the future</h2>
+    <br>
+    <p>As you step into New Zealand, you're setting foot in a land that intertwines educational prowess with natural grandeur. The fusion of academic brilliance, technological innovation, and breathtaking landscapes makes New Zealand a study destination unlike any other. Whether you're seeking academic excellence, personal growth, or a blend of both, New Zealand promises an education that transforms and prepares you for a promising future.</p>
+  <br>
+  <p>In summary, New Zealand's charm extends beyond its stunning landscapes – it lies in its commitment to education excellence, innovation-driven teaching, and multicultural inclusivity. Choosing to study in New Zealand is an investment in not only your academic growth but also your personal development and future success.</p>
+</div>
+<br>
+ <!-- Your Website Content -->
+
+<div class="floating-container">
+
+    <!-- Help Button -->
+    <a href="contact.html" class="help-btn">
+        Help me study abroad
+    </a>
+
+    <!-- Call Button -->
+    <a href="tel:+923001234567" class="call-btn">
+        📞
+    </a>
+
+</div>
+
+</div>
+    
+</body>
+</html>
+
+

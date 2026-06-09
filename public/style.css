@@ -1,0 +1,779 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  background: linear-gradient(to right,#eef2f3, #dfe9f3);
+}
+
+
+  .navbar {
+  display: flex;
+  justify-content: space-between; /* left + right */
+  align-items: center;
+  padding: 15px 30px;
+  background: #fff;
+}
+
+/* logo + text */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 50px;
+  height: auto;
+}
+
+.logo span {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+.icons {
+  display: flex;
+  gap: 15px;
+}
+
+
+
+.icon a {
+  color: black;
+  text-decoration: none;
+}
+
+.icon a:hover {
+  color: white; /* agar hover effect use kar rahi ho */
+}
+.icon {
+  width: 42px;
+  height: 42px;
+  border: 2px solid black;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+
+/* hover effect (professional touch) */
+.icon:hover {
+  background-color: #cfe0e5;
+}
+
+
+ 
+.img {
+  width: 100%;
+  height:400px;
+  object-fit: cover;
+}
+
+.tabs{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.tabs button{
+    padding: 12px 28px;
+    border: none;
+    border-radius: 30px;
+    background-color: #2b6cb0;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.tabs button a{
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Arial, sans-serif;
+}
+
+.tabs button:hover{
+    background-color: #2b6cb0;
+    transform: translateY(-3px);
+}
+
+.tabs button:hover a{
+    color: white;
+}
+
+.tabs .active{
+    background-color: #2b6cb0;
+}
+
+.tabs .active a{
+    color: white;
+}
+
+ 
+/* Floating Buttons Container */
+.floating-container{
+    position:fixed;
+    bottom:18px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    align-items:center;
+    gap:8px;
+    z-index:9999;
+}
+
+/* Help Button */
+.help-btn{
+    background:#0b9b73;
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;      /* Width & Height reduced */
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    transition:0.3s;
+}
+
+.help-btn:hover{
+    background:#087a5a;
+    transform:translateY(-2px);
+}
+
+/* Call Button */
+.call-btn{
+    width:50px;            /* Reduced size */
+    height:50px;
+    border-radius:50%;
+    background:#222;
+    color:#ff2d2d;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.25);
+    animation:ring 1.5s infinite;
+    transition:0.3s;
+}
+
+.call-btn:hover{
+    transform:scale(1.08);
+}
+
+/* Ring Animation */
+@keyframes ring{
+    0%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0.35);
+    }
+    70%{
+        box-shadow:0 0 0 8px rgba(0,0,0,0);
+    }
+    100%{
+        box-shadow:0 0 0 0 rgba(0,0,0,0);
+    }
+}
+
+/* Mobile */
+@media (max-width:600px){
+
+    .help-btn{
+        padding:7px 14px;
+        font-size:13px;
+    }
+
+    .call-btn{
+        width:38px;
+        height:38px;
+        font-size:18px;
+    }
+
+}
+
+
+
+
+
+
+ 
+    
+   
+ 
+.slider-section{
+  background-color: #cfe0e5;
+  padding: 40px 20px;
+}
+.section-heading {
+  text-align:left;
+  margin-left: 30px;
+  font-size: 28px;
+  
+}
+
+/* Slider Container */
+.card-slider {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+}
+.line1 {
+  width: 40px;
+  height: 5px;
+  background: orange;
+  margin-left: 0;
+  border-radius: 5px;
+}
+
+/* Hide Scrollbar */
+.card-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* All Cards Same Style */
+.card-slider div {
+  flex: 0 0 100%;   /* Mobile = 1 card */
+  max-width: 100%;
+  background: #fff;
+  border-radius: 15px;
+  border: 1px solid #ccc;
+  padding: 20px;
+  scroll-snap-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+/* Card Text */
+.card-slider h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-slider p {
+  font-size: 14px;
+  color: #555;
+}
+
+
+  .card-slider div {
+    flex: 0 0 30%;  /* 6 cards in row */
+  }
+
+.card h3{
+  font-weight: bold;
+}
+.card p {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+/* =====Second FORM  ===== */
+
+/* MAIN SECTION */
+.form-section-2 {
+  background: #cfe0e5;
+  padding: 60px;
+  max-width: 100%;
+  margin: auto;
+}
+    
+   /* Orange line under only one word */
+.underline-word {
+  position: relative;
+  display: inline-block;
+}
+
+.underline-word::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 4px;
+  background: orange;
+  border-radius: 2px;
+}
+
+/* FLEX LAYOUT */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.form-content {
+  width: 60%;
+}
+
+/* RIGHT SIDE */
+.image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 90%;
+  max-width: 400px;
+}
+
+/* FORM */
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+.phone-box {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  width: 70px;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* DROPDOWN */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+    
+
+
+
+
+
+ /* ===== Dream Destination Section ONLY ===== */
+
+.container {
+  padding: 20px;
+}
+.h2 {
+  font-size: 20px;
+  margin-left: 30px;
+}
+.title{
+  margin-left: 20px;   /* aap 20px ko 30px ya 40px bhi kar sakti hain */
+}
+
+
+.line2 {
+  width: 40px;
+  height: 5px;
+  background: orange;
+  margin-left: 30px;
+  border-radius: 5px;
+}
+p {
+  color: black;
+  margin-left: 30px;
+}
+
+/* Vertical grid layout */
+.dd-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+/* Card */
+.dd-card {
+  width: 260px;
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Image box */
+.img-box {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+  transition: 0.3s ease;
+}
+
+/* Image */
+.img-box img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+  transition: 0.4s ease;
+}
+
+/* Country name on image */
+.img-box h3 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  padding: 12px;
+  font-size: 18px;
+  text-align: center;
+  color: #fff;
+  background: rgba(0,0,0,0.55);
+}
+
+/* Section Styling */
+.services-section {
+    padding: 40px;
+    background-color: #cedee0;
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.services-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Only first word styling */
+.title-line {
+    position: relative;
+    display: inline-block;
+}
+
+/* Orange line only under "Explore" */
+.title-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background: orange;
+    border-radius: 2px;
+}
+
+/* Vertical Cards Container */
+.cards-container {
+    display: flex;
+    flex-direction: column; /* makes cards vertical */
+    gap: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Card Design */
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Text */
+.card h2 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Link */
+.card a {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
+
+
+
+/* FOOTER */
+.footer{
+  background:rgb(53, 52, 52);
+  color: white;
+  padding: 70px 80px 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://www.transparenttextures.com/patterns/cubes.png');
+  opacity: 0.08;
+}
+
+.footer-container{
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+/* FOOTER COLUMN */
+.footer-col{
+  flex: 1;
+  min-width: 220px;
+}
+
+.logo{
+  font-size: 52px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.logo span{
+  display: block;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.footer-text{
+  margin-top: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #e5e5e5;
+}
+
+
+  
+
+/* HEADINGS */
+.footer-col h2{
+  margin-bottom: 25px;
+  font-size: 25px;
+}
+
+/* CONTACT INFO */
+.contact-item{
+  display: flex;
+  gap: 15px;
+  margin-bottom: 22px;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.contact-item i{
+  margin-top: 5px;
+}
+
+/* LINKS */
+.footer-links{
+  list-style: none;
+}
+
+.footer-links li{
+  margin-bottom: 18px;
+}
+
+.footer-links a{
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.footer-links a:hover{
+  padding-left: 8px;
+}
+
+/* BOTTOM BAR */
+.footer-bottom{
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-top: 50px;
+  padding-top: 25px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 20px;
+}
+
+.footer-bottom span{
+  font-weight: bold;
+}
+
+/* RESPONSIVE */
+@media(max-width: 992px){
+
+  .footer{
+    padding: 60px 30px 30px;
+  }
+
+  .footer-container{
+    flex-direction: column;
+  }
+
+  .footer-col h2{
+    font-size: 25px;
+  }
+
+}
+/* Slider container relative positioning */
+/* ===== SLIDER WITH TEXT OVERLAY ===== */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Dark Overlay */
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Text Content Box */
+.slide-content {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.slide-content .tagline {
+    font-size: 18px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: #ffd700;
+    font-weight: 500;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.slide-content h1 {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.slide-content h2 {
+    font-size: 42px;
+    font-weight: 400;
+    margin-bottom: 20px;
+    color: #ffd700;
+}
+
+.slide-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #eee;
+}
+
+.explore-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: #ffd700;
+    color: #1a1a2e;
+    text-decoration: none;
+    font-weight: bold;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.explore-btn:hover {
+    background: #ffc107;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .slider { height: 500px; }
+    .slide-content h1 { font-size: 36px; }
+    .slide-content h2 { font-size: 24px; }
+    .slide-content p { font-size: 14px; }
+    .slide-content .tagline { font-size: 12px; letter-spacing: 2px; }
+    .explore-btn { padding: 10px 25px; font-size: 14px; }
+}

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Health Insurance</title>
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f7fb;
+}
+
+/* Hero Section */
+.hero{
+    height: 550px;
+    display: flex;
+    align-items: center;
+    padding: 0 80px;
+    
+    /* Background Image */
+   background-image: url("health.jpg"); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    position: relative;
+}
+
+/* Overlay (optional for readability) */
+.hero::before{
+    content: "";
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.4);
+}
+
+/* Text Content */
+.hero-content{
+    position: relative;
+    max-width: 500px;
+    color: #fff;
+}
+
+.hero-content h1{
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.hero-content p{
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+.container{
+  padding:80px 10%;
+  text-align:center;
+}
+
+h1{
+  font-size:40px;
+  color:white;
+  margin-bottom:20px;
+}
+
+p{
+  font-size:18px;
+  color:white;
+  max-width:700px;
+  margin:0 auto;
+  line-height:1.6;
+}
+
+
+.card{
+      width:50%;
+      background:#fff;
+      border-radius:25px;
+      overflow:hidden;
+      box-shadow:0 10px 25px rgba(0,0,0,0.12);
+      transition:0.4s;
+      margin: auto;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .top{
+      background:white;
+      color:black;
+      padding:35px 25px;
+      position:relative;
+    }
+
+    
+
+    .top h2{
+      font-size:32px;
+      margin-bottom:12px;
+    }
+
+    .top p{
+      line-height:1.7;
+      font-size:15px;
+      opacity:0.95;
+      color: black;
+    }
+
+    .content{
+      padding:25px;
+    }
+
+    .info-box{
+      background:#f1f6ff;
+      padding:14px;
+      border-radius:14px;
+      margin-bottom:12px;
+      transition:0.3s;
+    }
+
+    .info-box:hover{
+      background:#dbeafe;
+      transform:translateX(5px);
+    }
+
+    .info-box h4{
+      color:#0b3d91;
+      margin-bottom:5px;
+      font-size:16px;
+    }
+
+    .info-box p{
+      color:#555;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* MAIN SECTION */
+.form-section {
+  background: #cfe0e5;
+  padding: 60px;
+  max-width: 100%;
+  margin: auto;
+}
+    
+    
+
+/* FLEX LAYOUT */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.form-content {
+  width: 60%;
+}
+
+/* RIGHT SIDE */
+.image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  
+}
+
+.image-container img {
+  width: 90%;
+  max-width: 400px;
+  
+}
+
+.form-box p{
+  color: #555;
+}
+/* FORM */
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+.phone-box {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  width: 70px;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* DROPDOWN */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+    
+
+
+    
+/* ── WHY SECTION ── */
+  .why-section {
+    display: flex;
+    align-items: stretch;
+    min-height: 300px;
+    background: #f0f2f5;
+  }
+
+  /* LEFT — heading + paragraph */
+  .why-left {
+    background: #999;
+    clip-path: polygon(0 0, 90% 0, 100% 100%, 0 100%);
+    width: 48%;
+    padding: 60px 80px 60px 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .why-left h2 {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+
+  .why-left p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+
+  /* RIGHT — 2x2 icon grid */
+  .why-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    padding: 32px 48px;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .icon-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 8px;
+  }
+
+  .icon-wrap svg {
+    width: 54px;
+    height: 54px;
+    fill: none;
+    stroke: rgb(59, 59, 207);
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .icon-card span {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    line-height: 1.3;
+  }
+
+
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .why-section { flex-direction: column; }
+    .why-left { width: 100%; clip-path: none; padding: 36px 24px; }
+    .why-right { padding: 24px 16px; }
+    .easy-section { flex-direction: column; }
+    .photo-card { width: 100%; }
+  }
+</style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div class="hero-content">
+        <h1>Health Insurance For International Students</h1>
+        <p>
+           It provides medical coverage during studies abroad, including doctor visits, hospital treatment, and emergency care. It helps students stay safe and financially protected while focusing on their education.
+    </p>
+        
+    </div>
+</section>
+<br>
+<br>
+
+<div class="card">
+
+    <div class="top">
+
+      
+
+      <h2>Health Insurance</h2>
+
+      <p>
+        Protect yourself while studying abroad with trusted health
+        insurance plans specially designed for international students.
+      </p>
+
+    </div>
+
+    <div class="content">
+
+      <div class="info-box">
+        <h4>🏥 Medical Coverage</h4>
+        <p>
+          Covers hospital treatment, doctor visits, and emergency care.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h4>🌍 Worldwide Protection</h4>
+        <p>
+          Get coverage in top study destinations including UK, USA, Canada, and Australia.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h4>📞 24/7 Student Support</h4>
+        <p>
+          Dedicated support team available anytime for international students.
+        </p>
+      </div>
+
+      <div class="info-box">
+        <h4>✈ Travel & Accident Safety</h4>
+        <p>
+          Stay protected during travel delays, accidents, and emergencies abroad.
+        </p>
+      </div>
+
+      
+
+    </div>
+
+  </div>
+<br>
+
+  <section class="form-section">
+
+  <div class="form-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="form-content">
+
+      <div class="form-box">
+        <h2>Get support with your student essentials</h2>
+        
+        <p>
+         Tell us what you need, and we'll help you get it sorted
+        </p>
+      </div>
+<br>
+<br>
+      <div class="form-fields">
+
+        <div class="input-group">
+          <label>First name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Last name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Email address*</label>
+          <input type="email">
+        </div>
+
+        <div class="input-group">
+          <label>Mobile number*</label>
+          <div class="phone-box">
+            <input type="text" class="country-code" value="+92">
+            <input type="text" class="phone-input" placeholder="Enter number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your preferred study destination*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>UK</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>USA</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+            <option>Malaysia</option>
+          </select>
+        </div>
+
+        
+
+        <div class="form-group">
+          <label>Nearest DN Office*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Lahore</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+          </select>
+        </div>
+
+        
+        
+
+        
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>I agree to Terms & Policy*</span>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>Contact me via phone/email*</span>
+        </div>
+
+        <button class="submit-btn">Enquire now</button>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="image-container">
+      <img src="form4.jpg" >
+    </div>
+
+  </div>
+
+</section>
+
+<br>
+<br>
+<br>
+
+
+<!-- WHY SECTION -->
+<section class="why-section">
+
+  <!-- LEFT: Heading + Paragraph -->
+  <div class="why-left">
+    <div>
+      <h2>Why do I need a health insurance?</h2>
+      <p>It helps cover you for medical expenses while you're studying abroad. For some countries, you will need health insurance before you can apply for your Student Visa.</p>
+    </div>
+  </div>
+
+  <!-- RIGHT: 4 Icons -->
+  <div class="why-right">
+
+    <!-- Doctors visits -->
+    <div class="icon-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 54 54">
+          <circle cx="27" cy="18" r="9"/>
+          <path d="M24 18h6m-3-3v6"/>
+          <path d="M9 46c0-10 8-16 18-16s18 6 18 16"/>
+        </svg>
+      </div>
+      <span>Doctors visits</span>
+    </div>
+
+    <!-- Emergency Ambulance -->
+    <div class="icon-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 54 54">
+          <rect x="4" y="18" width="34" height="20" rx="4"/>
+          <rect x="36" y="22" width="14" height="12" rx="2"/>
+          <circle cx="13" cy="40" r="4"/>
+          <circle cx="33" cy="40" r="4"/>
+          <path d="M16 26h8m-4-4v8"/>
+          <path d="M42 26h4"/>
+        </svg>
+      </div>
+      <span>Emergency<br>Ambulance</span>
+    </div>
+
+    <!-- Hospital -->
+    <div class="icon-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 54 54">
+          <rect x="8" y="16" width="38" height="32" rx="2"/>
+          <path d="M8 48h38"/>
+          <path d="M21 48V34h12v14"/>
+          <rect x="14" y="22" width="8" height="8" rx="1"/>
+          <rect x="32" y="22" width="8" height="8" rx="1"/>
+          <path d="M27 6v10M22 11h10"/>
+        </svg>
+      </div>
+      <span>Hospital</span>
+    </div>
+
+    <!-- Prescription medicine -->
+    <div class="icon-card">
+      <div class="icon-wrap">
+        <svg viewBox="0 0 54 54">
+          <ellipse cx="19" cy="27" rx="10" ry="16" transform="rotate(-40 19 27)"/>
+          <line x1="11" y1="35" x2="27" y2="19"/>
+          <ellipse cx="37" cy="37" rx="8" ry="13" transform="rotate(-40 37 37)"/>
+        </svg>
+      </div>
+      <span>Prescription<br>medicine</span>
+    </div>
+
+  </div>
+</section>
+<br>
+<br>
+
+<script>
+document.querySelector('.submit-btn').addEventListener('click', async () => {
+    // Get form data
+    const inputs = document.querySelectorAll('.input-group input');
+    const firstName = inputs[0]?.value.trim() || '';
+    const lastName = inputs[1]?.value.trim() || '';
+    const email = inputs[2]?.value.trim() || '';
+    const phone = document.querySelector('.phone-input')?.value.trim() || '';
+    
+    const selects = document.querySelectorAll('.select-box');
+    const destination = selects[0]?.value || '';
+    const nearestOffice = selects[1]?.value || '';
+    
+    const checkboxes = document.querySelectorAll('.checkbox-group input');
+    const termsAccepted = checkboxes[0]?.checked || false;
+    const contactConsent = checkboxes[1]?.checked || false;
+    
+    // Validation
+    let errors = [];
+    if (!firstName) errors.push('First name');
+    if (!lastName) errors.push('Last name');
+    if (!email) errors.push('Email');
+    else if (!/^\S+@\S+\.\S+$/.test(email)) errors.push('Valid email');
+    if (!phone) errors.push('Mobile number');
+    if (!destination || destination === 'Select') errors.push('Study destination');
+    if (!nearestOffice || nearestOffice === 'Select') errors.push('Nearest DN office');
+    if (!termsAccepted) errors.push('Terms & Policy');
+    if (!contactConsent) errors.push('Contact consent');
+    
+    if (errors.length) {
+        alert('❌ Please fill/check: ' + errors.join(', '));
+        return;
+    }
+    
+    const data = {
+        firstName, lastName, email, phone, destination,
+        nearestOffice, termsAccepted, contactConsent,
+        formType: 'health'
+    };
+    
+    try {
+        const res = await fetch('/api/student-inquiry', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.success) {
+            alert('✅ ' + result.message);
+            // Clear form
+            inputs.forEach(inp => inp.value = '');
+            document.querySelector('.phone-input').value = '';
+            selects.forEach(sel => sel.selectedIndex = 0);
+            checkboxes.forEach(cb => cb.checked = false);
+        } else {
+            alert('❌ Error: ' + (result.error || 'Submission failed'));
+        }
+    } catch (err) {
+        alert('❌ Network error. Please try again.');
+    }
+});
+</script>
+</body>
+</html>

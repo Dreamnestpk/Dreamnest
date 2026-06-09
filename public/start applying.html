@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IDP clone</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(to right,#eef2f3, #dfe9f3);
+} 
+  
+/* MAIN SECTION */
+.form-section-2 {
+  background: #cfe0e5;
+  padding: 60px;
+  max-width: 100%;
+  margin: auto;
+}
+    
+    
+
+/* FLEX LAYOUT */
+.form-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LEFT SIDE */
+.form-content {
+  width: 60%;
+}
+
+/* RIGHT SIDE */
+.image-container {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+}
+
+.image-container img {
+  width: 90%;
+  max-width: 400px;
+}
+
+/* FORM */
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #999;
+}
+
+.phone-box {
+  display: flex;
+  gap: 10px;
+}
+
+.country-code {
+  width: 70px;
+}
+
+.phone-input {
+  flex: 1;
+}
+
+/* DROPDOWN */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.select-box {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+/* CHECKBOX */
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+/* BUTTON */
+.submit-btn {
+  width: 100%;
+  margin-top: 20px;
+  padding: 14px;
+  background: #1e73be;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<section class="form-section-2">
+
+  <div class="form-wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="form-content">
+
+      <div class="form-box">
+        <h2>We can help you</h2>
+        
+        <p>
+          Enter your details and one of our expert counsellors will reach out to you
+          so we can connect you to the right course, country, university – and even scholarships!
+        </p>
+      </div>
+<br>
+<br>
+      <div class="form-fields">
+
+        <div class="input-group">
+          <label>First name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Last name*</label>
+          <input type="text">
+        </div>
+
+        <div class="input-group">
+          <label>Email address*</label>
+          <input type="email">
+        </div>
+
+        <div class="input-group">
+          <label>Mobile number*</label>
+          <div class="phone-box">
+            <input type="text" class="country-code" value="+92">
+            <input type="text" class="phone-input" placeholder="Enter number">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Your preferred study destination*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>UK</option>
+            <option>Australia</option>
+            <option>Canada</option>
+            <option>USA</option>
+            <option>New Zealand</option>
+            <option>Ireland</option>
+            <option>Malaysia</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>When would you like to start studying?*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Jan 2026</option>
+             <option>Sep 2026</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Nearest DN Office*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Lahore</option>
+            <option>Karachi</option>
+            <option>Islamabad</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred mode of counselling*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Online</option>
+            <option>In-person</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>How would you fund your education?*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Self</option>
+            <option>Scholarship</option>
+            <option>Loan</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Preferred study level*</label>
+          <select class="select-box">
+            <option>Select</option>
+            <option>Bachelor</option>
+            <option>Master</option>
+            <option>PhD</option>
+          </select>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>I agree to Terms & Policy*</span>
+        </div>
+
+        <div class="checkbox-group">
+          <input type="checkbox">
+          <span>Contact me via phone/email*</span>
+        </div>
+
+        <button class="submit-btn">Enquire now</button>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT SIDE IMAGE -->
+    <div class="image-container">
+      <img src="form4.jpg" >
+    </div>
+
+  </div>
+
+</section>
+
+

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - Dream Nest</title>
+<!-- FONT AWESOME -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background:#f5f7fa;
+}
+
+/* CONTACT SECTION */
+
+.contact-section{
+    width:100%;
+    padding:80px 10%;
+    background:white;
+}
+
+.contact-title{
+    text-align:center;
+    font-size:42px;
+    color:black;
+    margin-bottom:15px;
+    font-weight:bold;
+}
+
+.contact-subtitle{
+    text-align:center;
+    color:#666;
+    font-size:18px;
+    margin-bottom:60px;
+    line-height:1.7;
+}
+
+/* CONTAINER */
+
+.contact-container{
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+}
+
+/* LEFT SIDE */
+
+.contact-info{
+    flex:1;
+    min-width:320px;
+}
+
+.info-card{
+    background:#ffffff;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.info-card:hover{
+    transform:translateY(-8px);
+}
+
+.info-card h2{
+    color:black;
+    margin-bottom:12px;
+    font-size:24px;
+}
+
+.info-card p{
+    color:#555;
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* RIGHT SIDE FORM */
+
+.contact-form{
+    flex:1;
+    min-width:320px;
+    background:#ffffff;
+    padding:35px;
+    border-radius:20px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.contact-form h2{
+    color:black;
+    margin-bottom:25px;
+    font-size:30px;
+}
+
+.input-box{
+    width:100%;
+    margin-bottom:20px;
+}
+
+.input-box input,
+.input-box textarea{
+    width:100%;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    outline:none;
+    font-size:16px;
+}
+
+.input-box textarea{
+    resize:none;
+    height:140px;
+}
+
+.contact-btn{
+    width:100%;
+    padding:15px;
+    border:none;
+    background:#999;
+    color:white;
+    font-size:18px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:0.4s;
+}
+
+.contact-btn:hover{
+    background:#999;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.contact-title{
+    font-size:32px;
+}
+
+.contact-subtitle{
+    font-size:16px;
+}
+
+}
+
+/* SECTION */
+
+.procedure-section{
+    width:100%;
+    padding:80px 10%;
+    background:white;
+}
+
+.procedure-title{
+    text-align:center;
+    font-size:40px;
+    color:black;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+
+.procedure-subtitle{
+    text-align:center;
+    color:#666;
+    margin-bottom:60px;
+    font-size:18px;
+}
+
+/* TIMELINE */
+
+.timeline{
+    position:relative;
+    max-width:800px;
+    margin:auto;
+}
+
+/* vertical line */
+.timeline::after{
+    content:'';
+    position:absolute;
+    width:4px;
+    background:black;
+    top:0;
+    bottom:0;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* STEP BOX */
+
+.step{
+    padding:20px 40px;
+    position:relative;
+    width:50%;
+}
+
+/* left side */
+.left{
+    left:0;
+    text-align:right;
+}
+
+/* right side */
+.right{
+    left:50%;
+}
+
+/* content box */
+
+.content{
+    background:#ffffff;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.4s;
+}
+
+.content:hover{
+    transform:translateY(-8px);
+}
+
+/* circle */
+
+.step::before{
+    content:'';
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:#999;
+    border-radius:50%;
+    top:25px;
+    z-index:1;
+}
+
+.left::before{
+    right:-9px;
+}
+
+.right::before{
+    left:-9px;
+}
+
+/* TEXT */
+
+.content h3{
+    color:black;
+    margin-bottom:8px;
+    font-size:20px;
+}
+
+.content p{
+    color:#555;
+    line-height:1.6;
+    font-size:15px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+.timeline::after{
+    left:10px;
+}
+
+.step{
+    width:100%;
+    padding-left:40px;
+    text-align:left;
+}
+
+.left, .right{
+    left:0;
+}
+
+.step::before{
+    left:0;
+}
+
+
+
+</style>
+</head>
+<body>
+
+<section class="contact-section">
+
+    <h1 class="contact-title">Contact Us</h1>
+
+    <p class="contact-subtitle">
+        Have questions about studying abroad? At Dream Nest, we are dedicated to helping students achieve their study abroad dreams with complete and reliable guidance. Our team is always available to answer your questions and provide support regarding university admissions, visa processing, accommodation, and other essential services. Feel free to contact us anytime, as we are committed to making your international education journey smooth, simple, and successful.
+    </p>
+
+    <div class="contact-container">
+
+        <!-- LEFT SIDE -->
+
+        <div class="contact-info">
+
+            <div class="info-card">
+                <h2>Office Address</h2>
+
+                <p>
+                    Main Boulevard, Gulberg III, <br>
+          Lahore, Pakistan
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h2>Email Address</h2>
+
+                <p>
+                    dreamnest98@gmail.com
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h2>Phone Number</h2>
+
+                <p>
+                    +92 300 1234567
+                </p>
+            </div>
+
+            <div class="info-card">
+                <h2>Working Hours</h2>
+
+                <p>
+                    Monday - Saturday<br>
+                    9:00 AM - 6:00 PM
+                </p>
+            </div>
+
+        </div>
+
+        <!-- RIGHT SIDE -->
+
+        <div class="contact-form">
+
+            <h2>Send Message</h2>
+
+            <form>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Your Name" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="input-box">
+                    <input type="text" placeholder="Subject" required>
+                </div>
+
+                <div class="input-box">
+                    <textarea placeholder="Write Your Message"></textarea>
+                </div>
+
+                <button class="contact-btn">
+                    Send Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="procedure-section">
+
+    <h1 class="procedure-title">Contact Procedure</h1>
+    <p class="procedure-subtitle">Simple steps to start your study abroad journey</p>
+
+    <div class="timeline">
+
+        <div class="step left">
+            <div class="content">
+                <h3>Step 1: Send Inquiry</h3>
+                <p>Fill out the contact form with your basic details and study preferences.</p>
+            </div>
+        </div>
+
+        <div class="step right">
+            <div class="content">
+                <h3>Step 2: Get Response</h3>
+                <p>Our team will contact you within 24–48 hours for initial guidance.</p>
+            </div>
+        </div>
+
+        <div class="step left">
+            <div class="content">
+                <h3>Step 3: Free Consultation</h3>
+                <p>We provide free consultation to understand your goals and options.</p>
+            </div>
+        </div>
+
+        <div class="step right">
+            <div class="content">
+                <h3>Step 4: Application Process</h3>
+                <p>We help you with university selection, admission, and documentation.</p>
+            </div>
+        </div>
+
+        <div class="step left">
+            <div class="content">
+                <h3>Step 5: Final Support</h3>
+                <p>Visa, accommodation, and travel support until you reach your destination.</p>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+</body>
+</html>
+<script>
+document.querySelector('.contact-form form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = {
+    name: form.querySelector('input[placeholder="Your Name"]').value,
+    email: form.querySelector('input[placeholder="Your Email"]').value,
+    subject: form.querySelector('input[placeholder="Subject"]').value,
+    message: form.querySelector('textarea').value
+  };
+  
+  const res = await fetch('/api/contact', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+  const result = await res.json();
+  alert(result.message);
+  if (result.success) form.reset();
+});
+</script> 
