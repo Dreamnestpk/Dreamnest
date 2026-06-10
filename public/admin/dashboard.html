@@ -431,7 +431,9 @@
             tab.classList.add('active');
             currentTab = tab.dataset.tab;
             const filterBar = document.getElementById('filterBar');
-            filterBar.style.display = currentTab === 'inquiries' ? 'flex' : 'none';
+            if (currentTab === 'inquiries') filterBar.style.display = 'flex';
+else if (currentTab === 'applications') filterBar.style.display = 'none';
+else filterBar.style.display = 'none';
             
             if (currentTab === 'contacts') loadContacts();
             else if (currentTab === 'ielts') loadIELTS();

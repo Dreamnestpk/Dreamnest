@@ -777,3 +777,13 @@ p {
     .slide-content .tagline { font-size: 12px; letter-spacing: 2px; }
     .explore-btn { padding: 10px 25px; font-size: 14px; }
 }
+
+/* Footer fix for all pages */
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer.footer {
+    margin-top: auto;
+}
