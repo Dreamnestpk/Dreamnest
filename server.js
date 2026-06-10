@@ -74,6 +74,43 @@ app.post('/api/student-inquiry', async (req, res) => {
 });
 
 
+
+
+// --------------------------
+// Apply / Counseling Form Submission
+// --------------------------
+app.post('/api/apply', async (req, res) => {
+    try {
+        const {
+            firstName, lastName, email, phone, destination,
+            startDate, nearestOffice, counsellingMode,
+            funding, studyLevel, termsAccepted, contactConsent
+        } = req.body;
+
+        const [result] = await pool.query(
+            `INSERT INTO applications 
+            (first_name, last_name, email, phone, destination, start_date,
+             nearest_office, counselling_mode, funding, study_level,
+             terms_accepted, contact_consent)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [firstName, lastName, email, phone, destination, startDate,
+             nearestOffice, counsellingMode, funding, studyLevel,
+             termsAccepted ? 1 : 0, contactConsent ? 1 : 0]
+        );
+        res.json({ success: true, message: 'Application submitted successfully!' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Database error' });
+    }
+});
+
+// --------------------------
+
+
+
+
+
+
 // ---------- SERVE HTML PAGES ----------
 // Serve index.html from public folder
 app.get('/', (req, res) => {
@@ -167,6 +204,17 @@ app.get('/api/admin/inquiries', adminAuth, async (req, res) => {
     }
 });
 
+
+// Admin: Get all applications
+// --------------------------
+app.get('/api/admin/applications', adminAuth, async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM applications ORDER BY created_at DESC');
+        res.json(rows);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
 // User Registration
 app.post('/api/auth/register', async (req, res) => {
     try {
