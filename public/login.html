@@ -25,7 +25,6 @@
     <input type="password" id="password" placeholder="Password">
     <button onclick="login()">Login</button>
     <div class="links">
-        <a href="forget.html">Forgot Password?</a> | 
         <a href="signup.html">Create Account</a>
     </div>
     <div id="message" class="error"></div>
@@ -50,11 +49,22 @@ async function login() {
         const data = await res.json();
         
         if (data.success) {
+            // ✅ DONO TOKENS SET KARO
             localStorage.setItem('token', data.token);
+            localStorage.setItem('adminToken', data.token);   // YEH IMPORTANT HAI
             localStorage.setItem('user', JSON.stringify(data.user));
+            
             msgDiv.className = 'success';
             msgDiv.innerText = 'Login successful! Redirecting...';
-            setTimeout(() => { window.location.href = 'index.html'; }, 1000);
+            
+            // ✅ Redirect based on isAdmin
+            setTimeout(() => { 
+                if (data.user && data.user.isAdmin) {
+                    window.location.href = '/admin/dashboard.html';
+                } else {
+                    window.location.href = data.redirectUrl || '/index.html';
+                }
+            }, 1000);
         } else {
             msgDiv.className = 'error';
             msgDiv.innerText = data.error || 'Login failed';

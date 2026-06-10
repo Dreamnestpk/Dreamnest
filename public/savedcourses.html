@@ -2,24 +2,231 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Saved Courses - Dream Nest</title>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
-        body { background:#f4f7fc; padding:40px; }
-        .container { max-width:900px; margin:auto; background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
-        h1 { color:#1e73be; margin-bottom:20px; }
-        .course-card { background:#f8f9fa; padding:20px; margin-bottom:15px; border-radius:10px; border-left:4px solid #1e73be; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; }
-        .course-info h3 { color:#1e73be; margin-bottom:5px; }
-        .course-info p { color:#666; }
-        .remove-btn { background:#dc3545; color:white; border:none; padding:8px 20px; border-radius:20px; cursor:pointer; }
-        .back-btn { background:#6c757d; color:white; padding:10px 20px; border-radius:8px; text-decoration:none; display:inline-block; margin-bottom:20px; }
-        .empty { text-align:center; padding:50px; color:#888; }
-        .login-prompt { text-align:center; padding:40px; background:#f0f0f0; border-radius:10px; }
-        .login-prompt a { color:#1e73be; text-decoration:none; font-weight:bold; }
-        .header { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; }
-        .logout-btn { background:#dc3545; color:white; padding:8px 16px; border-radius:20px; text-decoration:none; font-size:14px; }
-        .user-info { background:#e9ecef; padding:8px 15px; border-radius:20px; font-size:14px; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        
+        body { 
+            background: #f4f7fc; 
+            padding: 20px; 
+        }
+        
+        .container { 
+            max-width: 900px; 
+            margin: auto; 
+            background: #fff; 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+        }
+        
+        /* ✅ Heading font size chota kiya */
+        h1 { 
+            color: #1e73be; 
+            margin-bottom: 20px; 
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        /* ✅ Mobile par heading aur chota */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 20px;
+            }
+            .container {
+                padding: 15px;
+            }
+        }
+        
+        .course-card { 
+            background: #f8f9fa; 
+            padding: 15px; 
+            margin-bottom: 15px; 
+            border-radius: 10px; 
+            border-left: 4px solid #1e73be; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            flex-wrap: wrap; 
+            gap: 10px;
+        }
+        
+        .course-info { 
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .course-info h3 { 
+            color: #1e73be; 
+            margin-bottom: 5px; 
+            font-size: 18px;
+        }
+        
+        .course-info p { 
+            color: #666; 
+            font-size: 13px;
+        }
+        
+        .remove-btn { 
+            background: #dc3545; 
+            color: white; 
+            border: none; 
+            padding: 8px 20px; 
+            border-radius: 20px; 
+            cursor: pointer; 
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        
+        .remove-btn:hover {
+            background: #c82333;
+            transform: scale(1.02);
+        }
+        
+        .back-btn { 
+            background: #6c757d; 
+            color: white; 
+            padding: 8px 16px; 
+            border-radius: 8px; 
+            text-decoration: none; 
+            display: inline-block; 
+            margin-bottom: 20px;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        
+        .back-btn:hover {
+            background: #5a6268;
+        }
+        
+        .empty { 
+            text-align: center; 
+            padding: 40px; 
+            color: #888; 
+        }
+        
+        .login-prompt { 
+            text-align: center; 
+            padding: 30px; 
+            background: #f0f0f0; 
+            border-radius: 10px; 
+        }
+        
+        .login-prompt a { 
+            color: #1e73be; 
+            text-decoration: none; 
+            font-weight: bold; 
+        }
+        
+        .header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 20px; 
+            flex-wrap: wrap; 
+            gap: 10px;
+        }
+        
+        .logout-btn { 
+            background: #dc3545; 
+            color: white; 
+            padding: 6px 14px; 
+            border-radius: 20px; 
+            text-decoration: none; 
+            font-size: 13px; 
+            transition: 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background: #c82333;
+        }
+        
+        .user-info { 
+            background: #e9ecef; 
+            padding: 6px 12px; 
+            border-radius: 20px; 
+            font-size: 13px; 
+        }
+        
+        /* ✅ Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+                border-radius: 8px;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .back-btn {
+                margin-bottom: 0;
+                font-size: 12px;
+                padding: 6px 12px;
+            }
+            
+            .course-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 12px;
+            }
+            
+            .course-info h3 {
+                font-size: 16px;
+            }
+            
+            .course-info p {
+                font-size: 12px;
+            }
+            
+            .remove-btn {
+                padding: 6px 16px;
+                font-size: 13px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .logout-btn {
+                font-size: 12px;
+                padding: 5px 12px;
+            }
+            
+            .user-info {
+                font-size: 12px;
+            }
+        }
+        
+        /* ✅ Extra Small Devices */
+        @media (max-width: 480px) {
+            .container {
+                padding: 12px;
+            }
+            
+            .course-info h3 {
+                font-size: 15px;
+            }
+            
+            .empty {
+                padding: 25px;
+                font-size: 14px;
+            }
+            
+            .login-prompt {
+                padding: 20px;
+                font-size: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -28,7 +235,7 @@
         <a href="findcourse.html" class="back-btn">← Back to Search</a>
         <div id="userInfo"></div>
     </div>
-    <h1>❤️ My Saved Courses</h1>
+    <h1>My Saved Courses</h1>
     <div id="savedList">
         <div class="empty">Loading...</div>
     </div>
@@ -42,7 +249,7 @@
     if (token && user.name) {
         userInfoDiv.innerHTML = `<span class="user-info">👋 ${user.name}</span> <a href="#" class="logout-btn" onclick="logout()">Logout</a>`;
     } else {
-        userInfoDiv.innerHTML = `<a href="login.html" class="logout-btn" style="background:#1e73be;">🔐 Login to view saved courses</a>`;
+        userInfoDiv.innerHTML = `<a href="login.html" class="logout-btn" style="background:#1e73be;">Login to view saved courses</a>`;
     }
     
     // If not logged in, show login prompt

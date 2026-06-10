@@ -1,8 +1,10 @@
+
+
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
-const pool = require('./config/db');
+const pool = require('./config/db');  // ← Import from db.js
 
 const app = express();
 app.use(cors());
@@ -11,6 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 
 // Serve static files from 'public' folder
 app.use(express.static(path.join(__dirname, 'public')));
+
+
 
 // ---------- API ROUTES ----------
 
@@ -89,7 +93,7 @@ app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`)
 // Admin Login API
 // ========== ADMIN PANEL ROUTES ==========
 
-// Admin Login API
+// Admin Login API (MODIFIED VERSION - NO HASH)
 app.post('/api/admin/login', async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -100,8 +104,9 @@ app.post('/api/admin/login', async (req, res) => {
         }
         
         const user = rows[0];
-        const bcrypt = require('bcryptjs');
-        const isMatch = await bcrypt.compare(password, user.password);
+        
+        // ✅ YAHAN CHANGE KIYA - Direct compare (hash hata diya)
+        const isMatch = (password === user.password);
         
         if (!isMatch || !user.is_admin) {
             return res.status(401).json({ error: 'Invalid credentials' });
@@ -120,7 +125,6 @@ app.post('/api/admin/login', async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 });
-
 // Admin Middleware
 const adminAuth = require('./middleware/adminAuth');
 
@@ -187,27 +191,62 @@ app.post('/api/auth/register', async (req, res) => {
 });
 
 // User Login
+// User Login - Modified (Admin vs User redirect)
+
+
+// User Login
 app.post('/api/auth/login', async (req, res) => {
     try {
         const { email, password } = req.body;
         const [rows] = await pool.query('SELECT * FROM users WHERE email = ?', [email]);
+        
         if (rows.length === 0) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
+        
         const user = rows[0];
-        const bcrypt = require('bcryptjs');
-        const isMatch = await bcrypt.compare(password, user.password);
+        
+        // Password compare (plain text or hash)
+        let isMatch;
+        if (password === user.password) {
+            isMatch = true;
+        } else {
+            const bcrypt = require('bcryptjs');
+            isMatch = await bcrypt.compare(password, user.password);
+        }
+        
         if (!isMatch) {
             return res.status(401).json({ error: 'Invalid credentials' });
         }
+        
         const jwt = require('jsonwebtoken');
-        const token = jwt.sign({ id: user.id, email: user.email }, process.env.JWT_SECRET, { expiresIn: '7d' });
-        res.json({ success: true, token, user: { id: user.id, name: user.name, email: user.email } });
+        const token = jwt.sign(
+            { id: user.id, email: user.email, isAdmin: user.is_admin === 1 },
+            process.env.JWT_SECRET,
+            { expiresIn: '7d' }
+        );
+        
+        // ✅ YE IMPORTANT HAI - REDIRECT SET KARO
+        let redirectUrl;
+        if (user.is_admin === 1) {
+            redirectUrl = '/admin/dashboard.html';
+        } else {
+            redirectUrl = '/index.html';
+        }
+        
+        res.json({ 
+            success: true, 
+            token, 
+            redirectUrl,
+            user: { id: user.id, name: user.name, email: user.email, isAdmin: user.is_admin === 1 }
+        });
     } catch (err) {
         console.error(err);
         res.status(500).json({ error: 'Login failed' });
     }
 });
+
+
 // Save a course
 app.post('/api/user/save-course', async (req, res) => {
     try {
