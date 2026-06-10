@@ -151,83 +151,81 @@
     }
 
     /* --- RECOMMENDED SERVICES STYLING & ALIGNMENT --- */
-    .services-section {
-        padding: 60px 5%;
-        background-color: #f9fbfd;
-        /* Center alignment properly forced here */
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        text-align: center;
-    }
-    .services-section h1 {
-        margin-bottom: 50px;
-        color: #2980b9; /* Made it blue to match your image */
-        font-size: 2.2rem;
-        font-weight: bold;
-        width: 100%;
-        text-align: center;
-    }
-    
-    .cards-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-        width: 100%;
-        max-width: 1200px;
-        align-items: stretch; 
-    }
-    
-    .cards-container .card {
-        background: #ffffff;
-        border-radius: 12px;
-        padding: 40px 25px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-        transition: all 0.4s ease;
-        border: 1px solid #f0f4f8;
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        text-align: center;  
-    }
-    
-    .cards-container .card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(41, 128, 185, 0.1);
-        border-color: #d6eaf8;
-    }
-    
-    .cards-container .card h2 {
-        font-size: 20px;
-        color: #2c3e50;
-        margin-bottom: 15px;
-        font-weight: 700;
-    }
-    
-    .cards-container .card p {
-        color: #6c7a89;
-        line-height: 1.6;
-        margin-bottom: 25px;
-        font-size: 15px;
-        flex-grow: 1; 
-    }
-    
-    .cards-container .card a {
-        display: inline-block;
-        text-decoration: none;
-        color: #2980b9;
-        font-weight: 600;
-        font-size: 15px;
-        padding: 10px 30px;
-        border: 1px solid #2980b9;
-        border-radius: 25px;
-        transition: all 0.3s ease;
-    }
-    
-    .cards-container .card a:hover {
-        background-color: #2980b9;
-        color: #ffffff;
-    }
+.services-section {
+    padding: 40px;
+    background-color: #cedee0;
+    font-family: Arial, sans-serif;
+}
+
+/* Heading */
+.services-section h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Only first word styling */
+.title-line {
+    position: relative;
+    display: inline-block;
+}
+
+/* Orange line only under "Explore" */
+.title-line::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 4px;
+    background: orange;
+    border-radius: 2px;
+}
+
+/* Vertical Cards Container */
+.cards-container {
+    display: flex;
+    flex-direction: column; /* makes cards vertical */
+    gap: 20px;
+    max-width: 600px;
+    margin: auto;
+}
+
+/* Card Design */
+.card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+/* Hover Effect */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Text */
+.card h2 {
+    margin-bottom: 10px;
+    color: #222;
+}
+
+.card p {
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Link */
+.card a {
+    text-decoration: none;
+    color: green;
+    font-weight: bold;
+}
   </style>
 </head>
 <body>
@@ -575,42 +573,43 @@ setInterval(() => {
 <br>
 </section>
 <section class="services-section">
-  <h1>Explore recommended services for your journey abroad</h1>
+  <h1><span class="title-line">Explore</span> recommended services for your journey abroad</h1>
     
+
     <div class="cards-container">
 
         <div class="card">
-            <h2>💰 Money Transfer</h2>
+            <h2>💰Money Transfer</h2>
             <p>Safe, secure and fast payments to your institution and other key services.</p>
             <a href="money.html">Learn More →</a>
         </div>
 
         <div class="card">
-            <h2>💙 Health Insurance</h2>
+            <h2>💙Health Insurance</h2>
             <p>Your choice, your health cover, your peace of mind abroad.</p>
             <a href="healthinsurance.html">Learn More →</a>
         </div>
 
         <div class="card">
-            <h2>🏦 Banking</h2>
+            <h2>🏦Banking</h2>
             <p>Open a bank account before you arrive.</p>
             <a href="banking.html">Learn More →</a>
         </div>
 
         <div class="card">
-            <h2>🏠 Accommodation</h2>
+            <h2>🏠Accommodation</h2>
             <p>Student apartment or homestay options available.</p>
             <a href="accomodation.html">Learn More →</a>
         </div>
 
         <div class="card">
-            <h2>📱 SIM Cards</h2>
+            <h2>📱SIM Cards</h2>
             <p>No SIM? No problem – we’ve got it covered.</p>
             <a href="sim.html">Learn More →</a>
         </div>
 
         <div class="card">
-            <h2>👥 Guardianship</h2>
+            <h2>👥Guardianship</h2>
             <p>If you're under 18 we'll find you a guardian</p>
             <a href="guard.html">Learn More →</a>
         </div>

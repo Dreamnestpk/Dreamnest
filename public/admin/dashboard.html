@@ -209,12 +209,16 @@
         <h3>Student Inquiries</h3>
         <div class="number" id="totalInquiries">-</div>
     </div>
+    <div class="stat-card">
+    <h3>Applications</h3>
+    <div class="number" id="totalApps">-</div>
 </div>
 
 <div class="tabs">
     <div class="tab active" data-tab="contacts">📧 Contacts</div>
     <div class="tab" data-tab="ielts">🎯 IELTS Enrollments</div>
     <div class="tab" data-tab="inquiries">📝 Student Inquiries</div>
+    <div class="tab" data-tab="applications">📋 Counseling Apps</div>
 </div>
 
 <div class="table-container">
@@ -258,19 +262,21 @@
     }
 
     async function loadStats() {
-        try {
-            const [contacts, ielts, inquiries] = await Promise.all([
-                fetchAPI('/api/admin/contacts'),
-                fetchAPI('/api/admin/ielts'),
-                fetchAPI('/api/admin/inquiries?type=all')
-            ]);
-            document.getElementById('totalContacts').innerText = contacts.length || 0;
-            document.getElementById('totalIELTS').innerText = ielts.length || 0;
-            document.getElementById('totalInquiries').innerText = inquiries.length || 0;
-        } catch (err) {
-            console.error('Stats error:', err);
-        }
+    try {
+        const [contacts, ielts, inquiries, apps] = await Promise.all([
+            fetchAPI('/api/admin/contacts'),
+            fetchAPI('/api/admin/ielts'),
+            fetchAPI('/api/admin/inquiries?type=all'),
+            fetchAPI('/api/admin/applications')
+        ]);
+        document.getElementById('totalContacts').innerText = contacts.length || 0;
+        document.getElementById('totalIELTS').innerText = ielts.length || 0;
+        document.getElementById('totalInquiries').innerText = inquiries.length || 0;
+        document.getElementById('totalApps').innerText = apps.length || 0;   // Add this line
+    } catch (err) {
+        console.error('Stats error:', err);
     }
+}
 
     function escapeHtml(str) {
         if (!str) return '';
@@ -383,6 +389,41 @@
         }
     }
 
+    async function loadApplications() {
+    try {
+        const data = await fetchAPI('/api/admin/applications');
+        if (!data || data.length === 0) {
+            document.getElementById('tableContent').innerHTML = '<div class="empty-state">📭 No applications found.</div>';
+            return;
+        }
+        let html = `<table>
+            <thead>
+                <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Destination</th><th>Start Date</th><th>Office</th><th>Mode</th><th>Level</th><th>Date</th></tr>
+            </thead>
+            <tbody>`;
+        data.forEach(row => {
+            html += `<tr>
+                <td>${row.id}</td>
+                <td>${escapeHtml(row.first_name)} ${escapeHtml(row.last_name)}</td>
+                <td>${escapeHtml(row.email)}</td>
+                <td>${escapeHtml(row.phone)}</td>
+                <td>${escapeHtml(row.destination)}</td>
+                <td>${escapeHtml(row.start_date)}</td>
+                <td>${escapeHtml(row.nearest_office)}</td>
+                <td>${escapeHtml(row.counselling_mode)}</td>
+                <td>${escapeHtml(row.study_level)}</td>
+                <td>${new Date(row.created_at).toLocaleString()}</td>
+            </tr>`;
+        });
+        html += `</tbody></table>`;
+        document.getElementById('tableContent').innerHTML = html;
+    } catch (err) {
+        document.getElementById('tableContent').innerHTML = '<div class="empty-state" style="color:red;">❌ Error loading applications</div>';
+    }
+}
+
+
+
     // Tab switching
     document.querySelectorAll('.tab').forEach(tab => {
         tab.addEventListener('click', () => {
@@ -395,6 +436,7 @@
             if (currentTab === 'contacts') loadContacts();
             else if (currentTab === 'ielts') loadIELTS();
             else if (currentTab === 'inquiries') loadInquiries();
+            else if (currentTab === 'applications') loadApplications(); 
         });
     });
 

@@ -1,39 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Sign Up - Dream Nest</title>
-    <style>
-        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial; }
-        body { background:linear-gradient(135deg, #1e73be, #0b5ed7); height:100vh; display:flex; justify-content:center; align-items:center; }
-        .signup-box { background:white; padding:40px; border-radius:16px; width:400px; box-shadow:0 10px 30px rgba(0,0,0,0.2); }
-        h2 { text-align:center; margin-bottom:25px; color:#333; }
-        input, select { width:100%; padding:12px; margin:10px 0; border:1px solid #ddd; border-radius:8px; box-sizing:border-box; }
-        button { width:100%; padding:12px; background:#1e73be; color:white; border:none; border-radius:8px; cursor:pointer; font-size:16px; font-weight:bold; }
-        button:hover { background:#155a9a; }
-        .links { text-align:center; margin-top:15px; }
-        .links a { color:#1e73be; text-decoration:none; }
-        .error { color:red; text-align:center; margin-top:10px; font-size:14px; }
-    </style>
+<meta charset="UTF-8">
+<title>Study Abroad Registration - Dream Nest</title>
+
+<style>
+/* --- THEME FROM SIGN UP.HTML --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+  height: 100vh;
+  background: #cfe0e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* MAIN CARD */
+.form-container {
+  background: #fff;
+  width: 350px;
+  padding: 30px 25px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  text-align: center;
+}
+
+/* TITLE */
+.form-container h2 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-container p {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* INPUT FIELDS */
+.input-box {
+  position: relative;
+  margin: 18px 0;
+}
+
+.input-box input,
+.input-box select {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-bottom: 2px solid #f6f4f4;
+  outline: none;
+  background: transparent;
+}
+
+.input-box label {
+  position: absolute;
+  top: 10px;
+  left: 0;
+  font-size: 14px;
+  color: #0c0c0c;
+  transition: 0.3s;
+  pointer-events: none; /* Taake label par click karne se bhi input focus ho */
+}
+
+.input-box input:focus ~ label,
+.input-box input:valid ~ label,
+.input-box select:focus ~ label,
+.input-box select:valid ~ label {
+  top: -12px;
+  font-size: 12px;
+  color: #0f74c8;
+}
+
+/* BUTTON */
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  background: #757c7d;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* LOGIN LINK */
+.login-link {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+.login-link a {
+  color: #309dab;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+/* SMALL TEXT */
+.note {
+  font-size: 11px;
+  color: #0c0c0c;
+  margin-top: 10px;
+}
+
+/* --- MESSAGES STYLES FROM WORKING SIGNUP --- */
+#message {
+  margin-top: 15px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.error { color: red; }
+.success { color: green; }
+</style>
+
 </head>
+
 <body>
-<div class="signup-box">
-    <h2>📝 Create Account</h2>
-    <input type="text" id="name" placeholder="Full Name">
-    <input type="email" id="email" placeholder="Email Address">
-    <input type="tel" id="phone" placeholder="Phone Number">
-    <select id="country">
-        <option value="">Select Preferred Country</option>
-        <option>UK</option><option>USA</option><option>Canada</option>
-        <option>Australia</option><option>New Zealand</option>
-        <option>Ireland</option><option>Malaysia</option>
+
+<div class="form-container">
+  <h2>Start Your Journey ✈️</h2>
+  <p>Register for Study Abroad Guidance</p>
+
+  <div class="input-box">
+    <input type="text" id="name" required>
+    <label>Full Name</label>
+  </div>
+
+  <div class="input-box">
+    <input type="email" id="email" required>
+    <label>Email Address</label>
+  </div>
+
+  <div class="input-box">
+    <input type="tel" id="phone" required>
+    <label>Phone Number</label>
+  </div>
+
+  <div class="input-box">
+    <select id="country" required>
+      <option value="" disabled selected></option>
+      <option value="UK">UK</option>
+      <option value="USA">USA</option>
+      <option value="Canada">Canada</option>
+      <option value="Australia">Australia</option>
+      <option value="New Zealand">New Zealand</option>
+      <option value="Ireland">Ireland</option>
+      <option value="Malaysia">Malaysia</option>
     </select>
-    <input type="password" id="password" placeholder="Password (min 6 characters)">
-    <button onclick="register()">Create Account</button>
-    <div class="links">Already have an account? <a href="login.html">Login</a></div>
-    <div id="message" class="error"></div>
+    <label>Preferred Country</label>
+  </div>
+
+  <div class="input-box">
+    <input type="password" id="password" required>
+    <label>Password</label>
+  </div>
+
+  <button type="button" onclick="register()">Create Account</button>
+
+  <div id="message"></div>
+
+  <p class="login-link">
+    Already registered? <a href="login.html">Sign in</a>
+  </p>
+
+  <p class="note">
+    Get expert help for admissions, visas & scholarships.
+  </p>
+
 </div>
+
 <script>
+// --- WORKING LOGIC FROM SIGNUP.HTML ---
 async function register() {
     const name = document.getElementById('name').value.trim();
     const email = document.getElementById('email').value.trim();
@@ -42,14 +194,18 @@ async function register() {
     const password = document.getElementById('password').value;
     const msgDiv = document.getElementById('message');
     
-    // Validation
-    if (!name) { msgDiv.innerText = 'Full name is required'; return; }
-    if (!email) { msgDiv.innerText = 'Email is required'; return; }
-    if (!/^\S+@\S+\.\S+$/.test(email)) { msgDiv.innerText = 'Enter a valid email'; return; }
-    if (!phone) { msgDiv.innerText = 'Phone number is required'; return; }
-    if (!country) { msgDiv.innerText = 'Please select a preferred country'; return; }
-    if (!password) { msgDiv.innerText = 'Password is required'; return; }
-    if (password.length < 6) { msgDiv.innerText = 'Password must be at least 6 characters'; return; }
+    // Puraani classes clear karein
+    msgDiv.className = '';
+    msgDiv.innerText = '';
+    
+    // Front-end Validations
+    if (!name) { msgDiv.className = 'error'; msgDiv.innerText = 'Full name is required'; return; }
+    if (!email) { msgDiv.className = 'error'; msgDiv.innerText = 'Email is required'; return; }
+    if (!/^\S+@\S+\.\S+$/.test(email)) { msgDiv.className = 'error'; msgDiv.innerText = 'Enter a valid email'; return; }
+    if (!phone) { msgDiv.className = 'error'; msgDiv.innerText = 'Phone number is required'; return; }
+    if (!country) { msgDiv.className = 'error'; msgDiv.innerText = 'Please select a preferred country'; return; }
+    if (!password) { msgDiv.className = 'error'; msgDiv.innerText = 'Password is required'; return; }
+    if (password.length < 6) { msgDiv.className = 'error'; msgDiv.innerText = 'Password must be at least 6 characters'; return; }
     
     try {
         const res = await fetch('/api/auth/register', {
@@ -58,19 +214,26 @@ async function register() {
             body: JSON.stringify({ name, email, phone, country, password })
         });
         const data = await res.json();
+        
         if (data.success) {
             localStorage.setItem('token', data.token);
             localStorage.setItem('user', JSON.stringify(data.user));
-            msgDiv.style.color = 'green';
+            
+            msgDiv.className = 'success';
             msgDiv.innerText = 'Account created! Redirecting...';
+            
+            // 1.5 seconds baad main page par redirect kar dega
             setTimeout(() => window.location.href = 'index.html', 1500);
         } else {
+            msgDiv.className = 'error';
             msgDiv.innerText = data.error || 'Registration failed';
         }
     } catch (err) {
+        msgDiv.className = 'error';
         msgDiv.innerText = 'Server error. Try again.';
     }
 }
 </script>
+
 </body>
 </html>

@@ -73,12 +73,6 @@ app.post('/api/student-inquiry', async (req, res) => {
     }
 });
 
-
-
-
-// --------------------------
-// Apply / Counseling Form Submission
-// --------------------------
 app.post('/api/apply', async (req, res) => {
     try {
         const {
@@ -103,6 +97,12 @@ app.post('/api/apply', async (req, res) => {
         res.status(500).json({ error: 'Database error' });
     }
 });
+
+
+// --------------------------
+// Apply / Counseling Form Submission
+// --------------------------
+
 
 // --------------------------
 
