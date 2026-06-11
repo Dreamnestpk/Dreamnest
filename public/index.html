@@ -415,93 +415,93 @@ setInterval(() => {
       <div class="form-fields">
         <div class="input-group">
           <label>First name*</label>
-          <input type="text">
+          <input type="text" id="firstName">
         </div>
         <div class="input-group">
           <label>Last name*</label>
-          <input type="text">
+          <input type="text" id="lastName">
         </div>
         <div class="input-group">
           <label>Email address*</label>
-          <input type="email">
+          <input type="email" id="email">
         </div>
         <div class="input-group">
           <label>Mobile number*</label>
           <div class="phone-box">
-            <input type="text" class="country-code" value="+92">
-            <input type="text" class="phone-input" placeholder="Enter number">
+            <input type="text" class="country-code" value="+92" id="countryCode">
+            <input type="text" class="phone-input" placeholder="Enter number" id="phone">
           </div>
         </div>
         <div class="form-group">
           <label>Your preferred study destination*</label>
-          <select class="select-box">
-            <option>Select</option>
-            <option>UK</option>
-            <option>Australia</option>
-            <option>Canada</option>
-            <option>USA</option>
-            <option>New Zealand</option>
-            <option>Ireland</option>
-            <option>Malaysia</option>
+          <select class="select-box" id="destination">
+            <option value="">Select</option>
+            <option value="UK">UK</option>
+            <option value="Australia">Australia</option>
+            <option value="Canada">Canada</option>
+            <option value="USA">USA</option>
+            <option value="New Zealand">New Zealand</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Malaysia">Malaysia</option>
           </select>
         </div>
         <div class="form-group">
           <label>When would you like to start studying?*</label>
-          <select class="select-box">
-            <option>Select</option>
-            <option>Jan 2026</option>
-            <option>Sep 2026</option>
+          <select class="select-box" id="startDate">
+            <option value="">Select</option>
+            <option value="Jan 2026">Jan 2026</option>
+            <option value="Sep 2026">Sep 2026</option>
           </select>
         </div>
         <div class="form-group">
           <label>Nearest DN Office*</label>
-          <select class="select-box">
-            <option>Select</option>
-            <option>Lahore</option>
-            <option>Karachi</option>
-            <option>Islamabad</option>
+          <select class="select-box" id="nearestOffice">
+            <option value="">Select</option>
+            <option value="Lahore">Lahore</option>
+            <option value="Karachi">Karachi</option>
+            <option value="Islamabad">Islamabad</option>
           </select>
         </div>
         <div class="form-group">
           <label>Preferred mode of counselling*</label>
-          <select class="select-box">
-            <option>Select</option>
-            <option>Online</option>
-            <option>In-person</option>
+          <select class="select-box" id="counsellingMode">
+            <option value="">Select</option>
+            <option value="Online">Online</option>
+            <option value="In-person">In-person</option>
           </select>
         </div>
         <div class="form-group">
           <label>How would you fund your education?*</label>
-          <select class="select-box">
-            <option>Select</option>
-            <option>Self</option>
-            <option>Scholarship</option>
-            <option>Loan</option>
+          <select class="select-box" id="funding">
+            <option value="">Select</option>
+            <option value="Self">Self</option>
+            <option value="Scholarship">Scholarship</option>
+            <option value="Loan">Loan</option>
           </select>
         </div>
         <div class="form-group">
           <label>Preferred study level*</label>
-          <select class="select-box">
-            <option>Select</option>
-            <option>Bachelor</option>
-            <option>Master</option>
-            <option>PhD</option>
+          <select class="select-box" id="studyLevel">
+            <option value="">Select</option>
+            <option value="Bachelor">Bachelor</option>
+            <option value="Master">Master</option>
+            <option value="PhD">PhD</option>
           </select>
         </div>
         <div class="checkbox-group">
-          <input type="checkbox">
+          <input type="checkbox" id="termsAccepted">
           <span>I agree to Terms & Policy*</span>
         </div>
         <div class="checkbox-group">
-          <input type="checkbox">
+          <input type="checkbox" id="contactConsent">
           <span>Contact me via phone/email*</span>
         </div>
-        <button class="submit-btn">Enquire now</button>
+        <button class="submit-btn" id="enquireBtn">Enquire now</button>
       </div>
     </div>
 
     <div class="image-container">
-      <img src="form4.jpg" >
+      <img src="form4.jpg">
     </div>
 
   </div>
@@ -676,6 +676,83 @@ setInterval(() => {
 
   </div>
 </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const enquireBtn = document.getElementById("enquireBtn");
+    if (!enquireBtn) {
+        console.log("Button not found");
+        return;
+    }
 
+    enquireBtn.addEventListener("click", async function (e) {
+        e.preventDefault();
+
+        // Get values from form
+        const firstName = document.getElementById("firstName")?.value.trim();
+        const lastName = document.getElementById("lastName")?.value.trim();
+        const email = document.getElementById("email")?.value.trim();
+        const countryCode = document.getElementById("countryCode")?.value.trim();
+        const phoneNumber = document.getElementById("phone")?.value.trim();
+        const phone = countryCode + phoneNumber;
+
+        const destination = document.getElementById("destination")?.value;
+        const startDate = document.getElementById("startDate")?.value;
+        const nearestOffice = document.getElementById("nearestOffice")?.value;
+        const counsellingMode = document.getElementById("counsellingMode")?.value;
+        const funding = document.getElementById("funding")?.value;
+        const studyLevel = document.getElementById("studyLevel")?.value;
+        const termsAccepted = document.getElementById("termsAccepted")?.checked;
+        const contactConsent = document.getElementById("contactConsent")?.checked;
+
+        // Validation
+        if (!firstName || !lastName || !email || !phoneNumber || 
+            !destination || !startDate || !nearestOffice || 
+            !counsellingMode || !funding || !studyLevel) {
+            alert("Please fill all required fields.");
+            return;
+        }
+        
+        if (destination === "" || startDate === "" || nearestOffice === "" || 
+            counsellingMode === "" || funding === "" || studyLevel === "") {
+            alert("Please select all dropdown options.");
+            return;
+        }
+        
+        if (!termsAccepted) {
+            alert("You must agree to Terms & Policy.");
+            return;
+        }
+
+        // Prepare data
+        const payload = {
+            firstName, lastName, email, phone,
+            destination, startDate, nearestOffice, counsellingMode,
+            funding, studyLevel,
+            termsAccepted: termsAccepted ? 1 : 0,
+            contactConsent: contactConsent ? 1 : 0
+        };
+
+        try {
+            const response = await fetch("/api/apply", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(payload)
+            });
+            const result = await response.json();
+            if (result.success) {
+                alert("✓ Application submitted successfully!");
+                // Reset form
+                document.querySelectorAll("#firstName, #lastName, #email, #countryCode, #phone").forEach(el => el.value = "");
+                document.querySelectorAll(".select-box").forEach(el => el.value = "");
+                document.querySelectorAll(".checkbox-group input").forEach(el => el.checked = false);
+            } else {
+                alert("Error: " + (result.error || "Something went wrong"));
+            }
+        } catch (err) {
+            alert("Network error: " + err.message + "\nMake sure server is running on port 5000");
+        }
+    });
+});
+</script>
 </body>
 </html>
