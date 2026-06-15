@@ -210,8 +210,13 @@
         <div class="number" id="totalInquiries">-</div>
     </div>
     <div class="stat-card">
-    <h3>Applications</h3>
-    <div class="number" id="totalApps">-</div>
+        <h3>Applications</h3>
+        <div class="number" id="totalApps">-</div>
+    </div>
+    <div class="stat-card">
+        <h3>Event Regs</h3>
+        <div class="number" id="totalEvents">-</div>
+    </div>
 </div>
 
 <div class="tabs">
@@ -219,6 +224,7 @@
     <div class="tab" data-tab="ielts">🎯 IELTS Enrollments</div>
     <div class="tab" data-tab="inquiries">📝 Student Inquiries</div>
     <div class="tab" data-tab="applications">📋 Counseling Apps</div>
+    <div class="tab" data-tab="events">🎟️ Event Registrations</div>
 </div>
 
 <div class="table-container">
@@ -263,16 +269,18 @@
 
     async function loadStats() {
     try {
-        const [contacts, ielts, inquiries, apps] = await Promise.all([
+        const [contacts, ielts, inquiries, apps, eventRegs] = await Promise.all([
             fetchAPI('/api/admin/contacts'),
             fetchAPI('/api/admin/ielts'),
             fetchAPI('/api/admin/inquiries?type=all'),
-            fetchAPI('/api/admin/applications')
+            fetchAPI('/api/admin/applications'),
+            fetchAPI('/api/admin/event-registrations')
         ]);
         document.getElementById('totalContacts').innerText = contacts.length || 0;
         document.getElementById('totalIELTS').innerText = ielts.length || 0;
         document.getElementById('totalInquiries').innerText = inquiries.length || 0;
         document.getElementById('totalApps').innerText = apps.length || 0;   // Add this line
+        document.getElementById('totalEvents').innerText = eventRegs.length || 0;
     } catch (err) {
         console.error('Stats error:', err);
     }
@@ -423,6 +431,40 @@
 }
 
 
+async function loadEventRegistrations() {
+    try {
+        const data = await fetchAPI('/api/admin/event-registrations');
+        if (!data || data.length === 0) {
+            document.getElementById('tableContent').innerHTML = '<div class="empty-state">📭 No event registrations found.</div>';
+            return;
+        }
+        let html = `<table>
+            <thead>
+                <tr>
+                    <th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th>
+                    <th>Phone</th><th>Country</th><th>Event Name</th><th>Registered On</th>
+                </tr>
+            </thead>
+            <tbody>`;
+        data.forEach(row => {
+            html += `<tr>
+                <td>${row.id}</td>
+                <td>${escapeHtml(row.first_name)}</td>
+                <td>${escapeHtml(row.last_name)}</td>
+                <td>${escapeHtml(row.email)}</td>
+                <td>${escapeHtml(row.phone || '-')}</td>
+                <td>${escapeHtml(row.country || '-')}</td>
+                <td>${escapeHtml(row.event_name)}</td>
+                <td>${new Date(row.registered_at).toLocaleString()}</td>
+            </tr>`;
+        });
+        html += `</tbody></table>`;
+        document.getElementById('tableContent').innerHTML = html;
+    } catch (err) {
+        document.getElementById('tableContent').innerHTML = '<div class="empty-state" style="color:red;">❌ Error loading event registrations</div>';
+    }
+}
+
 
     // Tab switching
     document.querySelectorAll('.tab').forEach(tab => {
@@ -436,9 +478,10 @@ else if (currentTab === 'applications') filterBar.style.display = 'none';
 else filterBar.style.display = 'none';
             
             if (currentTab === 'contacts') loadContacts();
-            else if (currentTab === 'ielts') loadIELTS();
-            else if (currentTab === 'inquiries') loadInquiries();
-            else if (currentTab === 'applications') loadApplications(); 
+else if (currentTab === 'ielts') loadIELTS();
+else if (currentTab === 'inquiries') loadInquiries();
+else if (currentTab === 'applications') loadApplications();
+else if (currentTab === 'events') loadEventRegistrations();
         });
     });
 

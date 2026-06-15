@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Register</title>
+<link rel="stylesheet" href="style.css">               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+body {
+    font-family: Arial;
+    background: #cedee0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: white;
+    padding: 40px;
+    width: 360px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.checkbox {
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.checkbox input {
+    margin-right: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background: #757c7d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #757c7d;
+}
+
+.back {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #309dab;
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+    <h2>Register Now</h2>
+
+    <form>
+
+        <!-- First Name -->
+        <div class="input-group">
+            <label>First Name</label>
+            <input type="text" required>
+        </div>
+
+        <!-- Last Name -->
+        <div class="input-group">
+            <label>Last Name</label>
+            <input type="text" required>
+        </div>
+
+        <!-- Country Dropdown -->
+        <div class="input-group">
+            <label>Select Country</label>
+            <select required>
+                <option value="">Choose Country</option>
+                <option>UK</option>
+                <option>USA</option>
+                <option>Canada</option>
+                <option>Australia</option>
+                <option>New Zealand</option>
+                <option>Ireland</option>
+                <option>Malaysia</option>
+            </select>
+        </div>
+
+        <!-- Checkbox -->
+        <div class="checkbox">
+            <input type="checkbox" required>
+            <label>I am not a robot</label>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit">Submit</button>
+
+    </form>
+
+    <a href="event.html" class="back">← Back</a>
+</div>
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-col">
+      <div class="logo">
+        DN
+        <span>Dream Nest</span>
+      </div>
+      <p class="footer-text">
+        Dream Nest is one of the fastest growing 
+        education and career consultancy networks 
+        helping students achieve their study abroad dreams.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h2>Contact With Us</h2>
+      <div class="contact-item">
+        <i class="fas fa-phone"></i>
+        <span>+92 300 1234567</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-envelope"></i>
+        <span>dreamnest98@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <i class="fas fa-location-dot"></i>
+        <span>
+          Main Boulevard, Gulberg III, <br>
+          Lahore, Pakistan
+        </span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h2>Destination</h2>
+      <ul class="footer-links">
+        <li><a href="uk.html">› Study in UK</a></li>
+        <li><a href="usa.html">› Study in USA</a></li>
+        <li><a href="australia.html">› Study in Australia</a></li>
+        <li><a href="canada.html">› Study in Canada</a></li>
+        <li><a href="malaysia.html">› Study in Malaysia</a></li>
+        <li><a href="ireland.html">› Study in Ireland</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h2>Useful Links</h2>
+      <ul class="footer-links">
+        <li><a href="about.html">› About Us</a></li>
+        <li><a href="contact.html">› Contact Us</a></li>
+        <li><a href="policy.html">› Privacy Policy</a></li>
+        <li><a href="ielts.html">› IELTS </a></li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

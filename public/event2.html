@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Events Section</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
 body {
@@ -13,16 +12,19 @@ body {
   padding: 20px;
 }
 
+/* Section Title */
 h1 {
   text-align: center;
   margin-bottom: 40px;
 }
 
+/* Events Container */
 .events {
   max-width: 800px;
   margin: auto;
 }
 
+/* Single Event Line */
 .event-line {
   display: flex;
   gap: 20px;
@@ -30,12 +32,14 @@ h1 {
   align-items: flex-start;
 }
 
+/* Date */
 .date {
   font-weight: bold;
   color: #2b2929;
   min-width: 80px;
 }
 
+/* Event Box */
 .event-info {
   background: white;
   padding: 15px;
@@ -44,37 +48,38 @@ h1 {
   border-radius: 6px;
 }
 
+/* Title */
 .event-info h3 {
   margin: 0;
   color: #333;
 }
 
+/* Description */
 .event-info p {
   margin: 8px 0;
   font-size: 14px;
 }
 
+/* Extra Info */
 .event-info span {
   font-size: 13px;
   color: #555;
 }
 
-/* Register button inside each event */
-.btn-register {
-  display: inline-block;
-  margin-top: 12px;
-  background: #1e73be;
+/* Button */
+button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: #007bff;
   color: white;
-  padding: 6px 14px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 13px;
-  font-weight: bold;
-  transition: 0.3s;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  
 }
 
-.btn-register:hover {
-  background: #155a9a;
+button:hover {
+  background:#999;
 }
 
 .btn-container {
@@ -92,6 +97,7 @@ h1 {
 </style>
 
 </head>
+
 <body>
 
 <h1>Upcoming Study Abroad Events</h1>
@@ -104,7 +110,7 @@ h1 {
       <h3>UK University Webinar</h3>
       <p>Learn about top UK universities, scholarships and visa process.</p>
       <span>Time: 5 PM | Mode: Online</span><br>
-      <a href="register.html?event=UK University Webinar (12 May)" class="btn-register">Register Now</a>
+      
     </div>
   </div>
 
@@ -114,7 +120,7 @@ h1 {
       <h3>Canada Study Visa Session</h3>
       <p>Complete guidance on visa approval and documentation.</p>
       <span>Time: 4 PM | Mode: Office</span><br>
-      <a href="register.html?event=Canada Study Visa Session (14 May)" class="btn-register">Register Now</a>
+      
     </div>
   </div>
 
@@ -124,7 +130,7 @@ h1 {
       <h3>Australia Scholarship Info Session</h3>
       <p>Explore scholarships and affordable study options in Australia.</p>
       <span>Time: 6 PM | Mode: Online</span><br>
-      <a href="register.html?event=Australia Scholarship Info Session (16 May)" class="btn-register">Register Now</a>
+      
     </div>
   </div>
 
@@ -134,7 +140,7 @@ h1 {
       <h3>USA Application Workshop</h3>
       <p>Step-by-step guidance on applying to US universities.</p>
       <span>Time: 5 PM | Mode: Online</span><br>
-      <a href="register.html?event=USA Application Workshop (18 May)" class="btn-register">Register Now</a>
+      
     </div>
   </div>
 
@@ -144,7 +150,7 @@ h1 {
       <h3>New Zealand University Meet</h3>
       <p>Meet university representatives and get direct admission guidance.</p>
       <span>Time: 3 PM | Mode: Office</span><br>
-      <a href="register.html?event=New Zealand University Meet (20 May)" class="btn-register">Register Now</a>
+      
     </div>
   </div>
 
@@ -154,9 +160,9 @@ h1 {
       <h3>Ireland Career Opportunities Session</h3>
       <p>Discover study + work opportunities in Ireland.</p>
       <span>Time: 4 PM | Mode: Online</span><br>
-      <a href="register.html?event=Ireland Career Opportunities Session (22 May)" class="btn-register">Register Now</a>
+      
     </div>
-  </div>
+</div>
 
   <div class="event-line">
     <div class="date">24 May</div>
@@ -164,12 +170,15 @@ h1 {
       <h3>Malaysia Affordable Study Seminar</h3>
       <p>Best low-cost universities and scholarship options.</p>
       <span>Time: 2 PM | Mode: Office</span><br>
-      <a href="register.html?event=Malaysia Affordable Study Seminar (24 May)" class="btn-register">Register Now</a>
+      <br>
+      
     </div>
   </div>
-
+  
+  <div class="btn-container">
+    <a href="register.html" class="btn">Register Now</a>
 </div>
-
+</div>
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-col">
@@ -223,6 +232,5 @@ h1 {
     </div>
   </div>
 </footer>
-
 </body>
 </html>

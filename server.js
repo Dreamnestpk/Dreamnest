@@ -205,6 +205,7 @@ app.get('/api/admin/inquiries', adminAuth, async (req, res) => {
 });
 
 
+
 // Admin: Get all applications
 // --------------------------
 app.get('/api/admin/applications', adminAuth, async (req, res) => {
@@ -293,6 +294,41 @@ app.post('/api/auth/login', async (req, res) => {
         res.status(500).json({ error: 'Login failed' });
     }
 });
+
+
+
+
+// ========== EVENT REGISTRATION ROUTES ==========
+
+// Submit event registration (from register.html)
+app.post('/api/event-register', async (req, res) => {
+    try {
+        const { firstName, lastName, email, phone, country, eventName } = req.body;
+        await pool.query(
+            `INSERT INTO event_registrations 
+            (first_name, last_name, email, phone, country, event_name) 
+            VALUES (?, ?, ?, ?, ?, ?)`,
+            [firstName, lastName, email, phone, country, eventName]
+        );
+        res.json({ success: true, message: 'Registration saved' });
+    } catch (err) {
+        console.error(err);
+        res.status(500).json({ error: 'Database error' });
+    }
+});
+
+// Admin: Get all event registrations
+app.get('/api/admin/event-registrations', adminAuth, async (req, res) => {
+    try {
+        const [rows] = await pool.query('SELECT * FROM event_registrations ORDER BY registered_at DESC');
+        res.json(rows);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+});
+
+
+
 
 
 // Save a course

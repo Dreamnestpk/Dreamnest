@@ -348,7 +348,7 @@ Choose from shared apartments, student hostels, or private rooms designed for in
     <!-- IMAGE -->
     <div class="accommodation-image">
 
-        <img src="acco.jpg"
+        <img src="acco.jpg">
 
     </div>
 
@@ -516,7 +516,7 @@ document.querySelector('.submit-btn').addEventListener('click', async (e) => {
         firstName, lastName, email, phone, destination,
         nearestOffice, termsAccepted, contactConsent,
         formType: 'accommodation' // change per page
-    };s
+    };
     
     try {
         const res = await fetch('/api/student-inquiry', {

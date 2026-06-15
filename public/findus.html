@@ -1,8 +1,9 @@
 <!-- FIND US PAGE START -->
 <head>
-    <link rel="stylesheet" href="style.css">               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <section class="findus-section">
 
     <!-- HEADER -->
@@ -16,210 +17,253 @@
 
     <!-- CONTACT INFO -->
     <div class="contact-info">
-
         <div class="info-card">
             <h3>📍 Our Office</h3>
-            <p> Main Boulevard, Gulberg III, <br>
-          Lahore, Pakistan</p>
+            <p>Main Boulevard, Gulberg III, <br> Lahore, Pakistan</p>
         </div>
-
         <div class="info-card">
             <h3>📞 Phone</h3>
             <p>+92 300 1234567</p>
         </div>
-
         <div class="info-card">
             <h3>📧 Email</h3>
             <p>info@dreamnest.com</p>
         </div>
-
         <div class="info-card">
             <h3>⏰ Working Hours</h3>
             <p>Mon - Sat: 10:00 AM - 6:00 PM</p>
         </div>
-
     </div>
 
     <!-- MAIN CONTENT -->
     <div class="findus-main">
 
-        
-
         <!-- CONTACT FORM -->
         <div class="form-box">
             <h2>Send Message</h2>
 
-            <form>
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <input type="text" placeholder="Subject">
+            <form id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <input type="text" id="subject" placeholder="Subject">
 
-                <textarea placeholder="Your Message" rows="5"></textarea>
+                <textarea id="message" placeholder="Your Message" rows="5"></textarea>
 
                 <button type="submit">Send Message</button>
+                <div id="formFeedback" style="margin-top: 12px; font-size: 14px; text-align: center;"></div>
             </form>
         </div>
 
     </div>
 
-    
 </section>
 
 <!-- CSS START -->
-
 <style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #f4f6fb;
+    }
 
-body{
-    margin:0;
-    font-family: Arial, sans-serif;
-    background:#f4f6fb;
-}
+    .findus-section {
+        width: 90%;
+        margin: auto;
+        padding: 60px 0;
+    }
 
-.findus-section{
-    width:90%;
-    margin:auto;
-    padding:60px 0;
-}
+    .findus-header {
+        text-align: center;
+        margin-bottom: 40px;
+    }
 
-/* HEADER */
-.findus-header{
-    text-align:center;
-    margin-bottom:40px;
-}
+    .findus-header h1 {
+        font-size: 42px;
+        color: black;
+    }
 
-.findus-header h1{
-    font-size:42px;
-    color:black;
-}
+    .findus-header p {
+        max-width: 800px;
+        margin: auto;
+        color: #555;
+        line-height: 1.7;
+    }
 
-.findus-header p{
-    max-width:800px;
-    margin:auto;
-    color:#555;
-    line-height:1.7;
-}
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        margin-bottom: 40px;
+    }
 
-/* CONTACT INFO */
-.contact-info{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
-    gap:20px;
-    margin-bottom:40px;
-}
+    .info-card {
+        background: white;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        text-align: center;
+    }
 
-.info-card{
-    background:white;
-    padding:20px;
-    border-radius:12px;
-    box-shadow:0 4px 12px rgba(0,0,0,0.08);
-    text-align:center;
-}
+    .info-card h3 {
+        margin-bottom: 10px;
+        color: black;
+    }
 
-.info-card h3{
-    margin-bottom:10px;
-    color:black;
-}
+    .findus-main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        margin-bottom: 40px;
+    }
 
-/* MAIN SECTION */
-.findus-main{
-    display:grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-    gap:25px;
-    margin-bottom:40px;
-}
+    .form-box {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    }
 
+    .form-box h2 {
+        margin-bottom: 15px;
+    }
 
+    .form-box input,
+    .form-box textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 12px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        outline: none;
+        box-sizing: border-box;
+    }
 
-/* FORM */
-.form-box{
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
+    .form-box button {
+        width: 100%;
+        padding: 12px;
+        background: #1e73be;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: 0.3s;
+    }
 
-.form-box h2{
-    margin-bottom:15px;
-}
+    .form-box button:hover {
+        background: #155a9a;
+    }
 
-.form-box input,
-.form-box textarea{
-    width:100%;
-    padding:12px;
-    margin-bottom:12px;
-    border:1px solid #ccc;
-    border-radius:8px;
-    outline:none;
-}
+    .success-feedback {
+        color: #28a745;
+        background: #e6f4ea;
+        padding: 8px;
+        border-radius: 6px;
+    }
 
-.form-box button{
-    width:100%;
-    padding:12px;
-    background:#999;
-    color:white;
-    border:none;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.form-box button:hover{
-    background:#999;
-}
-
-
+    .error-feedback {
+        color: #dc3545;
+        background: #fee8e8;
+        padding: 8px;
+        border-radius: 6px;
+    }
 </style>
+
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-col">
-      <div class="logo">
-        DN
-        <span>Dream Nest</span>
-      </div>
-      <p class="footer-text">
-        Dream Nest is one of the fastest growing 
-        education and career consultancy networks 
-        helping students achieve their study abroad dreams.
-      </p>
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="logo">
+                DN
+                <span>Dream Nest</span>
+            </div>
+            <p class="footer-text">
+                Dream Nest is one of the fastest growing
+                education and career consultancy networks
+                helping students achieve their study abroad dreams.
+            </p>
+        </div>
+        <div class="footer-col">
+            <h2>Contact With Us</h2>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+92 300 1234567</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>dreamnest98@gmail.com</span>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-location-dot"></i>
+                <span>
+                    Main Boulevard, Gulberg III, <br>
+                    Lahore, Pakistan
+                </span>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h2>Destination</h2>
+            <ul class="footer-links">
+                <li><a href="uk.html">› Study in UK</a></li>
+                <li><a href="usa.html">› Study in USA</a></li>
+                <li><a href="australia.html">› Study in Australia</a></li>
+                <li><a href="canada.html">› Study in Canada</a></li>
+                <li><a href="malaysia.html">› Study in Malaysia</a></li>
+                <li><a href="ireland.html">› Study in Ireland</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h2>Useful Links</h2>
+            <ul class="footer-links">
+                <li><a href="about.html">› About Us</a></li>
+                <li><a href="contact.html">› Contact Us</a></li>
+                <li><a href="policy.html">› Privacy Policy</a></li>
+                <li><a href="ielts.html">› IELTS </a></li>
+            </ul>
+        </div>
     </div>
-    <div class="footer-col">
-      <h2>Contact With Us</h2>
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <span>+92 300 1234567</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <span>dreamnest98@gmail.com</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-location-dot"></i>
-        <span>
-          Main Boulevard, Gulberg III, <br>
-          Lahore, Pakistan
-        </span>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h2>Destination</h2>
-      <ul class="footer-links">
-        <li><a href="uk.html">› Study in UK</a></li>
-        <li><a href="usa.html">› Study in USA</a></li>
-        <li><a href="australia.html">› Study in Australia</a></li>
-        <li><a href="canada.html">› Study in Canada</a></li>
-        <li><a href="malaysia.html">› Study in Malaysia</a></li>
-        <li><a href="ireland.html">› Study in Ireland</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h2>Useful Links</h2>
-      <ul class="footer-links">
-        <li><a href="about.html">› About Us</a></li>
-        <li><a href="contact.html">› Contact Us</a></li>
-        <li><a href="policy.html">› Privacy Policy</a></li>
-        <li><a href="ielts.html">› IELTS </a></li>
-      </ul>
-    </div>
-  </div>
 </footer>
+
+<!-- FORM SUBMISSION SCRIPT -->
+<script>
+    const form = document.getElementById('contactForm');
+    const feedbackDiv = document.getElementById('formFeedback');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !message) {
+            feedbackDiv.innerHTML = '<span class="error-feedback">⚠️ Please fill all required fields (Name, Email, Message).</span>';
+            return;
+        }
+
+        feedbackDiv.innerHTML = '⏳ Sending...';
+        feedbackDiv.style.color = '#666';
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, subject, message })
+            });
+
+            const data = await response.json();
+
+            if (response.ok && data.success) {
+                feedbackDiv.innerHTML = '<span class="success-feedback">✅ Message sent successfully! We’ll get back to you soon.</span>';
+                form.reset();
+            } else {
+                feedbackDiv.innerHTML = '<span class="error-feedback">❌ Failed to send message. Please try again later.</span>';
+            }
+        } catch (err) {
+            console.error('Error:', err);
+            feedbackDiv.innerHTML = '<span class="error-feedback">❌ Network error. Please check your connection.</span>';
+        }
+    });
+</script>
 
 <!-- FIND US PAGE END -->

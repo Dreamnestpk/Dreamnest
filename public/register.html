@@ -2,109 +2,144 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Register</title>
-<link rel="stylesheet" href="style.css">               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
+<title>Register for Event - Dream Nest</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
-    font-family: Arial;
-    background: #cedee0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    flex-direction: column;
+    min-height: 100vh;
 }
-
 .container {
+    max-width: 500px;
+    margin: 50px auto;
     background: white;
-    padding: 40px;
-    width: 360px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    flex: 1;
 }
-
 h2 {
     text-align: center;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
+    color: #1e73be;
 }
-
+.event-info {
+    background: #eef2fa;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    color: #155a9a;
+}
 .input-group {
     margin-bottom: 15px;
 }
-
 .input-group label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
-
 .input-group input,
 .input-group select {
     width: 100%;
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
+    font-size: 14px;
+    box-sizing: border-box;
 }
-
 .checkbox {
     margin: 15px 0;
     display: flex;
     align-items: center;
 }
-
 .checkbox input {
     margin-right: 10px;
 }
-
 button {
     width: 100%;
     padding: 12px;
-    background: #757c7d;
+    background: #1e73be;
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.3s;
 }
-
 button:hover {
-    background: #757c7d;
+    background: #155a9a;
 }
-
 .back {
     display: block;
     text-align: center;
     margin-top: 15px;
     text-decoration: none;
-    color: #309dab;
+    color: #1e73be;
+}
+.feedback {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 14px;
+    padding: 8px;
+    border-radius: 6px;
+}
+.success {
+    background: #e6f4ea;
+    color: #28a745;
+}
+.error {
+    background: #fee8e8;
+    color: #dc3545;
+}
+footer {
+    margin-top: auto;
 }
 </style>
-
 </head>
 <body>
 
 <div class="container">
-    <h2>Register Now</h2>
+    <h2>Event Registration</h2>
 
-    <form>
+    <!-- Display selected event -->
+    <div class="event-info" id="eventDisplay"></div>
 
-        <!-- First Name -->
+    <form id="registerForm">
         <div class="input-group">
-            <label>First Name</label>
-            <input type="text" required>
+            <label>First Name *</label>
+            <input type="text" id="firstName" required>
         </div>
 
-        <!-- Last Name -->
         <div class="input-group">
-            <label>Last Name</label>
-            <input type="text" required>
+            <label>Last Name *</label>
+            <input type="text" id="lastName" required>
         </div>
 
-        <!-- Country Dropdown -->
         <div class="input-group">
-            <label>Select Country</label>
-            <select required>
-                <option value="">Choose Country</option>
+            <label>Email Address *</label>
+            <input type="email" id="email" required>
+        </div>
+
+        <div class="input-group">
+            <label>Phone Number</label>
+            <input type="tel" id="phone">
+        </div>
+
+        <div class="input-group">
+            <label>Preferred Country</label>
+            <select id="country">
+                <option value="">Select Country</option>
                 <option>UK</option>
                 <option>USA</option>
                 <option>Canada</option>
@@ -115,71 +150,125 @@ button:hover {
             </select>
         </div>
 
-        <!-- Checkbox -->
         <div class="checkbox">
-            <input type="checkbox" required>
-            <label>I am not a robot</label>
+            <input type="checkbox" id="notRobot" required>
+            <label>I am not a robot *</label>
         </div>
 
-        <!-- Submit Button -->
-        <button type="submit">Submit</button>
-
+        <button type="submit">Submit Registration</button>
+        <div id="feedback" class="feedback"></div>
     </form>
 
-    <a href="event.html" class="back">← Back</a>
+    <a href="event.html" class="back">← Back to Events</a>
 </div>
+
 <footer class="footer">
-  <div class="footer-container">
-    <div class="footer-col">
-      <div class="logo">
-        DN
-        <span>Dream Nest</span>
-      </div>
-      <p class="footer-text">
-        Dream Nest is one of the fastest growing 
-        education and career consultancy networks 
-        helping students achieve their study abroad dreams.
-      </p>
+    <div class="footer-container">
+        <div class="footer-col">
+            <div class="logo">DN <span>Dream Nest</span></div>
+            <p class="footer-text">Dream Nest is one of the fastest growing education and career consultancy networks helping students achieve their study abroad dreams.</p>
+        </div>
+        <div class="footer-col">
+            <h2>Contact With Us</h2>
+            <div class="contact-item"><i class="fas fa-phone"></i><span>+92 300 1234567</span></div>
+            <div class="contact-item"><i class="fas fa-envelope"></i><span>dreamnest98@gmail.com</span></div>
+            <div class="contact-item"><i class="fas fa-location-dot"></i><span>Main Boulevard, Gulberg III, Lahore, Pakistan</span></div>
+        </div>
+        <div class="footer-col">
+            <h2>Destination</h2>
+            <ul class="footer-links">
+                <li><a href="uk.html">› Study in UK</a></li>
+                <li><a href="usa.html">› Study in USA</a></li>
+                <li><a href="australia.html">› Study in Australia</a></li>
+                <li><a href="canada.html">› Study in Canada</a></li>
+                <li><a href="malaysia.html">› Study in Malaysia</a></li>
+                <li><a href="ireland.html">› Study in Ireland</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h2>Useful Links</h2>
+            <ul class="footer-links">
+                <li><a href="about.html">› About Us</a></li>
+                <li><a href="contact.html">› Contact Us</a></li>
+                <li><a href="policy.html">› Privacy Policy</a></li>
+                <li><a href="ielts.html">› IELTS</a></li>
+            </ul>
+        </div>
     </div>
-    <div class="footer-col">
-      <h2>Contact With Us</h2>
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <span>+92 300 1234567</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <span>dreamnest98@gmail.com</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-location-dot"></i>
-        <span>
-          Main Boulevard, Gulberg III, <br>
-          Lahore, Pakistan
-        </span>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h2>Destination</h2>
-      <ul class="footer-links">
-        <li><a href="uk.html">› Study in UK</a></li>
-        <li><a href="usa.html">› Study in USA</a></li>
-        <li><a href="australia.html">› Study in Australia</a></li>
-        <li><a href="canada.html">› Study in Canada</a></li>
-        <li><a href="malaysia.html">› Study in Malaysia</a></li>
-        <li><a href="ireland.html">› Study in Ireland</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h2>Useful Links</h2>
-      <ul class="footer-links">
-        <li><a href="about.html">› About Us</a></li>
-        <li><a href="contact.html">› Contact Us</a></li>
-        <li><a href="policy.html">› Privacy Policy</a></li>
-        <li><a href="ielts.html">› IELTS </a></li>
-      </ul>
-    </div>
-  </div>
 </footer>
+
+<script>
+    // Get event name from URL parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const eventName = urlParams.get('event');
+    const eventDisplay = document.getElementById('eventDisplay');
+
+    if (eventName) {
+        eventDisplay.innerHTML = `📅 Registering for: <strong>${decodeURIComponent(eventName)}</strong>`;
+    } else {
+        eventDisplay.innerHTML = '⚠️ No event selected. Please go back and choose an event.';
+    }
+
+    document.getElementById('registerForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const firstName = document.getElementById('firstName').value.trim();
+        const lastName = document.getElementById('lastName').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const phone = document.getElementById('phone').value.trim();
+        const country = document.getElementById('country').value;
+        const notRobot = document.getElementById('notRobot').checked;
+
+        if (!firstName || !lastName || !email || !notRobot) {
+            showFeedback('Please fill all required fields and verify you are not a robot.', 'error');
+            return;
+        }
+
+        if (!eventName) {
+            showFeedback('No event selected. Please go back and choose an event.', 'error');
+            return;
+        }
+
+        const feedbackDiv = document.getElementById('feedback');
+        feedbackDiv.innerHTML = '⏳ Submitting...';
+        feedbackDiv.className = 'feedback';
+
+        try {
+            const response = await fetch('/api/event-register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    firstName: firstName,
+                    lastName: lastName,
+                    email: email,
+                    phone: phone,
+                    country: country,
+                    eventName: decodeURIComponent(eventName)
+                })
+            });
+
+            const data = await response.json();
+            if (response.ok && data.success) {
+                showFeedback('✅ Registration successful! We will contact you soon.', 'success');
+                document.getElementById('registerForm').reset();
+                // Redirect back to events after 2 seconds
+                setTimeout(() => {
+                    window.location.href = 'event.html';
+                }, 2000);
+            } else {
+                showFeedback('❌ Registration failed. Please try again.', 'error');
+            }
+        } catch (err) {
+            console.error(err);
+            showFeedback('❌ Network error. Check your connection.', 'error');
+        }
+    });
+
+    function showFeedback(msg, type) {
+        const fb = document.getElementById('feedback');
+        fb.innerHTML = msg;
+        fb.className = `feedback ${type === 'success' ? 'success' : 'error'}`;
+    }
+</script>
 </body>
 </html>
